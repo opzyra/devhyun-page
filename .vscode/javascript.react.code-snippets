@@ -1,0 +1,29 @@
+{
+    "React Functional Component": {
+			"prefix": "rfc",
+			"body": [
+					"import PropTypes from \"prop-types\";",
+					"import { css } from \"@emotion/react\";",
+					"",
+					"${TM_FILENAME_BASE}.propTypes = {};",
+					"",
+					"function ${TM_FILENAME_BASE}() {",
+					"  return <div css={${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}Style}></div>;",
+					"}",
+					"",
+					"const ${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}Style = css``;",
+					"",
+					"export default ${TM_FILENAME_BASE};",
+					""
+			],
+			"description": "함수형 컴포넌트 생성"
+    },
+		"Export Default Component": {
+			"prefix": "edc",
+			"body": [
+					"export { default } from \"./${TM_DIRECTORY/^.+\\\\(.*)$/$1/}\";",
+					""
+			],
+			"description": "함수형 컴포넌트 인덱스 생성"
+    }
+}
