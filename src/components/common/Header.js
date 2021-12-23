@@ -4,8 +4,8 @@ import { color, fontFamilyWithPaybooc } from "@/styles";
 
 import Link from "next/link";
 
-import Container from "../Container";
-import Button from "../Button";
+import Container from "@/components/common/Container";
+import Button from "./Button";
 
 import DHLogo from "@/assets/svg/DHLogo.svg";
 import Arrow from "@/assets/svg/Arrow.svg";

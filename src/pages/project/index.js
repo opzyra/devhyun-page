@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 
-import { AppLayout } from "@/components/Layout";
-import Container from "@/components/Container";
-import Breadcrumb from "@/components/Breadcrumb";
-import { ProjectList } from "@/components/Project";
+import MainLayout from "@/components/layout/MainLayout";
+import Container from "@/components/common/Container";
+import Breadcrumb from "@/components/common/Breadcrumb";
+import ProjectList from "@/components/project/ProjectList";
 
 Project.propTypes = {};
 
 function Project() {
   return (
-    <AppLayout css={projectStyle}>
+    <MainLayout css={projectStyle}>
       <div css={headerStyle}>
         <Container>
           <Breadcrumb items={["프로젝트"]} />
@@ -26,7 +26,7 @@ function Project() {
           <ProjectList />
         </Container>
       </div>
-    </AppLayout>
+    </MainLayout>
   );
 }
 

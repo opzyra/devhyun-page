@@ -17,13 +17,5 @@
 					""
 			],
 			"description": "함수형 컴포넌트 생성"
-    },
-		"Export Default Component": {
-			"prefix": "edc",
-			"body": [
-					"export { default } from \"./${TM_DIRECTORY/^.+\\\\(.*)$/$1/}\";",
-					""
-			],
-			"description": "함수형 컴포넌트 인덱스 생성"
     }
 }

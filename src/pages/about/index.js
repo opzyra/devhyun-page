@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 import { color, fontFamilyWithPaybooc } from "@/styles";
 
-import Image from "@/components/Image";
+import Image from "@/components/common/Image";
 
-import { AppLayout } from "@/components/Layout";
-import Container from "@/components/Container";
-import Breadcrumb from "@/components/Breadcrumb";
-import Skill from "@/components/Skill";
+import MainLayout from "@/components/layout/MainLayout";
+import Container from "@/components/common/Container";
+import Breadcrumb from "@/components/common/Breadcrumb";
+import Skill from "@/components/main/Skill";
 
 import IconFlow from "@/assets/images/icon-flow.png";
 import IconLanguage from "@/assets/images/icon-language.png";
@@ -21,7 +21,7 @@ About.propTypes = {};
 
 function About() {
   return (
-    <AppLayout css={aboutStyle}>
+    <MainLayout css={aboutStyle}>
       <div css={headerStyle}>
         <Container>
           <Breadcrumb items={["소개"]} />
@@ -108,7 +108,7 @@ function About() {
           <Image src={ImgIdentity} alt="identity" />
         </Container>
       </div>
-    </AppLayout>
+    </MainLayout>
   );
 }
 

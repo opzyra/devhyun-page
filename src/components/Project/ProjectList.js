@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 
-import { ProjectItem } from "@/components/Project";
+import ProjectItem from "@/components/project/ProjectItem";
 
 import projects from "@/assets/data/project";
 

@@ -5,13 +5,13 @@ import { useRef } from "react";
 import { Waypoint } from "react-waypoint";
 import anime from "animejs";
 
-import { ProjectItem } from "@/components/Project";
+import ProjectItem from "@/components/project/ProjectItem";
 
 import projects from "@/assets/data/project";
 
-MainProject.propTypes = {};
+Project.propTypes = {};
 
-function MainProject() {
+function Project() {
   const projectRef = useRef(null);
   const animeRef = useRef(null);
 
@@ -36,7 +36,7 @@ function MainProject() {
   };
 
   return (
-    <div css={mainProjectStyle}>
+    <div css={projectStyle}>
       <Waypoint onEnter={handleEnterStack}>
         <div className="list" ref={projectRef}>
           {projects
@@ -50,7 +50,7 @@ function MainProject() {
   );
 }
 
-const mainProjectStyle = css`
+const projectStyle = css`
   .list {
     display: flex;
     flex-wrap: wrap;
@@ -69,4 +69,4 @@ const mainProjectStyle = css`
   }
 `;
 
-export default MainProject;
+export default Project;

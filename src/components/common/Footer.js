@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 import { color, fontFamilyWithRoboto } from "@/styles";
 
-import Container from "../Container";
+import Container from "@/components/common/Container";
 
 import OpenSource from "@/assets/svg/Opensource.svg";
 

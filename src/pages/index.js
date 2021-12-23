@@ -6,13 +6,14 @@ import Lottie from "react-lottie-player";
 import { css } from "@emotion/react";
 import { fontFamilyWithPaybooc, color } from "@/styles";
 
-import { AppLayout } from "@/components/Layout";
-import Container from "@/components/Container";
-import TechStack from "@/components/TechStack";
-import { MainProject } from "@/components/Project";
-import { MainBlog } from "@/components/Blog";
+import MainLayout from "@/components/layout/MainLayout";
+import Container from "@/components/common/Container";
+import TechStack from "@/components/about/TechStack";
+import Project from "@/components/main/project";
+import Blog from "@/components/main/Blog";
 
-import Button, { BubbleButton } from "@/components/Button";
+import Button from "@/components/common/Button";
+import BubbleButton from "@/components/common/BubbleButton";
 
 import Developer from "@/assets/json/developer.json";
 import Process from "@/assets/json/process.json";
@@ -36,7 +37,7 @@ function Main() {
   }, []);
 
   return (
-    <AppLayout css={mainStyle} background>
+    <MainLayout css={mainStyle} background>
       <div css={coverStyle}>
         <Container css={coverContainerStyle}>
           <div className="phrase">
@@ -102,7 +103,7 @@ function Main() {
             </div>
           </div>
           <div className="body">
-            <MainProject />
+            <Project />
           </div>
         </Container>
       </div>
@@ -140,7 +141,7 @@ function Main() {
           </div>
         </Container>
         <div className="body">
-          <MainBlog />
+          <Blog />
         </div>
       </div>
 
@@ -176,7 +177,7 @@ function Main() {
           </div>
         </Container>
       </div>
-    </AppLayout>
+    </MainLayout>
   );
 }
 

@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 import { css, keyframes } from "@emotion/react";
 import { fontFamilyWithPaybooc, color } from "@/styles";
 
-import { AppLayout } from "@/components/Layout";
-import Container from "@/components/Container";
-import Breadcrumb from "@/components/Breadcrumb";
-import Image from "@/components/Image";
-import Button from "@/components/Button";
-import projects from "@/assets/data/project";
+import MainLayout from "@/components/layout/MainLayout";
+import Container from "@/components/common/Container";
+import Breadcrumb from "@/components/common/Breadcrumb";
+import Image from "@/components/common/Image";
+import Button from "@/components/common/Button";
 
+import projects from "@/assets/data/project";
 import Browser from "@/assets/svg/Browser.svg";
 import Responsive from "@/assets/svg/Responsive.svg";
 import ArrowDiag from "@/assets/svg/ArrowDiag.svg";
@@ -17,7 +17,7 @@ ProjectDetail.propTypes = {};
 
 function ProjectDetail({ project }) {
   return (
-    <AppLayout css={projectDetailStyle}>
+    <MainLayout css={projectDetailStyle}>
       <div css={headerStyle}>
         <Container>
           <Breadcrumb items={["프로젝트", "상세정보"]} />
@@ -83,7 +83,7 @@ function ProjectDetail({ project }) {
           </div>
         </Container>
       </div>
-    </AppLayout>
+    </MainLayout>
   );
 }
 

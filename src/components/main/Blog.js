@@ -8,7 +8,7 @@ import anime from "animejs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper";
 
-import Image from "@/components/Image";
+import Image from "@/components/common/Image";
 
 import ImageAboutperiod from "/src/assets/images/image-aboutperiod.png";
 import { color } from "@/styles";

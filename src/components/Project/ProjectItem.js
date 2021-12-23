@@ -4,7 +4,7 @@ import { fontFamilyWithPaybooc, color } from "@/styles";
 
 import Link from "next/link";
 
-import Image from "@/components/Image";
+import Image from "@/components/common/Image";
 
 Project.propTypes = {};
 

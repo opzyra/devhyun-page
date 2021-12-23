@@ -3,9 +3,9 @@ import { css } from "@emotion/react";
 import { useRef } from "react";
 
 import { color } from "@/styles";
-import formatString from "@/library/formatString";
+import * as string from "@/library/string";
 
-import Image from "@/components/Image";
+import Image from "@/components/common/Image";
 
 import IconFrontend from "@/assets/images/icon-frontend.png";
 import IconBackend from "@/assets/images/icon-backend.png";
@@ -90,7 +90,7 @@ function Skill() {
               <div className="contents">
                 <h6>
                   {skill.name}
-                  <span>{formatString.startUppercase(skill.type)}</span>
+                  <span>{string.capitalization(skill.type)}</span>
                 </h6>
                 <p>{skill.description}</p>
               </div>
