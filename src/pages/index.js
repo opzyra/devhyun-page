@@ -37,9 +37,9 @@ function Main() {
   }, []);
 
   return (
-    <MainLayout css={mainStyle} background>
-      <div css={coverStyle}>
-        <Container css={coverContainerStyle}>
+    <MainLayout background>
+      <div css={cover}>
+        <Container css={coverContainer}>
           <div className="phrase">
             <h1>
               Make it happen
@@ -72,7 +72,7 @@ function Main() {
             ></Lottie>
           </div>
         </Container>
-        <div css={socialStyle}>
+        <div css={social}>
           <div className="line"></div>
           <div className="item">
             <a href="" target="_blank" rel="noreferrer">
@@ -90,7 +90,7 @@ function Main() {
           </div>
         </div>
       </div>
-      <div css={projectStyle} ref={projectRef}>
+      <div css={project} ref={projectRef}>
         <Container>
           <div className="header">
             <h2>
@@ -108,7 +108,7 @@ function Main() {
         </Container>
       </div>
 
-      <div css={skillStyle}>
+      <div css={skill}>
         <Container>
           <div className="header">
             <h2>
@@ -127,7 +127,7 @@ function Main() {
         </Container>
       </div>
 
-      <div css={blogStyle}>
+      <div css={blog}>
         <Container>
           <div className="header">
             <h2>
@@ -145,9 +145,9 @@ function Main() {
         </div>
       </div>
 
-      <div css={contactStyle}>
+      <div css={contact}>
         <div className="line"></div>
-        <Container css={contactContainerStyle}>
+        <Container css={contactContainer}>
           <div className="header">
             <h2>
               Get{" "}
@@ -181,9 +181,7 @@ function Main() {
   );
 }
 
-const mainStyle = css``;
-
-const coverStyle = css`
+const cover = css`
   position: relative;
   height: 720px;
 
@@ -199,44 +197,48 @@ const coverStyle = css`
   }
 `;
 
-const coverContainerStyle = css`
+const coverContainer = css`
   height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 40px 0px 100px;
 
-  .phrase h1 {
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    line-height: 1.4;
+  .phrase {
+    h1 {
+      font-family: ${fontFamilyWithPaybooc};
+      font-weight: 900;
+      line-height: 1.4;
+    }
+
+    p {
+      margin-top: 28px;
+      font-size: 20px;
+      color: ${color.gray};
+
+      .exc {
+        font-family: ${fontFamilyWithPaybooc};
+        font-weight: 900;
+        display: inline-block;
+        margin: 0px 6px 0px 1px;
+        transform: rotate(4deg);
+      }
+    }
+
+    .button {
+      margin-top: 80px;
+    }
   }
 
-  .phrase p {
-    margin-top: 28px;
-    font-size: 20px;
-    color: ${color.gray};
-  }
-
-  .phrase .button {
-    margin-top: 80px;
-  }
-
-  .phrase p .exc {
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    display: inline-block;
-    margin: 0px 6px 0px 1px;
-    transform: rotate(4deg);
-  }
-
-  .illustration .animation {
-    width: 480px;
-    height: 480px;
+  .illustration {
+    .animation {
+      width: 480px;
+      height: 480px;
+    }
   }
 `;
 
-const socialStyle = css`
+const social = css`
   display: flex;
   align-items: center;
 
@@ -249,70 +251,72 @@ const socialStyle = css`
 
   .item {
     display: inline-block;
-  }
 
-  .item svg {
-    width: 24px;
-    fill: ${color.gray};
-  }
+    svg {
+      width: 24px;
+      fill: ${color.gray};
+    }
 
-  .item:hover svg {
-    transition: 0.4s;
-    fill: ${color.primary};
-  }
+    &:hover {
+      svg {
+        transition: 0.4s;
+        fill: ${color.primary};
+      }
+    }
 
-  .item + .item {
-    margin-left: 20px;
+    & + .item {
+      margin-left: 20px;
+    }
   }
 `;
 
-const projectStyle = css`
+const project = css`
   padding: 80px 0px 80px;
 
   .header {
     margin-bottom: 36px;
     position: relative;
-  }
 
-  .header h2 {
-    display: inline-block;
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    margin-right: 32px;
-  }
+    h2 {
+      display: inline-block;
+      font-family: ${fontFamilyWithPaybooc};
+      font-weight: 900;
+      margin-right: 32px;
 
-  .header h2 > span {
-    color: ${color.brand};
-  }
+      span {
+        color: ${color.brand};
+      }
+    }
 
-  .header p {
-    display: inline-block;
-    font-size: 16px;
-    color: ${color.gray};
-  }
+    p {
+      display: inline-block;
+      font-size: 16px;
+      color: ${color.gray};
+    }
 
-  .header .more {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-  }
+    .more {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
 
-  .header .more span {
-    font-size: 12px;
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    font-weight: 700;
-    margin-right: 10px;
-    color: ${color.gray};
-  }
+      span {
+        font-size: 12px;
+        font-family: ${fontFamilyWithPaybooc};
+        font-weight: 900;
+        font-weight: 700;
+        margin-right: 10px;
+        color: ${color.gray};
+      }
 
-  .header .more svg {
-    width: 140px;
-    stroke: ${color.brand};
+      svg {
+        width: 140px;
+        stroke: ${color.brand};
+      }
+    }
   }
 `;
 
-const skillStyle = css`
+const skill = css`
   padding: 120px 0px 40px;
 
   .header {
@@ -327,24 +331,24 @@ const skillStyle = css`
       height: 68px;
       background: ${color.gray};
     }
-  }
 
-  .header h2 {
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    margin-bottom: 16px;
-  }
+    h2 {
+      font-family: ${fontFamilyWithPaybooc};
+      font-weight: 900;
+      margin-bottom: 16px;
 
-  .header h2 span {
-    color: ${color.brand};
-  }
+      span {
+        color: ${color.brand};
+      }
 
-  .header p {
-    font-size: 18px;
+      p {
+        font-size: 18px;
+      }
+    }
   }
 `;
 
-const blogStyle = css`
+const blog = css`
   padding: 80px 0px 60px;
   position: relative;
 
@@ -363,47 +367,47 @@ const blogStyle = css`
   .header {
     margin-bottom: 36px;
     position: relative;
-  }
 
-  .header h2 {
-    display: inline-block;
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    margin-right: 32px;
-  }
+    h2 {
+      display: inline-block;
+      font-family: ${fontFamilyWithPaybooc};
+      font-weight: 900;
+      margin-right: 32px;
 
-  .header h2 > span {
-    color: ${color.brand};
-  }
+      span {
+        color: ${color.brand};
+      }
 
-  .header p {
-    display: inline-block;
-    font-size: 16px;
-    color: ${color.gray};
-  }
+      p {
+        display: inline-block;
+        font-size: 16px;
+        color: ${color.gray};
+      }
+    }
 
-  .header .more {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-  }
+    .more {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
 
-  .header .more span {
-    font-size: 12px;
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    font-weight: 700;
-    margin-right: 10px;
-    color: ${color.gray};
-  }
+      span {
+        font-size: 12px;
+        font-family: ${fontFamilyWithPaybooc};
+        font-weight: 900;
+        font-weight: 700;
+        margin-right: 10px;
+        color: ${color.gray};
+      }
 
-  .header .more svg {
-    width: 140px;
-    stroke: ${color.brand};
+      svg {
+        width: 140px;
+        stroke: ${color.brand};
+      }
+    }
   }
 `;
 
-const contactStyle = css`
+const contact = css`
   padding: 60px 0px;
   position: relative;
 
@@ -418,6 +422,7 @@ const contactStyle = css`
     z-index: -1;
     border-bottom-right-radius: 100px;
   }
+
   &:after {
     content: "";
     position: absolute;
@@ -440,7 +445,7 @@ const contactStyle = css`
   }
 `;
 
-const contactContainerStyle = css`
+const contactContainer = css`
   position: relative;
 
   .header {

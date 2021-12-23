@@ -10,7 +10,7 @@ Breadcrumb.propTypes = {
 
 function Breadcrumb({ items }) {
   return (
-    <div css={breadcrumbStyle}>
+    <div css={breadcrumb}>
       <ul>
         <li>데브현 메인</li>
         {items &&
@@ -25,7 +25,7 @@ function Breadcrumb({ items }) {
   );
 }
 
-const breadcrumbStyle = css`
+const breadcrumb = css`
   margin-bottom: 20px;
 
   li {

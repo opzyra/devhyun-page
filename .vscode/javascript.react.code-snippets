@@ -8,10 +8,10 @@
 					"${TM_FILENAME_BASE}.propTypes = {};",
 					"",
 					"function ${TM_FILENAME_BASE}() {",
-					"  return <div css={${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}Style}></div>;",
+					"  return <div css={${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}}></div>;",
 					"}",
 					"",
-					"const ${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}}Style = css``;",
+					"const ${1:${TM_FILENAME_BASE/(.*)/${1:/downcase}/}} = css``;",
 					"",
 					"export default ${TM_FILENAME_BASE};",
 					""
