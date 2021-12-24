@@ -1,30 +1,27 @@
-import PropTypes from "prop-types";
 import { css } from "@emotion/react";
+import { size } from "@/styles";
 
 import MainLayout from "@/components/layout/MainLayout";
-import Container from "@/components/common/Container";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import ProjectList from "@/components/project/ProjectList";
-
-Project.propTypes = {};
+import ProjectGrid from "@/components/project/ProjectGrid";
 
 function Project() {
   return (
     <MainLayout css={project}>
       <div css={header}>
-        <Container>
+        <div css={container}>
           <Breadcrumb items={["프로젝트"]} />
           <h3>
             개발을 통해 작은 문제를 해결하고 개선한
             <br />
             프로젝트들을 정리 했어요
           </h3>
-        </Container>
+        </div>
       </div>
-      <div css={projectList}>
-        <Container>
-          <ProjectList />
-        </Container>
+      <div css={body}>
+        <div css={container}>
+          <ProjectGrid />
+        </div>
       </div>
     </MainLayout>
   );
@@ -38,7 +35,13 @@ const header = css`
   padding-bottom: 20px;
 `;
 
-const projectList = css`
+const container = css`
+  width: ${size.container};
+  height: 100%;
+  margin: 0 auto;
+`;
+
+const body = css`
   padding: 40px 0px 60px;
 `;
 

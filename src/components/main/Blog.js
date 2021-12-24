@@ -1,21 +1,16 @@
-import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 
-import { useEffect, useRef } from "react";
-
 import anime from "animejs";
-
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 
+import { color } from "@/styles";
 import Image from "@/components/common/Image";
 
-import ImageAboutperiod from "/src/assets/images/image-aboutperiod.png";
-import { color } from "@/styles";
+import ImageAboutperiod from "@/assets/images/image-aboutperiod.png";
 
-MainBlog.propTypes = {};
-
-function MainBlog() {
+function Blog() {
   const blogRef = useRef(null);
 
   const handleMouseEnter = (event) => {
@@ -23,15 +18,15 @@ function MainBlog() {
     anime
       .timeline()
       .add({
-        targets: blogInst.querySelectorAll(".item"),
+        targets: blogInst.querySelectorAll(".blogItem"),
         opacity: 0.6,
         scale: 0.98,
         duration: 0,
       })
       .add({
-        targets: event.target.classList.contains(".item")
+        targets: event.target.classList.contains(".blogItem")
           ? event.target
-          : event.target.closest(".item"),
+          : event.target.closest(".blogItem"),
         opacity: 1,
         scale: 1,
         duration: 0,
@@ -41,7 +36,7 @@ function MainBlog() {
   const handleMouseLeave = () => {
     const blogInst = blogRef.current;
     anime({
-      targets: blogInst.querySelectorAll(".item"),
+      targets: blogInst.querySelectorAll(".blogItem"),
       opacity: 1,
       scale: 1,
       duration: 0,
@@ -58,12 +53,12 @@ function MainBlog() {
   }, []);
 
   return (
-    <div css={mainBlogStyle}>
+    <div css={blog}>
       <Swiper
         modules={[Mousewheel, Pagination]}
         observer={true}
         observeParents={true}
-        css={blogListStyle}
+        css={blogGrid}
         spaceBetween={40}
         slidesPerView={"auto"}
         pagination={{ el: ".swiper-pagination", clickable: true }}
@@ -74,62 +69,62 @@ function MainBlog() {
         }}
         ref={blogRef}
       >
-        <SwiperSlide className="item" onMouseEnter={handleMouseEnter}>
-          <div className="cover">
+        <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
+          <div>
             <Image src={ImageAboutperiod} layout="responsive" alt="" />
           </div>
-          <div className="information">
+          <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="item" onMouseEnter={handleMouseEnter}>
-          <div className="cover">
+        <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
+          <div>
             <Image src={ImageAboutperiod} layout="responsive" alt="" />
           </div>
-          <div className="information">
+          <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="item" onMouseEnter={handleMouseEnter}>
-          <div className="cover">
+        <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
+          <div>
             <Image src={ImageAboutperiod} layout="responsive" alt="" />
           </div>
-          <div className="information">
+          <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="item" onMouseEnter={handleMouseEnter}>
-          <div className="cover">
+        <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
+          <div>
             <Image src={ImageAboutperiod} layout="responsive" alt="" />
           </div>
-          <div className="information">
+          <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
-        <SwiperSlide className="item" onMouseEnter={handleMouseEnter}>
-          <div className="cover">
+        <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
+          <div>
             <Image src={ImageAboutperiod} layout="responsive" alt="" />
           </div>
-          <div className="information">
+          <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
       </Swiper>
-      <div css={paginationStyle} className="swiper-pagination"></div>
+      <div css={pagination} className="swiper-pagination"></div>
     </div>
   );
 }
 
-const mainBlogStyle = css`
+const blog = css`
   position: relative;
 `;
 
-const paginationStyle = css`
+const pagination = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,38 +149,36 @@ const paginationStyle = css`
   }
 `;
 
-const blogListStyle = css`
+const blogGrid = css`
   padding-left: calc((50% - 1280px / 2));
+
   .swiper-slide {
     width: 400px;
   }
 
-  .item {
+  .blogItem {
     transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
   }
 
-  .item .cover .image {
+  .image {
     width: 400px;
     height: 264px;
   }
 
-  .item .information {
-    margin-top: 12px;
-    position: relative;
-  }
+  .blogInformation {
+    p {
+      display: inline-block;
+      font-size: 16px;
+      width: 82%;
+    }
 
-  .item .information p {
-    display: inline-block;
-    font-size: 16px;
-    width: 82%;
-  }
-
-  .item .information span {
-    float: right;
-    font-size: 14px;
-    line-height: 25px;
-    color: ${color.gray};
+    span {
+      float: right;
+      font-size: 14px;
+      line-height: 25px;
+      color: ${color.gray};
+    }
   }
 `;
 
-export default MainBlog;
+export default Blog;

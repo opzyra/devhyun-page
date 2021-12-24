@@ -1,19 +1,16 @@
-import PropTypes from "prop-types";
-
 import { useCallback, useRef } from "react";
 import Lottie from "react-lottie-player";
 
 import { css } from "@emotion/react";
-import { fontFamilyWithPaybooc, color } from "@/styles";
+
+import { fontFamilyWithPaybooc, color, size } from "@/styles";
 
 import MainLayout from "@/components/layout/MainLayout";
-import Container from "@/components/common/Container";
 import TechStack from "@/components/about/TechStack";
-import Project from "@/components/main/project";
+import Project from "@/components/main/Project";
 import Blog from "@/components/main/Blog";
 
 import Button from "@/components/common/Button";
-import BubbleButton from "@/components/common/BubbleButton";
 
 import Developer from "@/assets/json/developer.json";
 import Process from "@/assets/json/process.json";
@@ -22,8 +19,6 @@ import Github from "@/assets/svg/Github.svg";
 import KakaoTalk from "@/assets/svg/KakaoTalk.svg";
 import ArrowRight from "@/assets/svg/ArrowRight.svg";
 import ArrowLong from "@/assets/svg/ArrowLong.svg";
-
-Main.propTypes = {};
 
 function Main() {
   const projectRef = useRef(null);
@@ -39,8 +34,8 @@ function Main() {
   return (
     <MainLayout background>
       <div css={cover}>
-        <Container className="container">
-          <div className="phrase">
+        <div css={coverContainer}>
+          <div css={coverPhrase}>
             <h1>
               Make it happen
               <br />
@@ -49,37 +44,41 @@ function Main() {
             </h1>
             <p>
               안녕하세요
-              <span className="exc">!</span>
+              <span>!</span>
               웹 브라우저로 사람을 연결하는 개발자 김현호 입니다.
               <br />
               다양한 환경과 개발 언어로 맞춤형 웹사이트를 구축합니다.
               <br />
               노하우가 담긴 프로젝트 작업물을 살펴보세요.
             </p>
-            <div className="button">
-              <BubbleButton onClick={handleClickProjectScroll}>
+            <div css={coverButton}>
+              <button onClick={handleClickProjectScroll}>
                 프로젝트 살펴보기
-              </BubbleButton>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
             </div>
           </div>
-          <div className="illustration">
+          <div>
             <Lottie
               loop
               play
-              className="animation"
+              css={coverAnimation}
               animationData={Developer}
               segments={[95, 195]}
             ></Lottie>
           </div>
-        </Container>
+        </div>
         <div css={social}>
-          <div className="line"></div>
-          <div className="item">
+          <div css={socialLine}></div>
+          <div css={socialItem}>
             <a href="" target="_blank" rel="noreferrer">
               <KakaoTalk />
             </a>
           </div>
-          <div className="item">
+          <div css={socialItem}>
             <a
               href="https://github.com/opzyra"
               target="_blank"
@@ -91,26 +90,26 @@ function Main() {
         </div>
       </div>
       <div css={project} ref={projectRef}>
-        <Container>
-          <div className="header">
+        <div css={container}>
+          <div css={projectHeader}>
             <h2>
               <span>Creative</span> Works
             </h2>
             <p>프로젝트를 진행하면서 다져진 경험이 스며들어 있습니다.</p>
-            <div className="more">
+            <div css={projectHeaderMore}>
               <span>MORE</span>
               <ArrowLong />
             </div>
           </div>
-          <div className="body">
+          <div>
             <Project />
           </div>
-        </Container>
+        </div>
       </div>
 
       <div css={skill}>
-        <Container>
-          <div className="header">
+        <div css={container}>
+          <div css={skillHeader}>
             <h2>
               Tech <span>Stack</span>
             </h2>
@@ -121,38 +120,38 @@ function Main() {
               있습니다.
             </p>
           </div>
-          <div className="body">
+          <div>
             <TechStack />
           </div>
-        </Container>
+        </div>
       </div>
 
       <div css={blog}>
-        <Container>
-          <div className="header">
+        <div css={container}>
+          <div css={blogHeader}>
             <h2>
               <span>Blog</span> Topic
             </h2>
             <p>다양한 이야기들을 정성을 담아 기록하고 있습니다.</p>
-            <div className="more">
+            <div css={blogHeaderMore}>
               <span>MORE</span>
               <ArrowLong />
             </div>
           </div>
-        </Container>
-        <div className="body">
+        </div>
+        <div>
           <Blog />
         </div>
       </div>
 
       <div css={contact}>
-        <div className="line"></div>
-        <Container css={contactContainer}>
-          <div className="header">
+        <div css={contactLine}></div>
+        <div css={contactContainer}>
+          <div css={contactHeader}>
             <h2>
               Get{" "}
               <span>
-                Started <span className="exc">!</span>
+                Started <span>!</span>
               </span>
             </h2>
             <p>
@@ -161,21 +160,21 @@ function Main() {
               이력서를 살펴보시고 프로젝트에 대해 알려주세요!
             </p>
           </div>
-          <div className="body">
-            <Button className="button" type="primary">
+          <div>
+            <Button css={contactBodyButton} type="primary">
               <span>문의하기</span>
               <ArrowRight />
             </Button>
           </div>
-          <div className="illustration">
+          <div css={contactBodyIllustration}>
             <Lottie
               loop
               play
-              className="animation"
+              css={contactBodyAnimation}
               animationData={Process}
             ></Lottie>
           </div>
-        </Container>
+        </div>
       </div>
     </MainLayout>
   );
@@ -195,153 +194,216 @@ const cover = css`
     z-index: -1;
     border-bottom-right-radius: 100px;
   }
+`;
 
-  & > .container {
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 40px 0px 100px;
+const coverContainer = css`
+  width: ${size.container};
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 0px 100px;
+  margin: 0 auto;
+`;
+
+const container = css`
+  width: ${size.container};
+  height: 100%;
+  margin: 0 auto;
+`;
+
+const coverPhrase = css`
+  h1 {
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    line-height: 1.4;
   }
 
-  .phrase {
-    h1 {
+  p {
+    margin-top: 28px;
+    font-size: 20px;
+    color: ${color.gray};
+
+    span {
       font-family: ${fontFamilyWithPaybooc};
       font-weight: 900;
-      line-height: 1.4;
+      display: inline-block;
+      margin: 0px 6px 0px 1px;
+      transform: rotate(4deg);
     }
+  }
+`;
 
-    p {
-      margin-top: 28px;
-      font-size: 20px;
-      color: ${color.gray};
+const coverButton = css`
+  margin-top: 80px;
 
-      .exc {
-        font-family: ${fontFamilyWithPaybooc};
-        font-weight: 900;
-        display: inline-block;
-        margin: 0px 6px 0px 1px;
-        transform: rotate(4deg);
+  button {
+    color: #ffffff;
+    font-size: 18px;
+    border: 1px solid ${color.brand};
+    background: ${color.brand};
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 0.5s;
+    width: 240px;
+    padding: 20px 0px;
+    box-shadow: 0px 3px 10px #0000000d;
+
+    &:hover {
+      color: ${color.brand};
+
+      span {
+        transform: translateY(0) scale(2);
+
+        &:nth-of-type(1) {
+          transition-delay: 0;
+          left: 0;
+        }
+
+        &:nth-of-type(2) {
+          transition-delay: 0.1s;
+          left: 25%;
+        }
+
+        &:nth-of-type(3) {
+          transition-delay: 0.2s;
+          left: 50%;
+        }
+
+        &:nth-of-type(4) {
+          transition-delay: 0.3s;
+          left: 75%;
+        }
       }
     }
 
-    .button {
-      margin-top: 80px;
+    span {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: #ffffff;
+      transform: translateY(150%);
+      border-radius: 50%;
+      transition: 0.5s;
+      z-index: -1;
     }
   }
+`;
 
-  .illustration .animation {
-    width: 480px;
-    height: 480px;
-  }
+const coverAnimation = css`
+  width: 480px;
+  height: 480px;
 `;
 
 const social = css`
   display: flex;
   align-items: center;
+`;
 
-  .line {
-    width: 85%;
-    height: 1px;
-    background: #e3e2ef;
-    margin-right: 40px;
+const socialLine = css`
+  width: 85%;
+  height: 1px;
+  background: #e3e2ef;
+  margin-right: 40px;
+`;
+
+const socialItem = css`
+  display: inline-block;
+
+  svg {
+    width: 24px;
+    fill: ${color.gray};
   }
 
-  .item {
-    display: inline-block;
-
+  &:hover {
     svg {
-      width: 24px;
-      fill: ${color.gray};
+      transition: 0.4s;
+      fill: ${color.primary};
     }
+  }
 
-    &:hover {
-      svg {
-        transition: 0.4s;
-        fill: ${color.primary};
-      }
-    }
-
-    & + .item {
-      margin-left: 20px;
-    }
+  & + & {
+    margin-left: 20px;
   }
 `;
 
 const project = css`
   padding: 80px 0px 80px;
+`;
 
-  .header {
-    margin-bottom: 36px;
-    position: relative;
+const projectHeader = css`
+  margin-bottom: 36px;
+  position: relative;
 
-    h2 {
-      display: inline-block;
-      font-family: ${fontFamilyWithPaybooc};
-      font-weight: 900;
-      margin-right: 32px;
+  h2 {
+    display: inline-block;
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    margin-right: 32px;
 
-      span {
-        color: ${color.brand};
-      }
+    span {
+      color: ${color.brand};
     }
+  }
 
-    p {
-      display: inline-block;
-      font-size: 16px;
-      color: ${color.gray};
-    }
+  p {
+    display: inline-block;
+    font-size: 16px;
+    color: ${color.gray};
+  }
+`;
 
-    .more {
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
+const projectHeaderMore = css`
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 
-      span {
-        font-size: 12px;
-        font-family: ${fontFamilyWithPaybooc};
-        font-weight: 900;
-        font-weight: 700;
-        margin-right: 10px;
-        color: ${color.gray};
-      }
+  span {
+    font-size: 12px;
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    font-weight: 700;
+    margin-right: 10px;
+    color: ${color.gray};
+  }
 
-      svg {
-        width: 140px;
-        stroke: ${color.brand};
-      }
-    }
+  svg {
+    width: 140px;
+    stroke: ${color.brand};
   }
 `;
 
 const skill = css`
   padding: 120px 0px 40px;
+`;
 
-  .header {
-    position: relative;
-    text-align: center;
+const skillHeader = css`
+  position: relative;
+  text-align: center;
 
-    &:before {
-      position: absolute;
-      content: "";
-      top: -90px;
-      width: 1px;
-      height: 68px;
-      background: ${color.gray};
+  &:before {
+    position: absolute;
+    content: "";
+    top: -90px;
+    width: 1px;
+    height: 68px;
+    background: ${color.gray};
+  }
+
+  h2 {
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    margin-bottom: 16px;
+
+    span {
+      color: ${color.brand};
     }
 
-    h2 {
-      font-family: ${fontFamilyWithPaybooc};
-      font-weight: 900;
-      margin-bottom: 16px;
-
-      span {
-        color: ${color.brand};
-      }
-
-      p {
-        font-size: 18px;
-      }
+    p {
+      font-size: 18px;
     }
   }
 `;
@@ -361,47 +423,47 @@ const blog = css`
     z-index: -1;
     border-top-left-radius: 100px;
   }
+`;
 
-  .header {
-    margin-bottom: 36px;
-    position: relative;
+const blogHeader = css`
+  margin-bottom: 36px;
+  position: relative;
 
-    h2 {
+  h2 {
+    display: inline-block;
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    margin-right: 32px;
+
+    span {
+      color: ${color.brand};
+    }
+
+    p {
       display: inline-block;
-      font-family: ${fontFamilyWithPaybooc};
-      font-weight: 900;
-      margin-right: 32px;
-
-      span {
-        color: ${color.brand};
-      }
-
-      p {
-        display: inline-block;
-        font-size: 16px;
-        color: ${color.gray};
-      }
+      font-size: 16px;
+      color: ${color.gray};
     }
+  }
+`;
 
-    .more {
-      position: absolute;
-      bottom: 0px;
-      right: 0px;
+const blogHeaderMore = css`
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 
-      span {
-        font-size: 12px;
-        font-family: ${fontFamilyWithPaybooc};
-        font-weight: 900;
-        font-weight: 700;
-        margin-right: 10px;
-        color: ${color.gray};
-      }
+  span {
+    font-size: 12px;
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    font-weight: 700;
+    margin-right: 10px;
+    color: ${color.gray};
+  }
 
-      svg {
-        width: 140px;
-        stroke: ${color.brand};
-      }
-    }
+  svg {
+    width: 140px;
+    stroke: ${color.brand};
   }
 `;
 
@@ -431,74 +493,77 @@ const contact = css`
     z-index: -2;
     background: #f5f5f5;
   }
+`;
 
-  .line {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100px;
-    border-top: 1px solid #eeeeee;
-    border-top-right-radius: 100px;
-  }
+const contactLine = css`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  border-top: 1px solid #eeeeee;
+  border-top-right-radius: 100px;
 `;
 
 const contactContainer = css`
   position: relative;
+  width: ${size.container};
+  height: 100%;
+  margin: 0 auto;
+`;
 
-  .header {
-    margin-bottom: 40px;
+const contactHeader = css`
+  margin-bottom: 40px;
 
-    h2 {
+  h2 {
+    font-family: ${fontFamilyWithPaybooc};
+    font-weight: 900;
+    margin-bottom: 16px;
+  }
+
+  span {
+    color: ${color.brand};
+
+    .exc {
       font-family: ${fontFamilyWithPaybooc};
       font-weight: 900;
-      margin-bottom: 16px;
-    }
-
-    span {
-      color: ${color.brand};
-
-      .exc {
-        font-family: ${fontFamilyWithPaybooc};
-        font-weight: 900;
-        font-weight: 700;
-        display: inline-block;
-        margin: 0px 6px 0px 1px;
-        transform: rotate(4deg);
-      }
+      font-weight: 700;
+      display: inline-block;
+      margin: 0px 6px 0px 1px;
+      transform: rotate(4deg);
     }
   }
+`;
 
-  .body .button {
-    width: 160px;
-    border-radius: 10px;
-    justify-content: space-between;
-    font-size: 14px;
-    padding: 14px 20px;
-    position: relative;
-    box-shadow: 0 1px 1px rgb(0 0 0 / 5%), 0 2px 2px rgb(0 0 0 / 5%),
-      0 4px 4px rgb(0 0 0 / 5%), 0 8px 8px rgb(0 0 0 / 5%);
+const contactBodyButton = css`
+  width: 160px;
+  border-radius: 10px;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 14px 20px;
+  position: relative;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 5%), 0 2px 2px rgb(0 0 0 / 5%),
+    0 4px 4px rgb(0 0 0 / 5%), 0 8px 8px rgb(0 0 0 / 5%);
 
-    & + .button {
-      margin-left: 12px;
-    }
-
-    svg {
-      width: 12px;
-      fill: #ffffff;
-    }
+  & + .button {
+    margin-left: 12px;
   }
 
-  .illustration {
-    position: absolute;
-    top: 50%;
-    right: 0px;
-    transform: translateY(-50%);
-
-    .animation {
-      width: 580px;
-    }
+  svg {
+    width: 12px;
+    fill: #ffffff;
   }
+`;
+
+const contactBodyIllustration = css`
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+`;
+
+const contactBodyAnimation = css`
+  width: 580px;
 `;
 
 export default Main;

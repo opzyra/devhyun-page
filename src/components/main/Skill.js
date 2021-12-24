@@ -1,6 +1,5 @@
-import PropTypes from "prop-types";
-import { css } from "@emotion/react";
 import { useRef } from "react";
+import { css } from "@emotion/react";
 
 import { color } from "@/styles";
 import * as string from "@/library/string";
@@ -12,8 +11,6 @@ import IconBackend from "@/assets/images/icon-backend.png";
 import IconDevops from "@/assets/images/icon-devops.png";
 
 import skills from "@/assets/data/skill";
-
-Skill.propTypes = {};
 
 function Skill() {
   const skillRef = useRef(null);
@@ -85,9 +82,9 @@ function Skill() {
       <div css={content}>
         <ul ref={skillRef}>
           {skills.map((skill, index) => (
-            <li key={index} className={skill.type}>
+            <li key={index} className={skill.type} css={skillItem}>
               <Image src={skill.image} alt={skill.name} />
-              <div className="contents">
+              <div css={skillContents}>
                 <h6>
                   {skill.name}
                   <span>{string.capitalization(skill.type)}</span>
@@ -137,31 +134,31 @@ const nav = css`
 
 const content = css`
   padding: 36px 0px 0px;
+`;
 
-  li {
-    display: inline-flex;
-    align-items: center;
-    width: 25%;
-    margin: 16px 0px;
-    transition: 0.3s;
+const skillItem = css`
+  display: inline-flex;
+  align-items: center;
+  width: 25%;
+  margin: 16px 0px;
+  transition: 0.3s;
 
-    .image {
-      width: 48px;
-      height: 48px;
-      margin-right: 12px;
-    }
+  .image {
+    width: 48px;
+    height: 48px;
+    margin-right: 12px;
+  }
+`;
 
-    .contents {
-      h6 span {
-        margin-left: 8px;
-        font-size: 12px;
-        color: ${color.primary};
-      }
+const skillContents = css`
+  span {
+    margin-left: 8px;
+    font-size: 12px;
+    color: ${color.primary};
+  }
 
-      p {
-        font-size: 14px;
-      }
-    }
+  p {
+    font-size: 14px;
   }
 `;
 

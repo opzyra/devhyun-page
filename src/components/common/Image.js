@@ -3,17 +3,21 @@ import { css } from "@emotion/react";
 
 import NextImage from "next/image";
 
-Image.propTypes = {};
+Image.propTypes = {
+  src: PropTypes.object.isRequired,
+  alt: PropTypes.string,
+  center: PropTypes.bool,
+};
 
-function Image({ src, alt, center }) {
+function Image({ src, alt, center, ...props }) {
   return (
-    <div css={imageStyle({ center })} className="image">
+    <div css={image({ center })} className="image" {...props}>
       <NextImage src={src} alt={alt} layout="fill" />
     </div>
   );
 }
 
-const imageStyle = ({ center }) => css`
+const image = ({ center }) => css`
   ${center &&
   css`
     margin: 0 auto;

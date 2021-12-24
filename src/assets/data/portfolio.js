@@ -16,7 +16,7 @@ import ImageJabis from "@/assets/images/image-jabis.png";
 import ImageSemas from "@/assets/images/image-semas.png";
 import ImageHcnanum from "@/assets/images/image-hcnanum.png";
 
-const project = [
+const portfolio = [
   {
     id: "aboutperiod",
     image: ImageAboutperiod,
@@ -96,4 +96,4 @@ const project = [
   },
 ];
 
-export default project;
+export default portfolio;

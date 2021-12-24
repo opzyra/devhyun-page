@@ -38,7 +38,7 @@ function Button({
 
   return (
     <button
-      css={buttonStyle({ block, type, size, shape })}
+      css={button({ block, type, size, shape })}
       onClick={handleClick}
       {...props}
     >
@@ -47,7 +47,7 @@ function Button({
   );
 }
 
-const buttonStyle = ({ block, type, size, shape }) => css`
+const button = ({ block, type, size, shape }) => css`
   display: inline-flex;
   justify-content: center;
   align-items: center;

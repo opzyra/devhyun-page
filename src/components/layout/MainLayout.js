@@ -12,7 +12,7 @@ MainLayout.propTypes = {
 
 function MainLayout({ background, full, children, ...props }) {
   return (
-    <div css={mainLayoutStyle}>
+    <div css={mainLayout}>
       <Header background={background} full={full} />
       <Main {...props}>{children}</Main>
       <Footer />
@@ -20,7 +20,7 @@ function MainLayout({ background, full, children, ...props }) {
   );
 }
 
-const mainLayoutStyle = css`
+const mainLayout = css`
   display: flex;
   flex-direction: column;
   min-height: 100vh;

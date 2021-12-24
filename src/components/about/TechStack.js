@@ -1,18 +1,14 @@
-import PropTypes from "prop-types";
-import { css } from "@emotion/react";
-import { zIndex } from "@/styles";
-
 import { useRef } from "react";
+import { css } from "@emotion/react";
 import { Waypoint } from "react-waypoint";
-
 import anime from "animejs";
 import Lottie from "react-lottie-player";
+
+import { zIndex } from "@/styles";
 
 import Computer from "@/assets/json/computer.json";
 
 import stacks from "@/assets/data/stack";
-
-TechStack.propTypes = {};
 
 function TechStack() {
   const skillRef = useRef(null);
@@ -23,7 +19,9 @@ function TechStack() {
     if (!animeInst) {
       animeRef.current = anime
         .timeline({
-          targets: skillRef.current.querySelectorAll(".item"),
+          targets: skillRef.current.querySelectorAll(
+            `.css-${techStackItem.name}`,
+          ),
         })
         .add({
           translateX: function (_, i) {
@@ -46,51 +44,46 @@ function TechStack() {
     }
   };
 
-  const handleLeaveStack = () => {
-    const animeInst = animeRef.current;
-    animeInst.delay = 0;
-    animeInst.reverse();
-    animeInst.play();
-  };
-
   return (
-    <div css={techStackStyle} ref={skillRef}>
+    <div css={techStack} ref={skillRef}>
       {stacks.map(({ Icon }, index) => (
-        <div className="item" key={index}>
+        <div css={techStackItem} key={index}>
           {<Icon />}
         </div>
       ))}
-      <Waypoint onEnter={handleEnterStack}>
-        <div className="computer">
-          <Lottie loop play className="animation" animationData={Computer} />
-        </div>
-      </Waypoint>
+      <div css={computer}>
+        <Waypoint onEnter={handleEnterStack}>
+          <div>
+            <Lottie loop play animationData={Computer} />
+          </div>
+        </Waypoint>
+      </div>
     </div>
   );
 }
 
-const techStackStyle = css`
+const techStack = css`
   position: relative;
+`;
 
-  .item {
-    z-index: ${zIndex.LEVEL_3};
-    position: absolute;
-    bottom: 180px;
-    left: 50%;
-    transform: translateX(-50%) scale(0);
-    opacity: 0;
-  }
+const techStackItem = css`
+  z-index: ${zIndex.LEVEL_3};
+  position: absolute;
+  bottom: 180px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  opacity: 0;
 
-  .item svg {
+  svg {
     width: 64px;
     overflow: hidden;
   }
+`;
 
-  .computer {
-    width: 780px;
-    margin: 0 auto;
-    margin-top: 280px;
-  }
+const computer = css`
+  width: 780px;
+  margin: 0 auto;
+  margin-top: 280px;
 `;
 
 export default TechStack;

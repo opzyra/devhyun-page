@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
 import { css } from "@emotion/react";
+
+import { size } from "@/styles";
 
 import Image from "@/components/common/Image";
 
 import MainLayout from "@/components/layout/MainLayout";
-import Container from "@/components/common/Container";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import Skill from "@/components/main/Skill";
 
@@ -16,23 +16,21 @@ import IconWeb from "@/assets/images/icon-web.png";
 
 import ImgIdentity from "@/assets/images/img-identity.png";
 
-About.propTypes = {};
-
 function About() {
   return (
     <MainLayout css={about}>
       <div css={header}>
-        <Container>
+        <div css={container}>
           <Breadcrumb items={["소개"]} />
           <h3>
             웹 브라우저로 사람을 연결하는 개발자
             <br />
             김현호에 대해 알아보세요 !
           </h3>
-        </Container>
+        </div>
       </div>
       <div css={keyword}>
-        <Container>
+        <div css={container}>
           <ul>
             <li>
               <Image src={IconWeb} alt="김현호" center />
@@ -60,10 +58,10 @@ function About() {
               <p>신뢰</p>
             </li>
           </ul>
-        </Container>
+        </div>
       </div>
       <div css={introduce}>
-        <Container>
+        <div css={container}>
           <h4>개발자 소개</h4>
           <p>
             웹 브라우저를 통해 사람을 연결하고 다양한 문제를 해결 및 개선하는
@@ -84,10 +82,10 @@ function About() {
           </p>
           <br />
           <p>반갑습니다, 신뢰를 가장 중요시하는 개발자 김현호입니다.</p>
-        </Container>
+        </div>
       </div>
       <div css={skills}>
-        <Container>
+        <div css={container}>
           <h4>기술스택 소개</h4>
           <p>프로젝트를 수행하기 위해 사용해본 경험이 있는 기술스택입니다.</p>
           <p>
@@ -95,17 +93,17 @@ function About() {
             이해할 수 있습니다.
           </p>
           <Skill />
-        </Container>
+        </div>
       </div>
       <div css={value}>
-        <Container>
+        <div css={container}>
           <h4>데브현 소개</h4>
           <p>
             세상에 많은 개발자들 중 &#39;김현호&#39;가 추구하는 가치를 브랜드화
             하였습니다.
           </p>
           <Image src={ImgIdentity} alt="identity" />
-        </Container>
+        </div>
       </div>
     </MainLayout>
   );
@@ -117,6 +115,12 @@ const about = css`
 
 const header = css`
   padding-bottom: 20px;
+`;
+
+const container = css`
+  width: ${size.container};
+  height: 100%;
+  margin: 0 auto;
 `;
 
 const keyword = css`

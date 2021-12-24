@@ -1,15 +1,12 @@
-import PropTypes from "prop-types";
+import { useRef } from "react";
 import { css } from "@emotion/react";
 
-import { useRef } from "react";
-import { Waypoint } from "react-waypoint";
 import anime from "animejs";
+import { Waypoint } from "react-waypoint";
 
 import ProjectItem from "@/components/project/ProjectItem";
 
-import projects from "@/assets/data/project";
-
-Project.propTypes = {};
+import portfolio from "@/assets/data/portfolio";
 
 function Project() {
   const animeRef = useRef(null);
@@ -19,7 +16,7 @@ function Project() {
     if (!animeInst) {
       animeRef.current = anime
         .timeline({
-          targets: document.querySelectorAll(`.css-${projectItem.name}`),
+          targets: document.querySelectorAll(`.projectGrid > div`),
         })
         .add({
           translateY: [100, 0],
@@ -37,8 +34,8 @@ function Project() {
   return (
     <div css={project}>
       <Waypoint onEnter={handleEnterStack}>
-        <div css={projectList}>
-          {projects
+        <div className="projectGrid">
+          {portfolio
             .filter((project) => project.display)
             .map((project, index) => (
               <ProjectItem css={projectItem} project={project} key={index} />
@@ -49,11 +46,11 @@ function Project() {
   );
 }
 
-const project = css``;
-
-const projectList = css`
-  display: flex;
-  flex-wrap: wrap;
+const project = css`
+  .projectGrid {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 const projectItem = css`

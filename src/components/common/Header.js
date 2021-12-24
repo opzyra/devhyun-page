@@ -1,32 +1,26 @@
-import PropTypes from "prop-types";
 import { css, keyframes } from "@emotion/react";
-import { color, fontFamilyWithPaybooc } from "@/styles";
+import { color, size, fontFamilyWithPaybooc } from "@/styles";
 
 import Link from "next/link";
 
-import Container from "@/components/common/Container";
 import Button from "./Button";
 
 import DHLogo from "@/assets/svg/DHLogo.svg";
 import Arrow from "@/assets/svg/Arrow.svg";
 
-Header.propTypes = {
-  background: PropTypes.bool,
-};
-
 function Header({ background, full }) {
   return (
-    <header css={headerStyle({ background, full })}>
-      <Container css={containerStyle}>
-        <div css={brandStyle}>
+    <header css={header({ background, full })}>
+      <div css={container}>
+        <div css={brand}>
           <Link href="/">
             <a>
               <DHLogo />
             </a>
           </Link>
         </div>
-        <nav css={navStyle}>
-          <ul className="gnb">
+        <nav css={nav}>
+          <ul css={gnb}>
             <li>
               <Link href="/about">ABOUT</Link>
             </li>
@@ -46,19 +40,28 @@ function Header({ background, full }) {
               </a>
             </li>
           </ul>
-          <div className="contact">
-            <Button css={contactButtonStyle} type="brand" shape="round">
+          <div>
+            <Button css={button} type="brand" shape="round">
               <span>START PROJECT</span>
               <Arrow />
             </Button>
           </div>
         </nav>
-      </Container>
+      </div>
     </header>
   );
 }
 
-const headerStyle = ({ background, full }) => css`
+const buttonKeyframe = keyframes`
+  from {
+    transform: translateX(-2px);
+  }
+  to {
+    transform: translateX(3px);
+  }
+`;
+
+const header = ({ background, full }) => css`
   height: 96px;
   position: relative;
 
@@ -76,13 +79,17 @@ const headerStyle = ({ background, full }) => css`
   `}
 `;
 
-const containerStyle = css`
+const container = css`
   padding: 32px 0 20px;
   display: flex;
   align-items: center;
+
+  width: ${size.container};
+  margin: 0 auto;
+  height: 100%;
 `;
 
-const brandStyle = css`
+const brand = css`
   a {
     display: block;
   }
@@ -92,39 +99,31 @@ const brandStyle = css`
   }
 `;
 
-const navStyle = css`
+const nav = css`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-left: 40px;
   width: 100%;
+`;
 
-  .gnb li {
+const gnb = css`
+  li {
     display: inline-block;
-  }
+    a {
+      display: block;
+      font-size: 14px;
+      padding: 8px 20px;
+      font-family: ${fontFamilyWithPaybooc};
 
-  .gnb li a {
-    display: block;
-    font-size: 14px;
-    padding: 8px 20px;
-    font-family: ${fontFamilyWithPaybooc};
-  }
-
-  .gnb li a:hover {
-    color: ${color.brand};
+      &:hover {
+        color: ${color.brand};
+      }
+    }
   }
 `;
 
-const contactButtonKeyframe = keyframes`
-  from {
-    transform: translateX(-2px);
-  }
-  to {
-    transform: translateX(3px);
-  }
-`;
-
-const contactButtonStyle = css`
+const button = css`
   &:hover {
     border: 1px solid ${color.brand};
     background-color: transparent;
@@ -139,7 +138,7 @@ const contactButtonStyle = css`
 
   &:hover svg {
     stroke: ${color.brand};
-    animation: ${contactButtonKeyframe} 0.5s ease-in forwards;
+    animation: ${buttonKeyframe} 0.5s ease-in forwards;
   }
 `;
 

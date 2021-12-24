@@ -1,19 +1,14 @@
-import PropTypes from "prop-types";
 import { css } from "@emotion/react";
-import { color, fontFamilyWithRoboto } from "@/styles";
-
-import Container from "@/components/common/Container";
+import { color, fontFamilyWithRoboto, size } from "@/styles";
 
 import OpenSource from "@/assets/svg/Opensource.svg";
 
-Footer.propTypes = {};
-
 function Footer() {
   return (
-    <footer css={footerStyle}>
-      <Container>
-        <div className="information">
-          <span className="name">데브현</span>
+    <footer css={footer}>
+      <div css={container}>
+        <div css={information}>
+          <span css={appName}>데브현</span>
           <span>
             이메일 <b>hhkim@devhyun.com</b>
           </span>
@@ -21,77 +16,79 @@ function Footer() {
             카카오톡 <b>opzyra</b>
           </span>
         </div>
-        <div className="bar">
-          <div className="phrase">
+        <div css={description}>
+          <div>
             본 사이트는 Chrome, Edge, Whale 등 최신 브라우저에 최적화되어
             있습니다.
-            <div className="copyright">
-              Copyright © Devhyun. All Rights Reserved.
-            </div>
+            <div>Copyright © Devhyun. All Rights Reserved.</div>
           </div>
-          <div className="opensource">
+          <div css={opensource}>
             <a href="" target="_blank">
               <OpenSource />
-              <div className="text">
+              <p>
                 Open-Source
                 <br />
                 MIT License
-              </div>
+              </p>
             </a>
           </div>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }
 
-const footerStyle = css`
+const footer = css`
   padding: 40px 0px;
   margin-top: auto;
   background: #f5f5f5;
   font-size: 14px;
   font-weight: 400;
   color: #667084;
+`;
 
-  .information .name {
-    font-weight: 900;
-    color: ${color.font};
+const container = css`
+  width: ${size.container};
+  height: 100%;
+  margin: 0 auto;
+`;
+
+const information = css`
+  span {
+    & + span {
+      margin-left: 16px;
+    }
+
+    b {
+      font-weight: 900;
+      color: ${color.font};
+      font-family: ${fontFamilyWithRoboto};
+    }
   }
+`;
 
-  .information span + span {
-    margin-left: 16px;
-  }
+const appName = css`
+  font-weight: 900;
+  color: ${color.font};
+`;
 
-  .information span b {
-    font-weight: 900;
-    color: ${color.font};
-    font-family: ${fontFamilyWithRoboto};
-  }
+const description = css`
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+`;
 
-  .bar {
-    padding-top: 16px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .bar .action .item {
-    display: inline-block;
-  }
-
-  .bar .action .item + .item {
-    margin-left: 12px;
-  }
-
-  .bar .opensource a {
+const opensource = css`
+  a {
     display: flex;
     align-items: center;
   }
 
-  .bar .opensource svg {
+  svg {
     width: 44px;
   }
 
-  .bar .opensource .text {
+  p {
     font-size: 12px;
   }
 `;

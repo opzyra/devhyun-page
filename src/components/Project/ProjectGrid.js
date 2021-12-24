@@ -1,23 +1,20 @@
-import PropTypes from "prop-types";
 import { css } from "@emotion/react";
 
 import ProjectItem from "@/components/project/ProjectItem";
 
-import projects from "@/assets/data/project";
+import portfolio from "@/assets/data/portfolio";
 
-ProjectList.propTypes = {};
-
-function ProjectList() {
+function ProjectGrid() {
   return (
-    <div css={projectList}>
-      {projects.map((project, index) => (
+    <div css={projectGrid}>
+      {portfolio.map((project, index) => (
         <ProjectItem css={projectItem} project={project} key={index} />
       ))}
     </div>
   );
 }
 
-const projectList = css`
+const projectGrid = css`
   display: flex;
   flex-wrap: wrap;
 `;
@@ -38,4 +35,4 @@ const projectItem = css`
   }
 `;
 
-export default ProjectList;
+export default ProjectGrid;

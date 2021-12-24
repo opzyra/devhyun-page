@@ -1,16 +1,13 @@
-import PropTypes from "prop-types";
 import { css } from "@emotion/react";
-import { fontFamilyWithPaybooc, color } from "@/styles";
-
 import Link from "next/link";
+
+import { fontFamilyWithPaybooc, color } from "@/styles";
 
 import Image from "@/components/common/Image";
 
-ProjectItem.propTypes = {};
-
-function ProjectItem({ project, css }) {
+function ProjectItem({ project, ...props }) {
   return (
-    <div css={[projectItem]}>
+    <div css={projectItem} {...props}>
       <Link href={`/project/[id]`} as={`/project/${project.id}`}>
         <a>
           <figure>
@@ -26,12 +23,12 @@ function ProjectItem({ project, css }) {
               <h4>{project.name}</h4>
             </figcaption>
           </figure>
-          <div className="information">
-            <div className="detail">
+          <div css={projectInformation}>
+            <div css={projectDetail}>
               <h6>PROJECT</h6>
               <p>{project.category}</p>
             </div>
-            <div className="detail">
+            <div css={projectDetail}>
               <h6>PARTS</h6>
               <ul>
                 {project.parts.map((part, index) => (
@@ -49,7 +46,7 @@ function ProjectItem({ project, css }) {
 const projectItem = css`
   width: calc(32% - 10px);
   margin-top: 60px;
-  opacity: 1;
+  opacity: 0;
 
   figure {
     position: relative;
@@ -96,44 +93,44 @@ const projectItem = css`
       transform: scale(1.1);
     }
   }
+`;
 
-  .information {
-    display: flex;
+const projectInformation = css`
+  display: flex;
+`;
 
-    .detail {
-      width: 50%;
+const projectDetail = css`
+  width: 50%;
 
-      h6 {
-        font-size: 14px;
-        font-weight: 700;
-        font-family: ${fontFamilyWithPaybooc};
-      }
+  h6 {
+    font-size: 14px;
+    font-weight: 700;
+    font-family: ${fontFamilyWithPaybooc};
+  }
 
-      p {
-        font-size: 13px;
-      }
+  p {
+    font-size: 13px;
+  }
 
-      li {
-        position: relative;
-        display: inline-block;
-        font-size: 13px;
+  li {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
 
-        & + li {
-          margin-left: 9px;
-        }
+    & + li {
+      margin-left: 9px;
+    }
 
-        & + li::after {
-          content: "";
-          position: absolute;
-          width: 3px;
-          height: 3px;
-          top: 50%;
-          left: -5px;
-          transform: translateY(-50%);
-          border-radius: 50%;
-          background: ${color.gray};
-        }
-      }
+    & + li::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      top: 50%;
+      left: -5px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: ${color.gray};
     }
   }
 `;

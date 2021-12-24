@@ -31,6 +31,10 @@ export const fontFamilyWithPoppins = [
   "sans-serif",
 ].join(", ");
 
+export const size = {
+  container: "1280px",
+};
+
 export const zIndex = {
   LEVEL_10: 10000,
   LEVEL_9: 5000,

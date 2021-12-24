@@ -5,8 +5,6 @@ import { ThemeProvider, Global } from "@emotion/react";
 import { reset, typography } from "@/styles";
 import defaultTheme from "@/styles/theme";
 
-App.propTypes = {};
-
 function App({ Component, pageProps }) {
   return (
     <>
