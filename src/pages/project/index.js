@@ -10,8 +10,8 @@ Project.propTypes = {};
 
 function Project() {
   return (
-    <MainLayout css={projectStyle}>
-      <div css={headerStyle}>
+    <MainLayout css={project}>
+      <div css={header}>
         <Container>
           <Breadcrumb items={["프로젝트"]} />
           <h3>
@@ -21,7 +21,7 @@ function Project() {
           </h3>
         </Container>
       </div>
-      <div css={projectListStyle}>
+      <div css={projectList}>
         <Container>
           <ProjectList />
         </Container>
@@ -30,15 +30,15 @@ function Project() {
   );
 }
 
-const projectStyle = css`
+const project = css`
   padding: 20px 0px;
 `;
 
-const headerStyle = css`
+const header = css`
   padding-bottom: 20px;
 `;
 
-const projectListStyle = css`
+const projectList = css`
   padding: 40px 0px 60px;
 `;
 

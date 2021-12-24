@@ -47,8 +47,8 @@ function Skill() {
   };
 
   return (
-    <div css={skillStyle}>
-      <div css={navStyle}>
+    <div css={skill}>
+      <div css={nav}>
         <ul>
           <li
             onMouseEnter={(event) =>
@@ -82,7 +82,7 @@ function Skill() {
           </li>
         </ul>
       </div>
-      <div css={contentStyle}>
+      <div css={content}>
         <ul ref={skillRef}>
           {skills.map((skill, index) => (
             <li key={index} className={skill.type}>
@@ -102,64 +102,66 @@ function Skill() {
   );
 }
 
-const skillStyle = css`
+const skill = css`
   position: relative;
 `;
 
-const navStyle = css`
+const nav = css`
   position: absolute;
   top: -64px;
   right: 0px;
 
-  ul li {
+  li {
     display: inline-block;
     text-align: center;
     min-width: 56px;
     cursor: pointer;
     padding: 0px 14px;
-  }
 
-  ul li:hover p {
-    color: ${color.brand};
-  }
+    &:hover p {
+      color: ${color.brand};
+    }
 
-  ul li .image {
-    width: 36px;
-    height: 36px;
-  }
+    .image {
+      width: 36px;
+      height: 36px;
+    }
 
-  ul li p {
-    margin-top: 4px;
-    font-size: 14px;
-    transition: 0.3s;
+    p {
+      margin-top: 4px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
   }
 `;
 
-const contentStyle = css`
+const content = css`
   padding: 36px 0px 0px;
 
-  ul li {
+  li {
     display: inline-flex;
     align-items: center;
     width: 25%;
     margin: 16px 0px;
     transition: 0.3s;
-  }
 
-  ul li .image {
-    width: 48px;
-    height: 48px;
-    margin-right: 12px;
-  }
+    .image {
+      width: 48px;
+      height: 48px;
+      margin-right: 12px;
+    }
 
-  ul li .contents h6 span {
-    margin-left: 8px;
-    font-size: 12px;
-    color: ${color.primary};
-  }
+    .contents {
+      h6 span {
+        margin-left: 8px;
+        font-size: 12px;
+        color: ${color.primary};
+      }
 
-  ul li .contents p {
-    font-size: 14px;
+      p {
+        font-size: 14px;
+      }
+    }
   }
 `;
 

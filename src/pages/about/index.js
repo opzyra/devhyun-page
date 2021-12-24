@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { css } from "@emotion/react";
-import { color, fontFamilyWithPaybooc } from "@/styles";
 
 import Image from "@/components/common/Image";
 
@@ -21,8 +20,8 @@ About.propTypes = {};
 
 function About() {
   return (
-    <MainLayout css={aboutStyle}>
-      <div css={headerStyle}>
+    <MainLayout css={about}>
+      <div css={header}>
         <Container>
           <Breadcrumb items={["소개"]} />
           <h3>
@@ -32,7 +31,7 @@ function About() {
           </h3>
         </Container>
       </div>
-      <div css={keywordStyle}>
+      <div css={keyword}>
         <Container>
           <ul>
             <li>
@@ -63,7 +62,7 @@ function About() {
           </ul>
         </Container>
       </div>
-      <div css={introduceStyle}>
+      <div css={introduce}>
         <Container>
           <h4>개발자 소개</h4>
           <p>
@@ -87,7 +86,7 @@ function About() {
           <p>반갑습니다, 신뢰를 가장 중요시하는 개발자 김현호입니다.</p>
         </Container>
       </div>
-      <div css={skillsStyle}>
+      <div css={skills}>
         <Container>
           <h4>기술스택 소개</h4>
           <p>프로젝트를 수행하기 위해 사용해본 경험이 있는 기술스택입니다.</p>
@@ -98,7 +97,7 @@ function About() {
           <Skill />
         </Container>
       </div>
-      <div css={valueStyle}>
+      <div css={value}>
         <Container>
           <h4>데브현 소개</h4>
           <p>
@@ -112,15 +111,15 @@ function About() {
   );
 }
 
-const aboutStyle = css`
+const about = css`
   padding: 20px 0px;
 `;
 
-const headerStyle = css`
+const header = css`
   padding-bottom: 20px;
 `;
 
-const keywordStyle = css`
+const keyword = css`
   padding: 40px 0px;
 
   li {
@@ -134,14 +133,14 @@ const keywordStyle = css`
     box-sizing: border-box;
     margin: 0 0 0 72px;
 
+    .image {
+      width: 64px;
+      height: 64px;
+    }
+
     &:first-of-type {
       margin: 0px;
     }
-  }
-
-  li .image {
-    width: 64px;
-    height: 64px;
   }
 
   p {
@@ -150,7 +149,7 @@ const keywordStyle = css`
   }
 `;
 
-const introduceStyle = css`
+const introduce = css`
   padding: 40px 0px 60px;
   border-bottom: 1px solid #ebebeb;
 
@@ -159,7 +158,7 @@ const introduceStyle = css`
   }
 `;
 
-const skillsStyle = css`
+const skills = css`
   padding: 60px 0px;
   border-bottom: 1px solid #ebebeb;
 
@@ -168,7 +167,7 @@ const skillsStyle = css`
   }
 `;
 
-const valueStyle = css`
+const value = css`
   padding: 60px 0px 0px 0px;
 
   h4 {

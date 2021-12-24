@@ -9,35 +9,31 @@ ProjectList.propTypes = {};
 
 function ProjectList() {
   return (
-    <div css={projectListStyle}>
-      <div className="list">
-        {projects.map((project, index) => (
-          <ProjectItem project={project} key={index} />
-        ))}
-      </div>
+    <div css={projectList}>
+      {projects.map((project, index) => (
+        <ProjectItem css={projectItem} project={project} key={index} />
+      ))}
     </div>
   );
 }
 
-const projectListStyle = css`
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-  }
+const projectList = css`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
-  .item {
-    opacity: 1 !important;
-  }
+const projectItem = css`
+  opacity: 1 !important;
 
-  .item + .item {
+  & + & {
     margin-left: 40px;
   }
 
-  .item:nth-of-type(-n + 3) {
+  &:nth-of-type(-n + 3) {
     margin-top: 0px;
   }
 
-  .item + .item:nth-of-type(3n + 1) {
+  & + &:nth-of-type(3n + 1) {
     margin-left: 0px;
   }
 `;

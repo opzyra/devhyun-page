@@ -39,7 +39,7 @@ function Main() {
   return (
     <MainLayout background>
       <div css={cover}>
-        <Container css={coverContainer}>
+        <Container className="container">
           <div className="phrase">
             <h1>
               Make it happen
@@ -195,14 +195,14 @@ const cover = css`
     z-index: -1;
     border-bottom-right-radius: 100px;
   }
-`;
 
-const coverContainer = css`
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px 0px 100px;
+  & > .container {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0px 100px;
+  }
 
   .phrase {
     h1 {
@@ -230,11 +230,9 @@ const coverContainer = css`
     }
   }
 
-  .illustration {
-    .animation {
-      width: 480px;
-      height: 480px;
-    }
+  .illustration .animation {
+    width: 480px;
+    height: 480px;
   }
 `;
 
@@ -450,25 +448,25 @@ const contactContainer = css`
 
   .header {
     margin-bottom: 40px;
-  }
 
-  .header h2 {
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    margin-bottom: 16px;
-  }
+    h2 {
+      font-family: ${fontFamilyWithPaybooc};
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
 
-  .header span {
-    color: ${color.brand};
-  }
+    span {
+      color: ${color.brand};
 
-  .header span .exc {
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    font-weight: 700;
-    display: inline-block;
-    margin: 0px 6px 0px 1px;
-    transform: rotate(4deg);
+      .exc {
+        font-family: ${fontFamilyWithPaybooc};
+        font-weight: 900;
+        font-weight: 700;
+        display: inline-block;
+        margin: 0px 6px 0px 1px;
+        transform: rotate(4deg);
+      }
+    }
   }
 
   .body .button {
@@ -480,15 +478,15 @@ const contactContainer = css`
     position: relative;
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%), 0 2px 2px rgb(0 0 0 / 5%),
       0 4px 4px rgb(0 0 0 / 5%), 0 8px 8px rgb(0 0 0 / 5%);
-  }
 
-  .body .button + .button {
-    margin-left: 12px;
-  }
+    & + .button {
+      margin-left: 12px;
+    }
 
-  .body .button svg {
-    width: 12px;
-    fill: #ffffff;
+    svg {
+      width: 12px;
+      fill: #ffffff;
+    }
   }
 
   .illustration {
@@ -496,10 +494,10 @@ const contactContainer = css`
     top: 50%;
     right: 0px;
     transform: translateY(-50%);
-  }
 
-  .illustration .animation {
-    width: 580px;
+    .animation {
+      width: 580px;
+    }
   }
 `;
 

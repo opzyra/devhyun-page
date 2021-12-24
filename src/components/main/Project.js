@@ -12,7 +12,6 @@ import projects from "@/assets/data/project";
 Project.propTypes = {};
 
 function Project() {
-  const projectRef = useRef(null);
   const animeRef = useRef(null);
 
   const handleEnterStack = () => {
@@ -20,7 +19,7 @@ function Project() {
     if (!animeInst) {
       animeRef.current = anime
         .timeline({
-          targets: projectRef.current.querySelectorAll(".item"),
+          targets: document.querySelectorAll(`.css-${projectItem.name}`),
         })
         .add({
           translateY: [100, 0],
@@ -36,13 +35,13 @@ function Project() {
   };
 
   return (
-    <div css={projectStyle}>
+    <div css={project}>
       <Waypoint onEnter={handleEnterStack}>
-        <div className="list" ref={projectRef}>
+        <div css={projectList}>
           {projects
             .filter((project) => project.display)
             .map((project, index) => (
-              <ProjectItem project={project} key={index} />
+              <ProjectItem css={projectItem} project={project} key={index} />
             ))}
         </div>
       </Waypoint>
@@ -50,21 +49,23 @@ function Project() {
   );
 }
 
-const projectStyle = css`
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-  }
+const project = css``;
 
-  .item + .item {
+const projectList = css`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const projectItem = css`
+  & + & {
     margin-left: 40px;
   }
 
-  .item:nth-of-type(-n + 3) {
+  &:nth-of-type(-n + 3) {
     margin-top: 0px;
   }
 
-  .item + .item:nth-of-type(3n + 1) {
+  & + &:nth-of-type(3n + 1) {
     margin-left: 0px;
   }
 `;
