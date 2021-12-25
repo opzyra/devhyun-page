@@ -123,7 +123,7 @@ const headerMeta = css`
 const headerMetaItem = css`
   position: relative;
 
-  & + .item {
+  & + & {
     margin-left: 12px;
   }
 
