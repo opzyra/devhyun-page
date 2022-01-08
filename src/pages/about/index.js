@@ -1,12 +1,11 @@
 import { css } from "@emotion/react";
-
-import { size } from "@/styles";
+import { media } from "@/styles";
 
 import Image from "@/components/common/Image";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
-import Skill from "@/components/main/Skill";
+import Skill from "@/components/about/Skill";
 
 import IconFlow from "@/assets/images/icon-flow.png";
 import IconLanguage from "@/assets/images/icon-language.png";
@@ -118,9 +117,21 @@ const header = css`
 `;
 
 const container = css`
-  width: ${size.container};
+  width: 1280px;
   height: 100%;
   margin: 0 auto;
+
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
 `;
 
 const keyword = css`
@@ -151,6 +162,14 @@ const keyword = css`
     font-size: 14px;
     line-height: 1.4;
   }
+
+  ${media.LG(
+    css`
+      li {
+        margin: 0 0 0 36px;
+      }
+    `,
+  )}
 `;
 
 const introduce = css`

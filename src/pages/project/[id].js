@@ -1,5 +1,5 @@
 import { css, keyframes } from "@emotion/react";
-import { fontFamilyWithPaybooc, color, size } from "@/styles";
+import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
@@ -96,9 +96,21 @@ const projectDetail = css`
 `;
 
 const container = css`
-  width: ${size.container};
+  width: 1280px;
   height: 100%;
   margin: 0 auto;
+
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
 `;
 
 const header = css`
@@ -107,6 +119,7 @@ const header = css`
 
 const headerHead = css`
   display: flex;
+  justify-content: space-between;
   width: 100%;
 `;
 
@@ -149,7 +162,6 @@ const headerMetaItem = css`
 `;
 
 const headerType = css`
-  width: 15%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -186,6 +198,12 @@ const bodyAction = css`
 const bodySummary = css`
   word-break: keep-all;
   width: 860px;
+
+  ${media.LG(
+    css`
+      width: 760px;
+    `,
+  )}
 `;
 
 const bodyParts = css`

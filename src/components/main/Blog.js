@@ -5,7 +5,7 @@ import anime from "animejs";
 import { Mousewheel, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { color } from "@/styles";
+import { color, media } from "@/styles";
 import Image from "@/components/common/Image";
 
 import ImageAboutperiod from "@/assets/images/image-aboutperiod.png";
@@ -179,6 +179,16 @@ const blogGrid = css`
       color: ${color.gray};
     }
   }
+
+  ${media.XL(css`
+    padding-left: calc((50% - 1084px / 2));
+  `)}
+
+  ${media.LG(
+    css`
+      padding-left: calc((50% - 920px / 2));
+    `,
+  )}
 `;
 
 export default Blog;

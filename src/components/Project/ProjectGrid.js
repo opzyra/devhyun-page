@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import ProjectItem from "@/components/project/ProjectItem";
 
 import portfolio from "@/assets/data/portfolio";
+import { media } from "@/styles";
 
 function ProjectGrid() {
   return (
@@ -17,22 +18,26 @@ function ProjectGrid() {
 const projectGrid = css`
   display: flex;
   flex-wrap: wrap;
+  margin: -20px;
+
+  ${media.LG(
+    css`
+      margin: -10px;
+    `,
+  )}
 `;
 
 const projectItem = css`
+  width: calc(33.333% - 40px);
+  margin: 20px;
   opacity: 1 !important;
 
-  & + & {
-    margin-left: 40px;
-  }
-
-  &:nth-of-type(-n + 3) {
-    margin-top: 0px;
-  }
-
-  & + &:nth-of-type(3n + 1) {
-    margin-left: 0px;
-  }
+  ${media.LG(
+    css`
+      width: calc(33.333% - 20px);
+      margin: 10px;
+    `,
+  )}
 `;
 
 export default ProjectGrid;

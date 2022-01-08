@@ -7,6 +7,7 @@ import { Waypoint } from "react-waypoint";
 import ProjectItem from "@/components/project/ProjectItem";
 
 import portfolio from "@/assets/data/portfolio";
+import { media } from "@/styles";
 
 function Project() {
   const animeRef = useRef(null);
@@ -50,21 +51,28 @@ const project = css`
   .projectGrid {
     display: flex;
     flex-wrap: wrap;
+    margin: -20px;
   }
+
+  ${media.LG(
+    css`
+      .projectGrid {
+        margin: -10px;
+      }
+    `,
+  )}
 `;
 
 const projectItem = css`
-  & + & {
-    margin-left: 40px;
-  }
+  width: calc(33.333% - 40px);
+  margin: 20px;
 
-  &:nth-of-type(-n + 3) {
-    margin-top: 0px;
-  }
-
-  & + &:nth-of-type(3n + 1) {
-    margin-left: 0px;
-  }
+  ${media.LG(
+    css`
+      width: calc(33.333% - 20px);
+      margin: 10px;
+    `,
+  )}
 `;
 
 export default Project;

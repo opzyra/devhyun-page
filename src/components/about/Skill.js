@@ -1,7 +1,7 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { css } from "@emotion/react";
 
-import { color } from "@/styles";
+import { color, breakPoint, media } from "@/styles";
 import * as string from "@/library/string";
 
 import Image from "@/components/common/Image";
@@ -144,10 +144,30 @@ const skillItem = css`
   transition: 0.3s;
 
   .image {
-    width: 48px;
-    height: 48px;
-    margin-right: 12px;
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
   }
+
+  ${media.XL(
+    css`
+      .image {
+        width: 36px;
+        height: 36px;
+        margin-right: 8px;
+      }
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      .image {
+        width: 28px;
+        height: 28px;
+        margin-right: 4px;
+      }
+    `,
+  )}
 `;
 
 const skillContents = css`
@@ -160,6 +180,14 @@ const skillContents = css`
   p {
     font-size: 14px;
   }
+
+  ${media.LG(
+    css`
+      p {
+        font-size: 12px;
+      }
+    `,
+  )}
 `;
 
 export default Skill;

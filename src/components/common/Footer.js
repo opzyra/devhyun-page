@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { color, fontFamilyWithRoboto, size } from "@/styles";
+import { color, fontFamilyWithRoboto, media } from "@/styles";
 
 import OpenSource from "@/assets/svg/Opensource.svg";
 
@@ -48,9 +48,20 @@ const footer = css`
 `;
 
 const container = css`
-  width: ${size.container};
+  width: 1280px;
   height: 100%;
   margin: 0 auto;
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
 `;
 
 const information = css`

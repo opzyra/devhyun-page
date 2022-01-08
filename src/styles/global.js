@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import fonts from "./fonts";
+import media from "./media";
 
 export const fontFamily = [
   "Noto Sans KR",
@@ -31,10 +32,6 @@ export const fontFamilyWithPoppins = [
   "sans-serif",
 ].join(", ");
 
-export const size = {
-  container: "1280px",
-};
-
 export const zIndex = {
   LEVEL_10: 10000,
   LEVEL_9: 5000,
@@ -55,16 +52,6 @@ export const color = {
   primary: "#2a63d8",
   secondary: "#74AFF2",
   danger: "#ff4d4f",
-};
-
-export const fontSize = {
-  default: "18px",
-  h1: "40px",
-  h2: "32px",
-  h3: "28px",
-  h4: "24px",
-  h5: "20px",
-  h6: "16px",
 };
 
 export const a11y = css`
@@ -167,32 +154,32 @@ export const reset = css`
 export const typography = css`
   body {
     font-family: ${fontFamily};
-    font-size: ${fontSize.default};
+    font-size: 18px;
     color: ${color.font};
   }
 
   h1 {
-    font-size: ${fontSize.h1};
+    font-size: 40px;
   }
 
   h2 {
-    font-size: ${fontSize.h2};
+    font-size: 32px;
   }
 
   h3 {
-    font-size: ${fontSize.h3};
+    font-size: 28px;
   }
 
   h4 {
-    font-size: ${fontSize.h4};
+    font-size: 24px;
   }
 
   h5 {
-    font-size: ${fontSize.h5};
+    font-size: 20px;
   }
 
   h6 {
-    font-size: ${fontSize.h6};
+    font-size: 16px;
   }
 
   h1,
@@ -208,4 +195,64 @@ export const typography = css`
   p {
     line-height: 1.6;
   }
+
+  ${media.XL(
+    css`
+      h1 {
+        font-size: 36px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      h3 {
+        font-size: 28px;
+      }
+
+      h4 {
+        font-size: 24px;
+      }
+
+      h5 {
+        font-size: 20px;
+      }
+
+      h6 {
+        font-size: 16px;
+      }
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      body {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      h3 {
+        font-size: 24px;
+      }
+
+      h4 {
+        font-size: 20px;
+      }
+
+      h5 {
+        font-size: 18px;
+      }
+
+      h6 {
+        font-size: 16px;
+      }
+    `,
+  )}
 `;

@@ -3,10 +3,10 @@ import Lottie from "react-lottie-player";
 
 import { css } from "@emotion/react";
 
-import { fontFamilyWithPaybooc, color, size } from "@/styles";
+import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import MainLayout from "@/components/layout/MainLayout";
-import TechStack from "@/components/about/TechStack";
+import TechStack from "@/components/main/TechStack";
 import Project from "@/components/main/Project";
 import Blog from "@/components/main/Blog";
 
@@ -34,7 +34,7 @@ function Main() {
   return (
     <MainLayout background>
       <div css={cover}>
-        <div css={coverContainer}>
+        <div css={[container, coverContainer]}>
           <div css={coverPhrase}>
             <h1>
               Make it happen
@@ -146,7 +146,7 @@ function Main() {
 
       <div css={contact}>
         <div css={contactLine}></div>
-        <div css={contactContainer}>
+        <div css={[container, contactContainer]}>
           <div css={contactHeader}>
             <h2>
               Get{" "}
@@ -190,26 +190,36 @@ const cover = css`
     background: #fafaff;
     width: 100%;
     height: 100%;
-    right: 60px;
+    right: 3%;
     z-index: -1;
     border-bottom-right-radius: 100px;
   }
 `;
 
 const coverContainer = css`
-  width: ${size.container};
   height: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 40px 0px 100px;
-  margin: 0 auto;
 `;
 
 const container = css`
-  width: ${size.container};
+  width: 1280px;
   height: 100%;
   margin: 0 auto;
+
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
 `;
 
 const coverPhrase = css`
@@ -232,6 +242,14 @@ const coverPhrase = css`
       transform: rotate(4deg);
     }
   }
+
+  ${media.LG(
+    css`
+      p {
+        font-size: 18px;
+      }
+    `,
+  )}
 `;
 
 const coverButton = css`
@@ -296,6 +314,11 @@ const coverButton = css`
 const coverAnimation = css`
   width: 480px;
   height: 480px;
+
+  ${media.LG(css`
+    width: 400px;
+    height: 400px;
+  `)}
 `;
 
 const social = css`
@@ -308,6 +331,18 @@ const socialLine = css`
   height: 1px;
   background: #e3e2ef;
   margin-right: 40px;
+
+  ${media.XL(
+    css`
+      width: 80%;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 75%;
+    `,
+  )}
 `;
 
 const socialItem = css`
@@ -507,9 +542,6 @@ const contactLine = css`
 
 const contactContainer = css`
   position: relative;
-  width: ${size.container};
-  height: 100%;
-  margin: 0 auto;
 `;
 
 const contactHeader = css`

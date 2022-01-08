@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 
-import { fontFamilyWithPaybooc, color } from "@/styles";
+import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import Image from "@/components/common/Image";
 
@@ -44,8 +44,6 @@ function ProjectItem({ project, ...props }) {
 }
 
 const projectItem = css`
-  width: calc(32% - 10px);
-  margin-top: 60px;
   opacity: 0;
 
   figure {
@@ -78,11 +76,6 @@ const projectItem = css`
         font-family: ${fontFamilyWithPaybooc};
       }
     }
-
-    .image {
-      width: 400px;
-      height: 264px;
-    }
   }
 
   &:hover figure {
@@ -93,10 +86,26 @@ const projectItem = css`
       transform: scale(1.1);
     }
   }
+
+  ${media.LG(
+    css`
+      figure {
+        figcaption {
+          padding: 32px;
+        }
+      }
+    `,
+  )}
 `;
 
 const projectInformation = css`
   display: flex;
+
+  ${media.LG(
+    css`
+      flex-direction: column;
+    `,
+  )}
 `;
 
 const projectDetail = css`
@@ -133,6 +142,16 @@ const projectDetail = css`
       background: ${color.gray};
     }
   }
+
+  ${media.LG(
+    css`
+      width: 100%;
+
+      & + & {
+        display: none;
+      }
+    `,
+  )}
 `;
 
 export default ProjectItem;

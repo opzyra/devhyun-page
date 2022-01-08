@@ -1,5 +1,5 @@
 import { css, keyframes } from "@emotion/react";
-import { color, size, fontFamilyWithPaybooc } from "@/styles";
+import { color, fontFamilyWithPaybooc, media } from "@/styles";
 
 import Link from "next/link";
 
@@ -73,7 +73,7 @@ const header = ({ background, full }) => css`
       background: #fafaff;
       width: 100%;
       height: 100%;
-      right: ${full ? "0px" : "60px"};
+      right: ${full ? "0px" : "3%"};
       z-index: -1;
     }
   `}
@@ -84,9 +84,21 @@ const container = css`
   display: flex;
   align-items: center;
 
-  width: ${size.container};
+  width: 1280px;
   margin: 0 auto;
   height: 100%;
+
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
 `;
 
 const brand = css`

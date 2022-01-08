@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { size } from "@/styles";
+import { media } from "@/styles";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
@@ -36,9 +36,21 @@ const header = css`
 `;
 
 const container = css`
-  width: ${size.container};
+  width: 1280px;
   height: 100%;
   margin: 0 auto;
+
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
 `;
 
 const body = css`
