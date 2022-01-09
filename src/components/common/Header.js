@@ -274,6 +274,10 @@ const bugger = ({ collpased }) => css`
   ${media.MD(css`
     display: block;
   `)}
+
+  ${media.M(css`
+    right: 16px;
+  `)}
 `;
 
 export default Header;

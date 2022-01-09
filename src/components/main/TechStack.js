@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 import { css } from "@emotion/react";
-import { Waypoint } from "react-waypoint";
+import ScrollTrigger from "react-scroll-trigger";
 import anime from "animejs";
 import Lottie from "react-lottie-player";
 
@@ -32,12 +32,20 @@ function TechStack() {
       ratio = 0.58;
     }
 
+    if (width < breakPoint.M && width >= breakPoint.SM) {
+      ratio = 0.5;
+    }
+
+    if (width < breakPoint.SM) {
+      ratio = 0.28;
+    }
+
     setRatio(ratio);
   };
 
   const handleEnterStack = useCallback(() => {
     let animeInst = animeRef.current;
-    if (!animeInst.completed) {
+    if (animeInst && !animeInst.completed) {
       animeInst.play();
       return;
     }
@@ -84,11 +92,11 @@ function TechStack() {
         </div>
       ))}
       <div css={computer}>
-        <Waypoint onEnter={handleEnterStack}>
+        <ScrollTrigger onEnter={handleEnterStack}>
           <div>
             <Lottie loop play animationData={Computer} />
           </div>
-        </Waypoint>
+        </ScrollTrigger>
       </div>
     </div>
   );
@@ -108,6 +116,11 @@ const techStack = css`
 
   ${media.MD(css`
     height: 520px;
+  `)}
+
+  ${media.SM(css`
+    left: -16px;
+    height: 360px;
   `)}
 `;
 
@@ -143,6 +156,12 @@ const computer = css`
   ${media.MD(css`
     bottom: 88px;
     width: 440px;
+  `)}
+
+  ${media.SM(css`
+    bottom: 130px;
+    width: 260px;
+    left: calc(50% + 16px);
   `)}
 `;
 

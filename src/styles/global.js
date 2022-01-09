@@ -256,7 +256,7 @@ export const typography = css`
     `,
   )}
 
-${media.MD(
+  ${media.MD(
     css`
       body {
         font-size: 16px;
@@ -268,6 +268,38 @@ ${media.MD(
 
       h2 {
         font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+
+      h5 {
+        font-size: 16px;
+      }
+
+      h6 {
+        font-size: 14px;
+      }
+    `,
+  )}
+
+  ${media.M(
+    css`
+      body {
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      h2 {
+        font-size: 22px;
       }
 
       h3 {

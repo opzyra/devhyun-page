@@ -9,16 +9,14 @@ import MainLayout from "@/components/layout/MainLayout";
 import TechStack from "@/components/main/TechStack";
 import Project from "@/components/main/Project";
 import Blog from "@/components/main/Blog";
+import Contact from "@/components/main/Contact";
 
-import Button from "@/components/common/Button";
 import Container from "@/components/common/Container";
 
 import Developer from "@/assets/json/developer.json";
-import Process from "@/assets/json/process.json";
 
 import Github from "@/assets/svg/Github.svg";
 import KakaoTalk from "@/assets/svg/KakaoTalk.svg";
-import ArrowRight from "@/assets/svg/ArrowRight.svg";
 import ArrowLong from "@/assets/svg/ArrowLong.svg";
 
 function Main() {
@@ -43,15 +41,24 @@ function Main() {
               Websites, Solution, Platform
               <br />
             </h1>
-            <p>
-              안녕하세요
-              <span>!</span>
-              웹 브라우저로 사람을 연결하는 개발자 김현호 입니다.
-              <br />
-              다양한 환경과 개발 언어로 맞춤형 웹사이트를 구축합니다.
-              <br />
-              노하우가 담긴 프로젝트 작업물을 살펴보세요.
-            </p>
+            <div css={coverDescription}>
+              <p>
+                안녕하세요
+                <span>!</span>
+                웹 브라우저로 사람을 연결하는 개발자 김현호 입니다.
+                <br />
+                다양한 환경과 개발 언어로 맞춤형 웹사이트를 구축합니다.
+                <br />
+                노하우가 담긴 프로젝트 작업물을 살펴보세요.
+              </p>
+              <p className="displayM">
+                웹으로 사람을 연결하는 개발자 김현호 입니다.
+                <br />
+                다양한 환경으로 맞춤형 웹사이트를 구축합니다.
+                <br />
+                노하우가 담긴 프로젝트 작업물을 살펴보세요.
+              </p>
+            </div>
             <div css={coverButton}>
               <button onClick={handleClickProjectScroll}>
                 프로젝트 살펴보기
@@ -62,7 +69,7 @@ function Main() {
               </button>
             </div>
           </div>
-          <div>
+          <div css={coverPicto}>
             <Lottie
               loop
               play
@@ -96,7 +103,13 @@ function Main() {
             <h2>
               <span>Creative</span> Works
             </h2>
-            <p>프로젝트를 진행하면서 다져진 경험이 스며들어 있습니다.</p>
+            <div css={projectDescription}>
+              <p>프로젝트를 진행하면서 다져진 경험이 스며들어 있습니다.</p>
+              <p className="displayM">
+                프로젝트에 다양한 경험이 스며들어 있습니다.
+              </p>
+            </div>
+
             <div css={projectHeaderMore}>
               <span>MORE</span>
               <ArrowLong />
@@ -115,7 +128,7 @@ function Main() {
               Tech <span>Stack</span>
             </h2>
             <p>
-              개발에 필요한 다양한 기술 스택을 보유하고 있습니다.
+              개발에 필요한 다양한 기술<span> 스택</span>을 보유하고 있습니다.
               <br />
               분야별 기술에 대한 자세한 내용은 소개 페이지에서 확인하실 수
               있습니다.
@@ -148,33 +161,7 @@ function Main() {
       <div css={contact}>
         <div css={contactLine}></div>
         <Container css={contactContainer}>
-          <div css={contactHeader}>
-            <h2>
-              Get{" "}
-              <span>
-                Started <span>!</span>
-              </span>
-            </h2>
-            <p>
-              새로운 프로젝트를 준비하거나 함께 일할 개발자를 찾고 계신가요?
-              <br />
-              이력서를 살펴보시고 프로젝트에 대해 알려주세요!
-            </p>
-          </div>
-          <div>
-            <Button css={contactBodyButton} type="primary">
-              <span>문의하기</span>
-              <ArrowRight />
-            </Button>
-          </div>
-          <div css={contactBodyIllustration}>
-            <Lottie
-              loop
-              play
-              css={contactBodyAnimation}
-              animationData={Process}
-            ></Lottie>
-          </div>
+          <Contact />
         </Container>
       </div>
     </MainLayout>
@@ -208,6 +195,14 @@ const cover = css`
       right: 0px;
     }
   `)}
+
+  ${media.M(css`
+    height: 340px;
+
+    &:before {
+      border-bottom-right-radius: 60px;
+    }
+  `)}
 `;
 
 const coverContainer = css`
@@ -216,9 +211,16 @@ const coverContainer = css`
   align-items: center;
   justify-content: space-between;
   padding: 40px 0px 0px;
+  position: relative;
 
   ${media.MD(css`
     padding: 20px 32px;
+  `)}
+
+  ${media.M(css`
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 16px;
   `)}
 `;
 
@@ -229,6 +231,14 @@ const coverPhrase = css`
     line-height: 1.4;
   }
 
+  ${media.M(css`
+    h1 {
+      font-size: 22px;
+    }
+  `)}
+`;
+
+const coverDescription = css`
   p {
     margin-top: 28px;
     font-size: 20px;
@@ -240,6 +250,10 @@ const coverPhrase = css`
       display: inline-block;
       margin: 0px 6px 0px 1px;
       transform: rotate(4deg);
+    }
+
+    &.displayM {
+      display: none;
     }
   }
 
@@ -259,6 +273,18 @@ const coverPhrase = css`
       }
     `,
   )}
+
+  ${media.M(css`
+    p {
+      display: none;
+      margin-top: 16px;
+      font-size: 16px;
+
+      &.displayM {
+        display: block;
+      }
+    }
+  `)}
 `;
 
 const coverButton = css`
@@ -330,6 +356,28 @@ const coverButton = css`
       }
     `,
   )}
+
+  ${media.M(
+    css`
+      margin-top: 32px;
+
+      button {
+        width: 160px;
+        font-size: 14px;
+        padding: 14px 0px;
+      }
+    `,
+  )}
+`;
+
+const coverPicto = css`
+  ${media.M(
+    css`
+      position: absolute;
+      bottom: 20px;
+      right: 0px;
+    `,
+  )}
 `;
 
 const coverAnimation = css`
@@ -345,6 +393,10 @@ const coverAnimation = css`
     width: 320px;
     height: 320px;
   `)}
+
+  ${media.M(css`
+    display: none;
+  `)}
 `;
 
 const social = css`
@@ -358,6 +410,10 @@ const social = css`
 
   ${media.MD(css`
     margin-top: 20px;
+  `)}
+
+  ${media.M(css`
+    margin-top: 12px;
   `)}
 `;
 
@@ -376,6 +432,13 @@ const socialLine = css`
   ${media.LG(
     css`
       width: 75%;
+    `,
+  )}
+
+  ${media.M(
+    css`
+      width: 65%;
+      margin-right: 20px;
     `,
   )}
 `;
@@ -398,6 +461,18 @@ const socialItem = css`
   & + & {
     margin-left: 20px;
   }
+
+  ${media.M(
+    css`
+      svg {
+        width: 20px;
+      }
+
+      & + & {
+        margin-left: 16px;
+      }
+    `,
+  )}
 `;
 
 const project = css`
@@ -405,6 +480,10 @@ const project = css`
 
   ${media.MD(css`
     padding: 60px 0px;
+  `)}
+
+  ${media.M(css`
+    padding: 32px 0px;
   `)}
 `;
 
@@ -425,12 +504,6 @@ const projectHeader = css`
     }
   }
 
-  p {
-    display: inline-block;
-    font-size: 16px;
-    color: ${color.gray};
-  }
-
   ${media.MD(css`
     margin-bottom: 24px;
 
@@ -440,6 +513,50 @@ const projectHeader = css`
 
     p {
       font-size: 14px;
+    }
+  `)}
+
+  ${media.M(css`
+    margin-bottom: 20px;
+    align-items: flex-start;
+    flex-direction: column;
+
+    h2 {
+      margin-right: 0px;
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  `)}
+`;
+
+const projectDescription = css`
+  p {
+    display: inline-block;
+    font-size: 16px;
+    color: ${color.gray};
+
+    &.displayM {
+      display: none;
+    }
+  }
+
+  ${media.MD(css`
+    p {
+      font-size: 14px;
+    }
+  `)}
+
+  ${media.M(css`
+    p {
+      font-size: 16px;
+      display: none;
+
+      &.displayM {
+        display: block;
+      }
     }
   `)}
 `;
@@ -468,6 +585,20 @@ const projectHeaderMore = css`
       width: 100px;
     }
   `)}
+
+  ${media.M(css`
+    top: 6px;
+    bottom: auto;
+
+    span {
+      font-size: 10px;
+      margin-right: 8px;
+    }
+
+    svg {
+      width: 40px;
+    }
+  `)}
 `;
 
 const skill = css`
@@ -480,6 +611,11 @@ const skill = css`
   ${media.MD(css`
     padding: 60px 0px 0px;
     margin-bottom: -40px;
+  `)}
+
+  ${media.SM(css`
+    padding: 60px 0px 0px;
+    margin-bottom: -100px;
   `)}
 `;
 
@@ -516,6 +652,17 @@ const skillHeader = css`
       height: 52px;
     }
   `)}
+
+  ${media.M(css`
+    &:before {
+      top: -60px;
+      height: 40px;
+    }
+
+    p span {
+      display: none;
+    }
+  `)}
 `;
 
 const blog = css`
@@ -539,6 +686,14 @@ const blog = css`
 
     &:before {
       border-top-left-radius: 80px;
+    }
+  `)}
+
+  ${media.M(css`
+    padding: 40px 0px;
+
+    &:before {
+      border-top-left-radius: 0px;
     }
   `)}
 `;
@@ -567,6 +722,14 @@ const blogHeader = css`
   ${media.MD(css`
     margin-bottom: 24px;
   `)}
+
+  ${media.M(css`
+    margin-bottom: 20px;
+
+    h2 {
+      margin-bottom: 2px;
+    }
+  `)}
 `;
 
 const blogHeaderMore = css`
@@ -591,6 +754,20 @@ const blogHeaderMore = css`
   ${media.MD(css`
     svg {
       width: 100px;
+    }
+  `)}
+
+  ${media.M(css`
+    top: 6px;
+    bottom: auto;
+
+    span {
+      font-size: 10px;
+      margin-right: 8px;
+    }
+
+    svg {
+      width: 40px;
     }
   `)}
 `;
@@ -629,6 +806,14 @@ const contact = css`
       border-bottom-right-radius: 80px;
     }
   `)}
+
+  ${media.M(css`
+    padding: 40px 0px;
+
+    &:before {
+      border-bottom-right-radius: 60px;
+    }
+  `)}
 `;
 
 const contactLine = css`
@@ -643,73 +828,14 @@ const contactLine = css`
   ${media.MD(css`
     border-top-right-radius: 80px;
   `)}
+
+  ${media.M(css`
+    border-top-right-radius: 0px;
+  `)}
 `;
 
 const contactContainer = css`
   position: relative;
-`;
-
-const contactHeader = css`
-  margin-bottom: 40px;
-
-  h2 {
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    margin-bottom: 16px;
-  }
-
-  span {
-    color: ${color.brand};
-
-    .exc {
-      font-family: ${fontFamilyWithPaybooc};
-      font-weight: 900;
-      font-weight: 700;
-      display: inline-block;
-      margin: 0px 6px 0px 1px;
-      transform: rotate(4deg);
-    }
-  }
-`;
-
-const contactBodyButton = css`
-  width: 160px;
-  border-radius: 10px;
-  justify-content: space-between;
-  font-size: 14px;
-  padding: 14px 20px;
-  position: relative;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 5%), 0 2px 2px rgb(0 0 0 / 5%),
-    0 4px 4px rgb(0 0 0 / 5%), 0 8px 8px rgb(0 0 0 / 5%);
-
-  & + .button {
-    margin-left: 12px;
-  }
-
-  svg {
-    width: 12px;
-    fill: #ffffff;
-  }
-`;
-
-const contactBodyIllustration = css`
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  transform: translateY(-50%);
-
-  ${media.MD(css`
-    top: 60%;
-    right: 32px;
-  `)}
-`;
-
-const contactBodyAnimation = css`
-  width: 580px;
-
-  ${media.MD(css`
-    width: 480px;
-  `)}
 `;
 
 export default Main;

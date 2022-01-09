@@ -1,20 +1,21 @@
 import { useRef } from "react";
-import { css } from "@emotion/react";
 
 import anime from "animejs";
-import { Waypoint } from "react-waypoint";
+import ScrollTrigger from "react-scroll-trigger";
+
+import { css } from "@emotion/react";
+import { media } from "@/styles";
 
 import ProjectItem from "@/components/project/ProjectItem";
 
 import portfolio from "@/assets/data/portfolio";
-import { media } from "@/styles";
 
 function Project() {
   const animeRef = useRef(null);
 
-  const handleEnterStack = () => {
+  const handleProgress = ({ progress, velocity }) => {
     let animeInst = animeRef.current;
-    if (!animeInst) {
+    if (velocity >= 1 && !animeInst) {
       animeRef.current = anime
         .timeline({
           targets: document.querySelectorAll(`.projectGrid > div`),
@@ -34,7 +35,7 @@ function Project() {
 
   return (
     <div css={project}>
-      <Waypoint onEnter={handleEnterStack}>
+      <ScrollTrigger onProgress={handleProgress}>
         <div className="projectGrid">
           {portfolio
             .filter((project) => project.display)
@@ -42,7 +43,7 @@ function Project() {
               <ProjectItem css={projectItem} project={project} key={index} />
             ))}
         </div>
-      </Waypoint>
+      </ScrollTrigger>
     </div>
   );
 }
@@ -52,6 +53,12 @@ const project = css`
     display: flex;
     flex-wrap: wrap;
     margin: -20px;
+
+    ${media.M(
+      css`
+        margin: -16px;
+      `,
+    )}
   }
 `;
 
@@ -62,6 +69,13 @@ const projectItem = css`
   ${media.LG(
     css`
       width: calc(50% - 40px);
+    `,
+  )}
+
+  ${media.M(
+    css`
+      margin: 16px;
+      width: 100%;
     `,
   )}
 `;

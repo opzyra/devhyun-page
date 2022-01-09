@@ -47,6 +47,10 @@ const footer = css`
   font-size: 14px;
   font-weight: 400;
   color: #667084;
+
+  ${media.M(css`
+    padding: 32px 0px;
+  `)}
 `;
 
 const information = css`
@@ -61,6 +65,18 @@ const information = css`
       font-family: ${fontFamilyWithRoboto};
     }
   }
+
+  ${media.M(css`
+    span:nth-of-type(1) {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    span:nth-of-type(2) {
+      margin-left: 0px;
+    }
+  `)}
 `;
 
 const appName = css`
@@ -72,6 +88,11 @@ const description = css`
   padding-top: 16px;
   display: flex;
   justify-content: space-between;
+
+  ${media.M(css`
+    font-size: 14px;
+    flex-direction: column; ;
+  `)}
 `;
 
 const opensource = css`
@@ -87,6 +108,9 @@ const opensource = css`
   p {
     font-size: 12px;
   }
+  ${media.M(css`
+    display: none;
+  `)}
 `;
 
 export default Footer;

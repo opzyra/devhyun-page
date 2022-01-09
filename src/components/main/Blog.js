@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/react";
 
 import anime from "animejs";
@@ -12,6 +12,13 @@ import ImageAboutperiod from "@/assets/images/image-aboutperiod.png";
 
 function Blog() {
   const blogRef = useRef(null);
+  const [height, setHeight] = useState(null);
+
+  const handleResize = () => {
+    const height = (414 * (window.innerWidth - 32)) / 627 + 30;
+
+    setHeight(height);
+  };
 
   const handleMouseEnter = (event) => {
     const blogInst = blogRef.current;
@@ -46,9 +53,11 @@ function Blog() {
   useEffect(() => {
     const blogInst = blogRef.current;
     blogInst.addEventListener("mouseleave", handleMouseLeave);
-
+    window.addEventListener("resize", handleResize);
+    handleResize();
     return () => {
       blogInst.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -58,7 +67,7 @@ function Blog() {
         modules={[Mousewheel, Pagination]}
         observer={true}
         observeParents={true}
-        css={blogGrid}
+        css={blogGrid({ height })}
         spaceBetween={40}
         slidesPerView={"auto"}
         pagination={{ el: ".swiper-pagination", clickable: true }}
@@ -67,48 +76,46 @@ function Blog() {
         mousewheel={{
           eventsTarget: ".swiper-wrapper",
         }}
+        breakpoints={{
+          [media.M]: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            freeMode: false,
+            autoHeight: true,
+          },
+        }}
         ref={blogRef}
       >
         <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
-          <div>
-            <Image src={ImageAboutperiod} layout="responsive" alt="" />
-          </div>
+          <Image src={ImageAboutperiod} layout="responsive" alt="" />
           <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
         <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
-          <div>
-            <Image src={ImageAboutperiod} layout="responsive" alt="" />
-          </div>
+          <Image src={ImageAboutperiod} layout="responsive" alt="" />
           <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
         <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
-          <div>
-            <Image src={ImageAboutperiod} layout="responsive" alt="" />
-          </div>
+          <Image src={ImageAboutperiod} layout="responsive" alt="" />
           <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
         <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
-          <div>
-            <Image src={ImageAboutperiod} layout="responsive" alt="" />
-          </div>
+          <Image src={ImageAboutperiod} layout="responsive" alt="" />
           <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
           </div>
         </SwiperSlide>
         <SwiperSlide className="blogItem" onMouseEnter={handleMouseEnter}>
-          <div>
-            <Image src={ImageAboutperiod} layout="responsive" alt="" />
-          </div>
+          <Image src={ImageAboutperiod} layout="responsive" alt="" />
           <div className="blogInformation">
             <p>VScode에서 Draw.io를 사용하기</p>
             <span>21.09.02</span>
@@ -151,9 +158,13 @@ const pagination = css`
   ${media.MD(css`
     margin-top: 32px;
   `)}
+
+  ${media.M(css`
+    margin-top: 20px;
+  `)}
 `;
 
-const blogGrid = css`
+const blogGrid = ({ height }) => css`
   padding-left: calc((50% - 1280px / 2));
 
   .swiper-slide {
@@ -170,6 +181,8 @@ const blogGrid = css`
   }
 
   .blogInformation {
+    margin-top: 8px;
+
     p {
       display: inline-block;
       font-size: 16px;
@@ -197,6 +210,23 @@ const blogGrid = css`
   ${media.MD(
     css`
       padding-left: 32px;
+    `,
+  )}
+
+  ${media.M(
+    css`
+      padding-left: 16px;
+      padding-right: 16px;
+
+      .swiper-slide {
+        width: 100%;
+        height: ${height}px;
+      }
+
+      .image {
+        width: 100%;
+        height: auto;
+      }
     `,
   )}
 `;

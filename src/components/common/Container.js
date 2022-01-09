@@ -30,6 +30,11 @@ const container = css`
     width: 100%;
     padding: 0px 36px;
   `)}
+
+  ${media.M(css`
+    width: 100%;
+    padding: 0px 16px;
+  `)}
 `;
 
 export default Container;

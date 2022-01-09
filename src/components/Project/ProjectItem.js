@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 
-import { fontFamilyWithPaybooc, color } from "@/styles";
+import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import Image from "@/components/common/Image";
 
@@ -86,6 +86,16 @@ const projectItem = css`
       transform: scale(1.1);
     }
   }
+
+  ${media.M(
+    css`
+      figure {
+        figcaption {
+          padding: 28px;
+        }
+      }
+    `,
+  )}
 `;
 
 const projectInformation = css`

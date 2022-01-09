@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 
 export const breakPoint = {
-  SM: 481, // 소형 모바일
+  SM: 460, // 소형 모바일
   M: 768, // 모바일
   MD: 1024, // 태블릿
   LG: 1279, // 소형 노트북
