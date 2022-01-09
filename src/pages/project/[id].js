@@ -3,6 +3,7 @@ import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import Container from "@/components/common/Container";
 import Image from "@/components/common/Image";
 import Button from "@/components/common/Button";
 
@@ -16,7 +17,7 @@ function ProjectDetail({ project }) {
     <MainLayout>
       <div css={projectDetail}>
         <div css={header}>
-          <div css={container}>
+          <Container>
             <Breadcrumb items={["프로젝트", "상세정보"]} />
             <div css={headerHead}>
               <div css={headerInformation}>
@@ -39,10 +40,10 @@ function ProjectDetail({ project }) {
                 )}
               </div>
             </div>
-          </div>
+          </Container>
         </div>
         <div>
-          <div css={container}>
+          <Container>
             <div>
               <Image src={project.cover} alt="" />
             </div>
@@ -78,7 +79,7 @@ function ProjectDetail({ project }) {
             <div css={bodyFull}>
               <Image src={project.full} alt={project.title} center></Image>
             </div>
-          </div>
+          </Container>
         </div>
       </div>
     </MainLayout>
@@ -93,24 +94,6 @@ ProjectDetail.getInitialProps = async ({ query }) => {
 
 const projectDetail = css`
   padding: 20px 0px;
-`;
-
-const container = css`
-  width: 1280px;
-  height: 100%;
-  margin: 0 auto;
-
-  ${media.XL(
-    css`
-      width: 1084px;
-    `,
-  )}
-
-  ${media.LG(
-    css`
-      width: 920px;
-    `,
-  )}
 `;
 
 const header = css`

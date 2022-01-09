@@ -11,6 +11,7 @@ import Project from "@/components/main/Project";
 import Blog from "@/components/main/Blog";
 
 import Button from "@/components/common/Button";
+import Container from "@/components/common/Container";
 
 import Developer from "@/assets/json/developer.json";
 import Process from "@/assets/json/process.json";
@@ -34,7 +35,7 @@ function Main() {
   return (
     <MainLayout background>
       <div css={cover}>
-        <div css={[container, coverContainer]}>
+        <Container css={coverContainer}>
           <div css={coverPhrase}>
             <h1>
               Make it happen
@@ -70,7 +71,7 @@ function Main() {
               segments={[95, 195]}
             ></Lottie>
           </div>
-        </div>
+        </Container>
         <div css={social}>
           <div css={socialLine}></div>
           <div css={socialItem}>
@@ -90,7 +91,7 @@ function Main() {
         </div>
       </div>
       <div css={project} ref={projectRef}>
-        <div css={container}>
+        <Container>
           <div css={projectHeader}>
             <h2>
               <span>Creative</span> Works
@@ -104,11 +105,11 @@ function Main() {
           <div>
             <Project />
           </div>
-        </div>
+        </Container>
       </div>
 
       <div css={skill}>
-        <div css={container}>
+        <Container>
           <div css={skillHeader}>
             <h2>
               Tech <span>Stack</span>
@@ -123,11 +124,11 @@ function Main() {
           <div>
             <TechStack />
           </div>
-        </div>
+        </Container>
       </div>
 
       <div css={blog}>
-        <div css={container}>
+        <Container>
           <div css={blogHeader}>
             <h2>
               <span>Blog</span> Topic
@@ -138,7 +139,7 @@ function Main() {
               <ArrowLong />
             </div>
           </div>
-        </div>
+        </Container>
         <div>
           <Blog />
         </div>
@@ -146,7 +147,7 @@ function Main() {
 
       <div css={contact}>
         <div css={contactLine}></div>
-        <div css={[container, contactContainer]}>
+        <Container css={contactContainer}>
           <div css={contactHeader}>
             <h2>
               Get{" "}
@@ -174,7 +175,7 @@ function Main() {
               animationData={Process}
             ></Lottie>
           </div>
-        </div>
+        </Container>
       </div>
     </MainLayout>
   );
@@ -194,6 +195,19 @@ const cover = css`
     z-index: -1;
     border-bottom-right-radius: 100px;
   }
+
+  ${media.LG(css`
+    height: 600px;
+  `)}
+
+  ${media.MD(css`
+    height: 460px;
+
+    &:before {
+      border-bottom-right-radius: 80px;
+      right: 0px;
+    }
+  `)}
 `;
 
 const coverContainer = css`
@@ -201,25 +215,11 @@ const coverContainer = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 0px 100px;
-`;
+  padding: 40px 0px 0px;
 
-const container = css`
-  width: 1280px;
-  height: 100%;
-  margin: 0 auto;
-
-  ${media.XL(
-    css`
-      width: 1084px;
-    `,
-  )}
-
-  ${media.LG(
-    css`
-      width: 920px;
-    `,
-  )}
+  ${media.MD(css`
+    padding: 20px 32px;
+  `)}
 `;
 
 const coverPhrase = css`
@@ -247,6 +247,15 @@ const coverPhrase = css`
     css`
       p {
         font-size: 18px;
+      }
+    `,
+  )}
+
+  ${media.MD(
+    css`
+      p {
+        margin-top: 20px;
+        font-size: 16px;
       }
     `,
   )}
@@ -309,6 +318,18 @@ const coverButton = css`
       z-index: -1;
     }
   }
+
+  ${media.MD(
+    css`
+      margin-top: 32px;
+
+      button {
+        width: 180px;
+        font-size: 16px;
+        padding: 16px 0px;
+      }
+    `,
+  )}
 `;
 
 const coverAnimation = css`
@@ -319,11 +340,25 @@ const coverAnimation = css`
     width: 400px;
     height: 400px;
   `)}
+
+  ${media.MD(css`
+    width: 320px;
+    height: 320px;
+  `)}
 `;
 
 const social = css`
   display: flex;
   align-items: center;
+  margin-top: 100px;
+
+  ${media.LG(css`
+    margin-top: 60px;
+  `)}
+
+  ${media.MD(css`
+    margin-top: 20px;
+  `)}
 `;
 
 const socialLine = css`
@@ -367,9 +402,15 @@ const socialItem = css`
 
 const project = css`
   padding: 80px 0px 80px;
+
+  ${media.MD(css`
+    padding: 60px 0px;
+  `)}
 `;
 
 const projectHeader = css`
+  display: flex;
+  align-items: flex-end;
   margin-bottom: 36px;
   position: relative;
 
@@ -389,6 +430,18 @@ const projectHeader = css`
     font-size: 16px;
     color: ${color.gray};
   }
+
+  ${media.MD(css`
+    margin-bottom: 24px;
+
+    h2 {
+      margin-right: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  `)}
 `;
 
 const projectHeaderMore = css`
@@ -409,10 +462,25 @@ const projectHeaderMore = css`
     width: 140px;
     stroke: ${color.brand};
   }
+
+  ${media.MD(css`
+    svg {
+      width: 100px;
+    }
+  `)}
 `;
 
 const skill = css`
-  padding: 120px 0px 40px;
+  padding: 100px 0px 40px;
+
+  ${media.LG(css`
+    padding: 80px 0px 20px;
+  `)}
+
+  ${media.MD(css`
+    padding: 60px 0px 0px;
+    margin-bottom: -40px;
+  `)}
 `;
 
 const skillHeader = css`
@@ -422,9 +490,9 @@ const skillHeader = css`
   &:before {
     position: absolute;
     content: "";
-    top: -90px;
+    top: -100px;
     width: 1px;
-    height: 68px;
+    height: 60px;
     background: ${color.gray};
   }
 
@@ -441,6 +509,13 @@ const skillHeader = css`
       font-size: 18px;
     }
   }
+
+  ${media.MD(css`
+    &:before {
+      top: -80px;
+      height: 52px;
+    }
+  `)}
 `;
 
 const blog = css`
@@ -458,6 +533,14 @@ const blog = css`
     z-index: -1;
     border-top-left-radius: 100px;
   }
+
+  ${media.MD(css`
+    padding: 48px 0px 48px;
+
+    &:before {
+      border-top-left-radius: 80px;
+    }
+  `)}
 `;
 
 const blogHeader = css`
@@ -480,6 +563,10 @@ const blogHeader = css`
       color: ${color.gray};
     }
   }
+
+  ${media.MD(css`
+    margin-bottom: 24px;
+  `)}
 `;
 
 const blogHeaderMore = css`
@@ -500,6 +587,12 @@ const blogHeaderMore = css`
     width: 140px;
     stroke: ${color.brand};
   }
+
+  ${media.MD(css`
+    svg {
+      width: 100px;
+    }
+  `)}
 `;
 
 const contact = css`
@@ -528,6 +621,14 @@ const contact = css`
     z-index: -2;
     background: #f5f5f5;
   }
+
+  ${media.MD(css`
+    padding: 48px 0px;
+
+    &:before {
+      border-bottom-right-radius: 80px;
+    }
+  `)}
 `;
 
 const contactLine = css`
@@ -538,6 +639,10 @@ const contactLine = css`
   height: 100px;
   border-top: 1px solid #eeeeee;
   border-top-right-radius: 100px;
+
+  ${media.MD(css`
+    border-top-right-radius: 80px;
+  `)}
 `;
 
 const contactContainer = css`
@@ -592,10 +697,19 @@ const contactBodyIllustration = css`
   top: 50%;
   right: 0px;
   transform: translateY(-50%);
+
+  ${media.MD(css`
+    top: 60%;
+    right: 32px;
+  `)}
 `;
 
 const contactBodyAnimation = css`
   width: 580px;
+
+  ${media.MD(css`
+    width: 480px;
+  `)}
 `;
 
 export default Main;

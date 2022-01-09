@@ -130,6 +130,10 @@ const nav = css`
       transition: 0.3s;
     }
   }
+
+  ${media.MD(css`
+    display: none;
+  `)}
 `;
 
 const content = css`
@@ -161,13 +165,17 @@ const skillItem = css`
 
   ${media.LG(
     css`
-      .image {
-        width: 28px;
-        height: 28px;
-        margin-right: 4px;
-      }
+      width: 33.333%;
     `,
   )}
+
+  ${media.MD(css`
+    .image {
+      width: 28px;
+      height: 28px;
+      margin-right: 4px;
+    }
+  `)}
 `;
 
 const skillContents = css`

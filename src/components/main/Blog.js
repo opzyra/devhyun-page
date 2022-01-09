@@ -147,6 +147,10 @@ const pagination = css`
   .swiper-pagination-bullet + .swiper-pagination-bullet {
     margin-left: 6px;
   }
+
+  ${media.MD(css`
+    margin-top: 32px;
+  `)}
 `;
 
 const blogGrid = css`
@@ -187,6 +191,12 @@ const blogGrid = css`
   ${media.LG(
     css`
       padding-left: calc((50% - 920px / 2));
+    `,
+  )}
+
+  ${media.MD(
+    css`
+      padding-left: 32px;
     `,
   )}
 `;

@@ -1,12 +1,14 @@
 import { css } from "@emotion/react";
 import { color, fontFamilyWithRoboto, media } from "@/styles";
 
+import Container from "@/components/common/Container";
+
 import OpenSource from "@/assets/svg/Opensource.svg";
 
 function Footer() {
   return (
     <footer css={footer}>
-      <div css={container}>
+      <Container>
         <div css={information}>
           <span css={appName}>데브현</span>
           <span>
@@ -33,7 +35,7 @@ function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
@@ -45,23 +47,6 @@ const footer = css`
   font-size: 14px;
   font-weight: 400;
   color: #667084;
-`;
-
-const container = css`
-  width: 1280px;
-  height: 100%;
-  margin: 0 auto;
-  ${media.XL(
-    css`
-      width: 1084px;
-    `,
-  )}
-
-  ${media.LG(
-    css`
-      width: 920px;
-    `,
-  )}
 `;
 
 const information = css`

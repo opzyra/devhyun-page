@@ -19,12 +19,6 @@ const projectGrid = css`
   display: flex;
   flex-wrap: wrap;
   margin: -20px;
-
-  ${media.LG(
-    css`
-      margin: -10px;
-    `,
-  )}
 `;
 
 const projectItem = css`
@@ -34,8 +28,7 @@ const projectItem = css`
 
   ${media.LG(
     css`
-      width: calc(33.333% - 20px);
-      margin: 10px;
+      width: calc(50% - 40px);
     `,
   )}
 `;

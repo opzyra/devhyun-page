@@ -1,11 +1,18 @@
 import { css } from "@emotion/react";
 
 export const breakPoint = {
-  M: 432,
-  MD: 999,
-  LG: 1279,
-  XL: 1440,
+  SM: 481, // 소형 모바일
+  M: 768, // 모바일
+  MD: 1024, // 태블릿
+  LG: 1279, // 소형 노트북
+  XL: 1440, // 노트북
 };
+
+const SM = (style) => css`
+  @media (max-width: ${breakPoint.SM}px) {
+    ${style}
+  }
+`;
 
 const M = (style) => css`
   @media (max-width: ${breakPoint.M}px) {
@@ -32,6 +39,7 @@ const XL = (style) => css`
 `;
 
 const media = {
+  SM,
   M,
   MD,
   LG,

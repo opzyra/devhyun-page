@@ -28,6 +28,10 @@ function TechStack() {
       ratio = 0.75;
     }
 
+    if (width < breakPoint.MD && width >= breakPoint.M) {
+      ratio = 0.58;
+    }
+
     setRatio(ratio);
   };
 
@@ -92,6 +96,19 @@ function TechStack() {
 
 const techStack = css`
   position: relative;
+  height: 720px;
+
+  ${media.XL(css`
+    height: 640px;
+  `)}
+
+  ${media.LG(css`
+    height: 600px;
+  `)}
+
+  ${media.MD(css`
+    height: 520px;
+  `)}
 `;
 
 const techStackItem = css`
@@ -109,18 +126,23 @@ const techStackItem = css`
 `;
 
 const computer = css`
-  width: 780px;
-  margin: 0 auto;
-  margin-top: 280px;
+  width: 720px;
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
 
   ${media.XL(css`
     width: 680px;
-    margin-top: 260px;
   `)}
 
   ${media.LG(css`
-    width: 640px;
-    margin-top: 240px;
+    width: 620px;
+  `)}
+
+  ${media.MD(css`
+    bottom: 88px;
+    width: 440px;
   `)}
 `;
 

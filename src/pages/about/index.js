@@ -5,6 +5,7 @@ import Image from "@/components/common/Image";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
+import Container from "@/components/common/Container";
 import Skill from "@/components/about/Skill";
 
 import IconFlow from "@/assets/images/icon-flow.png";
@@ -19,17 +20,17 @@ function About() {
   return (
     <MainLayout css={about}>
       <div css={header}>
-        <div css={container}>
+        <Container>
           <Breadcrumb items={["소개"]} />
           <h3>
             웹 브라우저로 사람을 연결하는 개발자
             <br />
             김현호에 대해 알아보세요 !
           </h3>
-        </div>
+        </Container>
       </div>
       <div css={keyword}>
-        <div css={container}>
+        <Container>
           <ul>
             <li>
               <Image src={IconWeb} alt="김현호" center />
@@ -57,10 +58,10 @@ function About() {
               <p>신뢰</p>
             </li>
           </ul>
-        </div>
+        </Container>
       </div>
       <div css={introduce}>
-        <div css={container}>
+        <Container>
           <h4>개발자 소개</h4>
           <p>
             웹 브라우저를 통해 사람을 연결하고 다양한 문제를 해결 및 개선하는
@@ -81,10 +82,10 @@ function About() {
           </p>
           <br />
           <p>반갑습니다, 신뢰를 가장 중요시하는 개발자 김현호입니다.</p>
-        </div>
+        </Container>
       </div>
       <div css={skills}>
-        <div css={container}>
+        <Container>
           <h4>기술스택 소개</h4>
           <p>프로젝트를 수행하기 위해 사용해본 경험이 있는 기술스택입니다.</p>
           <p>
@@ -92,17 +93,17 @@ function About() {
             이해할 수 있습니다.
           </p>
           <Skill />
-        </div>
+        </Container>
       </div>
       <div css={value}>
-        <div css={container}>
+        <Container>
           <h4>데브현 소개</h4>
           <p>
             세상에 많은 개발자들 중 &#39;김현호&#39;가 추구하는 가치를 브랜드화
             하였습니다.
           </p>
           <Image src={ImgIdentity} alt="identity" />
-        </div>
+        </Container>
       </div>
     </MainLayout>
   );
@@ -114,24 +115,6 @@ const about = css`
 
 const header = css`
   padding-bottom: 20px;
-`;
-
-const container = css`
-  width: 1280px;
-  height: 100%;
-  margin: 0 auto;
-
-  ${media.XL(
-    css`
-      width: 1084px;
-    `,
-  )}
-
-  ${media.LG(
-    css`
-      width: 920px;
-    `,
-  )}
 `;
 
 const keyword = css`
@@ -170,6 +153,24 @@ const keyword = css`
       }
     `,
   )}
+
+  ${media.MD(
+    css`
+      padding: 20px 0px;
+
+      li {
+        width: 120px;
+        height: 120px;
+        padding: 12px;
+        margin: 0 0 0 16px;
+
+        .image {
+          width: 48px;
+          height: 48px;
+        }
+      }
+    `,
+  )}
 `;
 
 const introduce = css`
@@ -179,6 +180,10 @@ const introduce = css`
   h4 {
     margin-bottom: 20px;
   }
+
+  ${media.MD(css`
+    padding: 20px 0px 40px;
+  `)}
 `;
 
 const skills = css`
@@ -188,6 +193,10 @@ const skills = css`
   h4 {
     margin-bottom: 20px;
   }
+
+  ${media.MD(css`
+    padding: 40px 0px;
+  `)}
 `;
 
 const value = css`
@@ -196,6 +205,10 @@ const value = css`
   h4 {
     margin-bottom: 20px;
   }
+
+  ${media.MD(css`
+    padding: 40px 0px 0px 0px;
+  `)}
 `;
 
 export default About;

@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Link from "next/link";
 
-import { fontFamilyWithPaybooc, color, media } from "@/styles";
+import { fontFamilyWithPaybooc, color } from "@/styles";
 
 import Image from "@/components/common/Image";
 
@@ -86,26 +86,10 @@ const projectItem = css`
       transform: scale(1.1);
     }
   }
-
-  ${media.LG(
-    css`
-      figure {
-        figcaption {
-          padding: 32px;
-        }
-      }
-    `,
-  )}
 `;
 
 const projectInformation = css`
   display: flex;
-
-  ${media.LG(
-    css`
-      flex-direction: column;
-    `,
-  )}
 `;
 
 const projectDetail = css`
@@ -142,16 +126,6 @@ const projectDetail = css`
       background: ${color.gray};
     }
   }
-
-  ${media.LG(
-    css`
-      width: 100%;
-
-      & + & {
-        display: none;
-      }
-    `,
-  )}
 `;
 
 export default ProjectItem;
