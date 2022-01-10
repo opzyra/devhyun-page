@@ -24,7 +24,7 @@ const portfolio = [
     },
     client: "(주)어바웃피리어드",
     name: "ABOUTPERIOD",
-    category: "Brand Website dev.",
+    summary: "Brand Website dev.",
     parts: "Desgin, Publish,F/B-end",
     display: true,
 
@@ -36,7 +36,7 @@ const portfolio = [
     mock: MockAboutperiod,
     page: PageAboutperiod,
     full: FullAboutperiod,
-    summary:
+    description:
       "어바웃피리어드는 월경에 대한 올바르지 않은 인식과 사회적 분위기를 바꾸기 위해 월경상자를 기획한 스타트업으로 기업이 추구하는 가치를 홍보하고 신뢰성을 높이기 위해 홈페이지를 런칭하였습니다. 감성적인 일러스트와 폰트를 사용하였고 추구하는 가치와 제품을 메인에 게시하여 기업의 진정성이 느껴질 수 있도록 제작되었습니다.",
   },
   {
@@ -46,7 +46,7 @@ const portfolio = [
     },
     client: "제일학원",
     name: "JABIS",
-    category: "Custom Solution dev.",
+    summary: "Custom Solution dev.",
     parts: "UI/UX, Publish, F/B-end",
     display: true,
   },
@@ -55,7 +55,7 @@ const portfolio = [
     thumbnail: { url: ImageLifecaption },
     client: "(주)청각장애인생활지원센터",
     name: "LIFECAPTION",
-    category: "Platform dev.",
+    summary: "Platform dev.",
     parts: "UI/UX, Publish, F/B-end",
     display: true,
 
@@ -67,7 +67,7 @@ const portfolio = [
     mock: MockLifecaption,
     page: PageLifecaption,
     full: FullLifecaption,
-    summary:
+    description:
       "라이프캡션은 청각장애인의 학습권과 의사소통 권리 보장을 위해 소리를 문자로 통역하는 실시간 문자통역 서비스로 더 나은 듣기 경험을 통해 더 행복한 삶의 방향을 찾을 수 있도록 맞춤형 생애지원서비스를 제공하는 청각장애인생애지원센터에서 운영하고 있습니다.",
   },
 
@@ -76,7 +76,7 @@ const portfolio = [
     thumbnail: { url: ImageSemas },
     client: "소상공인 새희망자금",
     name: "SEMAS",
-    category: "Public Project.",
+    summary: "Public Project.",
     parts: "Publish",
     display: true,
   },
@@ -85,7 +85,7 @@ const portfolio = [
     thumbnail: { url: ImageHcnanum },
     client: "홍천군종합사회복지관",
     name: "WELFARE CENTER SYSTEM",
-    category: "Solution introduction.",
+    summary: "Solution introduction.",
     parts: "Design, Publish, F/B-end",
     display: true,
   },
@@ -94,7 +94,7 @@ const portfolio = [
     thumbnail: { url: ImageAbiteofvalue },
     client: "가치플러스 사회적협동조합",
     name: "ABITE OF VALUE",
-    category: "Brand Website dev.",
+    summary: "Brand Website dev.",
     parts: "Publish, F/B-end",
     display: true,
   },

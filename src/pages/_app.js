@@ -20,7 +20,7 @@ function App({ Component, pageProps }) {
           <ThemeProvider theme={defaultTheme}>
             <Global styles={[reset, typography]} />
             <Component {...pageProps} />
-            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+            <ReactQueryDevtools initialIsOpen={false} />
           </ThemeProvider>
         </Hydrate>
       </QueryClientProvider>

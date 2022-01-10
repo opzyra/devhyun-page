@@ -8,9 +8,9 @@ import { media } from "@/styles";
 
 import ProjectItem from "@/components/project/ProjectItem";
 
-function Project({ portfolio }) {
+function Project({ portfolios }) {
   const animeRef = useRef(null);
-  const handleProgress = ({ progress, velocity }) => {
+  const handleProgress = ({ velocity }) => {
     let animeInst = animeRef.current;
     if (velocity >= 1 && !animeInst) {
       animeRef.current = anime
@@ -21,7 +21,7 @@ function Project({ portfolio }) {
           translateY: [100, 0],
           duration: 500,
           easing: "easeInOutQuad",
-          delay: function (el, i, l) {
+          delay: function (el, i) {
             return i * 300;
           },
           opacity: 1,
@@ -34,7 +34,7 @@ function Project({ portfolio }) {
     <div css={project}>
       <ScrollTrigger onProgress={handleProgress}>
         <div className="projectGrid">
-          {portfolio.map((project, index) => (
+          {portfolios.map((project, index) => (
             <ProjectItem css={projectItem} project={project} key={index} />
           ))}
         </div>

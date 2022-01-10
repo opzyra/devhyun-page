@@ -9,10 +9,44 @@ Image.propTypes = {
   center: PropTypes.bool,
 };
 
-function Image({ src, alt, center, ...props }) {
+function Image({
+  center,
+  src,
+  width,
+  height,
+  layout,
+  loader,
+  quality,
+  priority,
+  loading,
+  lazyBoundary,
+  placeholder,
+  blurDataURL,
+  unoptimized,
+  objectFit,
+  objectPosition,
+  onLoadingComplete,
+  ...props
+}) {
   return (
     <div css={image({ center })} className="image" {...props}>
-      <NextImage src={src} alt={alt} layout="fill" />
+      <NextImage
+        src={src}
+        width={width}
+        height={height}
+        layout={layout}
+        loader={loader}
+        quality={quality}
+        priority={priority}
+        loading={loading}
+        lazyBoundary={lazyBoundary}
+        placeholder={placeholder}
+        blurDataURL={blurDataURL}
+        unoptimized={unoptimized}
+        objectFit={objectFit}
+        objectPosition={objectPosition}
+        onLoadingComplete={onLoadingComplete}
+      />
     </div>
   );
 }
@@ -22,17 +56,6 @@ const image = ({ center }) => css`
   css`
     margin: 0 auto;
   `}
-
-  & > div {
-    position: unset !important;
-  }
-
-  img {
-    object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
-    height: unset !important;
-  }
 `;
 
 export default Image;

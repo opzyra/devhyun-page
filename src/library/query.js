@@ -1,6 +1,7 @@
 import { QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
 
-export const options = {
+const client = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
@@ -21,8 +22,17 @@ export const options = {
       },
     },
   },
-};
+});
 
-const client = new QueryClient(options);
+export const preFetchingQuery = async (queries) => {
+  const queryClient = new QueryClient();
+
+  for (let i = 0; i < queries.length; i++) {
+    const query = queries[i];
+    await query(queryClient);
+  }
+
+  return dehydrate(queryClient);
+};
 
 export default client;

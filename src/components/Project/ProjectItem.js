@@ -6,7 +6,6 @@ import { fontFamilyWithPaybooc, color, media } from "@/styles";
 import Image from "@/components/common/Image";
 
 function ProjectItem({ project, ...props }) {
-  console.log(project);
   return (
     <div css={projectItem} {...props}>
       <Link href={`/project/[id]`} as={`/project/${project.id}`}>
@@ -17,6 +16,7 @@ function ProjectItem({ project, ...props }) {
               width={6}
               height={4}
               layout="responsive"
+              objectFit="cover"
               alt={project.name}
             />
             <figcaption>
@@ -27,7 +27,7 @@ function ProjectItem({ project, ...props }) {
           <div css={projectInformation}>
             <div css={projectDetail}>
               <h6>PROJECT</h6>
-              <p>{project.category}</p>
+              <p>{project.summary}</p>
             </div>
             <div css={projectDetail}>
               <h6>PARTS</h6>

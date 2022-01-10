@@ -88,7 +88,7 @@ const header = ({ background, full }) => css`
 
   ${background &&
   css`
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       background: #fafaff;
@@ -99,7 +99,7 @@ const header = ({ background, full }) => css`
     }
 
     ${media.MD(css`
-      &:before {
+      &::before {
         right: 0px;
       }
     `)}

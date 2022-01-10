@@ -1,14 +1,15 @@
 import { useCallback, useRef } from "react";
 import Lottie from "react-lottie-player";
-import { useQuery, QueryClient } from "react-query";
-import { dehydrate } from "react-query/hydration";
 
 import { css } from "@emotion/react";
 
 import { fontFamilyWithPaybooc, color, media, display } from "@/styles";
 
-import { options } from "@/library/query";
-import * as portfolioService from "@/service/portfolio";
+import { preFetchingQuery } from "@/library/query";
+import {
+  preFetchRecentPortfolios,
+  useRecentPortfolios,
+} from "@/feature/portfolios";
 
 import MainLayout from "@/components/layout/MainLayout";
 import TechStack from "@/components/main/TechStack";
@@ -26,10 +27,7 @@ import ArrowLong from "@/assets/svg/ArrowLong.svg";
 
 function Main() {
   const projectRef = useRef(null);
-  const { data: portfolio, isLoading } = useQuery(
-    "post",
-    portfolioService.selectAllRecent,
-  );
+  const { recentPortfolios } = useRecentPortfolios();
 
   const handleClickProjectScroll = useCallback(() => {
     const projectInst = projectRef.current;
@@ -38,8 +36,6 @@ function Main() {
       top: projectInst.offsetTop + 60,
     });
   }, []);
-
-  if (isLoading) return null;
 
   return (
     <MainLayout background>
@@ -129,7 +125,7 @@ function Main() {
             </div>
           </div>
           <div>
-            <Project portfolio={portfolio} />
+            <Project portfolios={recentPortfolios} />
           </div>
         </Container>
       </div>
@@ -182,15 +178,10 @@ function Main() {
 }
 
 export async function getServerSideProps() {
-  const queryClient = new QueryClient(options);
-  await queryClient.prefetchQuery(
-    "portfolio",
-    portfolioService.selectAllRecent,
-  );
-
+  const dehydratedState = await preFetchingQuery([preFetchRecentPortfolios()]);
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState,
     },
   };
 }
@@ -199,7 +190,7 @@ const cover = css`
   position: relative;
   height: 720px;
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     background: #fafaff;
@@ -217,7 +208,7 @@ const cover = css`
   ${media.MD(css`
     height: 460px;
 
-    &:before {
+    &::before {
       border-bottom-right-radius: 80px;
       right: 0px;
     }
@@ -226,7 +217,7 @@ const cover = css`
   ${media.M(css`
     height: 340px;
 
-    &:before {
+    &::before {
       border-bottom-right-radius: 60px;
     }
   `)}
@@ -631,7 +622,7 @@ const skillHeader = css`
   position: relative;
   text-align: center;
 
-  &:before {
+  &::before {
     position: absolute;
     content: "";
     top: -100px;
@@ -655,14 +646,14 @@ const skillHeader = css`
   }
 
   ${media.MD(css`
-    &:before {
+    &::before {
       top: -80px;
       height: 52px;
     }
   `)}
 
   ${media.M(css`
-    &:before {
+    &::before {
       top: -60px;
       height: 40px;
     }
@@ -677,7 +668,7 @@ const blog = css`
   padding: 80px 0px 60px;
   position: relative;
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     background: #fafaff;
@@ -692,7 +683,7 @@ const blog = css`
   ${media.MD(css`
     padding: 48px 0px 48px;
 
-    &:before {
+    &::before {
       border-top-left-radius: 80px;
     }
   `)}
@@ -700,7 +691,7 @@ const blog = css`
   ${media.M(css`
     padding: 40px 0px;
 
-    &:before {
+    &::before {
       border-top-left-radius: 0px;
     }
   `)}
@@ -784,7 +775,7 @@ const contact = css`
   padding: 60px 0px;
   position: relative;
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     background: #fafaff;
@@ -796,7 +787,7 @@ const contact = css`
     border-bottom-right-radius: 100px;
   }
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -810,7 +801,7 @@ const contact = css`
   ${media.MD(css`
     padding: 48px 0px;
 
-    &:before {
+    &::before {
       border-bottom-right-radius: 80px;
     }
   `)}
@@ -818,7 +809,7 @@ const contact = css`
   ${media.M(css`
     padding: 40px 0px;
 
-    &:before {
+    &::before {
       border-bottom-right-radius: 60px;
     }
   `)}

@@ -50,7 +50,7 @@ function ProjectDetail({ project }) {
             <div css={bodyHead}>
               <div css={bodySummary}>{project.summary}</div>
               <ul css={bodyParts}>
-                {project.parts.map((part, index) => (
+                {project.parts.split(",").map((part, index) => (
                   <li key={index}>#{part}</li>
                 ))}
               </ul>
