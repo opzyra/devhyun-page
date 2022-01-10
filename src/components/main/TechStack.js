@@ -1,22 +1,22 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import ScrollTrigger from "react-scroll-trigger";
 import anime from "animejs";
 import Lottie from "react-lottie-player";
+import Lo from "lodash";
 
 import { media, zIndex, breakPoint } from "@/styles";
 
 import Computer from "@/assets/json/computer.json";
 
 import stacks from "@/assets/data/stack";
-import { useEffect } from "react/cjs/react.development";
 
 function TechStack() {
   const animeRef = useRef(null);
 
   const [ratio, setRatio] = useState(1);
 
-  const handleResize = () => {
+  const handleResize = Lo.debounce(() => {
     const width = window.innerWidth;
     let ratio = 1;
 
@@ -41,7 +41,7 @@ function TechStack() {
     }
 
     setRatio(ratio);
-  };
+  }, 500);
 
   const handleEnterStack = useCallback(() => {
     let animeInst = animeRef.current;

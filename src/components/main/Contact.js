@@ -1,7 +1,7 @@
 import Lottie from "react-lottie-player";
 
 import { css } from "@emotion/react";
-import { fontFamilyWithPaybooc, color, media } from "@/styles";
+import { fontFamilyWithPaybooc, color, media, display } from "@/styles";
 
 import Button from "@/components/common/Button";
 
@@ -19,13 +19,13 @@ function Contact() {
             Started <span>!</span>
           </span>
         </h2>
-        <div css={contactDescription}>
-          <p>
+        <div>
+          <p css={display.not("M")}>
             새로운 프로젝트를 준비하거나 함께 일할 개발자를 찾고 계신가요?
             <br />
             이력서를 살펴보시고 프로젝트에 대해 알려주세요!
           </p>
-          <p className="displayM">
+          <p css={display.match("M")}>
             함께 일할 개발자를 찾고 계신가요?
             <br />
             이력서를 살펴보시고 프로젝트에 대해 알려주세요!
@@ -76,22 +76,6 @@ const contactHeader = css`
 
   ${media.M(css`
     margin-bottom: 28px;
-  `)}
-`;
-
-const contactDescription = css`
-  .displayM {
-    display: none;
-  }
-
-  ${media.M(css`
-    p {
-      display: none;
-    }
-
-    .displayM {
-      display: block;
-    }
   `)}
 `;
 

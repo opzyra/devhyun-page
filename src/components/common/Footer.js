@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { color, fontFamilyWithRoboto, media } from "@/styles";
+import { color, fontFamilyWithPaybooc, media } from "@/styles";
 
 import Container from "@/components/common/Container";
 
@@ -62,7 +62,7 @@ const information = css`
     b {
       font-weight: 900;
       color: ${color.font};
-      font-family: ${fontFamilyWithRoboto};
+      font-family: ${fontFamilyWithPaybooc};
     }
   }
 

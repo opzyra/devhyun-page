@@ -30,6 +30,10 @@ function Project() {
 
 const project = css`
   padding: 20px 0px;
+
+  ${media.M(css`
+    padding: 12px 0px;
+  `)}
 `;
 
 const header = css`
@@ -37,7 +41,19 @@ const header = css`
 `;
 
 const body = css`
-  padding: 40px 0px 60px;
+  padding: 28px 0px 60px;
+
+  ${media.LG(css`
+    padding: 20px 0px 60px;
+  `)}
+
+  ${media.MD(css`
+    padding: 12px 0px 60px;
+  `)}
+
+  ${media.M(css`
+    padding: 0px 0px 40px;
+  `)}
 `;
 
 export default Project;

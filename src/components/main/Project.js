@@ -8,11 +8,8 @@ import { media } from "@/styles";
 
 import ProjectItem from "@/components/project/ProjectItem";
 
-import portfolio from "@/assets/data/portfolio";
-
-function Project() {
+function Project({ portfolio }) {
   const animeRef = useRef(null);
-
   const handleProgress = ({ progress, velocity }) => {
     let animeInst = animeRef.current;
     if (velocity >= 1 && !animeInst) {
@@ -37,11 +34,9 @@ function Project() {
     <div css={project}>
       <ScrollTrigger onProgress={handleProgress}>
         <div className="projectGrid">
-          {portfolio
-            .filter((project) => project.display)
-            .map((project, index) => (
-              <ProjectItem css={projectItem} project={project} key={index} />
-            ))}
+          {portfolio.map((project, index) => (
+            <ProjectItem css={projectItem} project={project} key={index} />
+          ))}
         </div>
       </ScrollTrigger>
     </div>

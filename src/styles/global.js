@@ -295,23 +295,23 @@ export const typography = css`
       }
 
       h1 {
-        font-size: 24px;
-      }
-
-      h2 {
         font-size: 22px;
       }
 
-      h3 {
+      h2 {
         font-size: 20px;
       }
 
-      h4 {
+      h3 {
         font-size: 18px;
       }
 
-      h5 {
+      h4 {
         font-size: 16px;
+      }
+
+      h5 {
+        font-size: 15px;
       }
 
       h6 {

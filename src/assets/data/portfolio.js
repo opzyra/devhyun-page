@@ -19,11 +19,13 @@ import ImageHcnanum from "@/assets/images/image-hcnanum.png";
 const portfolio = [
   {
     id: "aboutperiod",
-    image: ImageAboutperiod,
+    thumbnail: {
+      url: ImageAboutperiod,
+    },
     client: "(주)어바웃피리어드",
     name: "ABOUTPERIOD",
     category: "Brand Website dev.",
-    parts: ["Desgin", "Publish", "F/B-end"],
+    parts: "Desgin, Publish,F/B-end",
     display: true,
 
     title: "어바웃 피리어드 홈페이지",
@@ -39,20 +41,22 @@ const portfolio = [
   },
   {
     id: "jabis",
-    image: ImageJabis,
+    thumbnail: {
+      url: ImageJabis,
+    },
     client: "제일학원",
     name: "JABIS",
     category: "Custom Solution dev.",
-    parts: ["UI/UX", "Publish", "F/B-end"],
+    parts: "UI/UX, Publish, F/B-end",
     display: true,
   },
   {
     id: "lifecaption",
-    image: ImageLifecaption,
+    thumbnail: { url: ImageLifecaption },
     client: "(주)청각장애인생활지원센터",
     name: "LIFECAPTION",
     category: "Platform dev.",
-    parts: ["UI/UX", "Publish", "F/B-end"],
+    parts: "UI/UX, Publish, F/B-end",
     display: true,
 
     title: "라이프캡션",
@@ -69,29 +73,29 @@ const portfolio = [
 
   {
     id: "semas",
-    image: ImageSemas,
+    thumbnail: { url: ImageSemas },
     client: "소상공인 새희망자금",
     name: "SEMAS",
     category: "Public Project.",
-    parts: ["Publish"],
+    parts: "Publish",
     display: true,
   },
   {
     id: "hcnanum",
-    image: ImageHcnanum,
+    thumbnail: { url: ImageHcnanum },
     client: "홍천군종합사회복지관",
     name: "WELFARE CENTER SYSTEM",
     category: "Solution introduction.",
-    parts: ["Design", "Publish", "F/B-end"],
+    parts: "Design, Publish, F/B-end",
     display: true,
   },
   {
     id: "abiteofvalue",
-    image: ImageAbiteofvalue,
+    thumbnail: { url: ImageAbiteofvalue },
     client: "가치플러스 사회적협동조합",
     name: "ABITE OF VALUE",
     category: "Brand Website dev.",
-    parts: ["Publish", "F/B-end"],
+    parts: "Publish, F/B-end",
     display: true,
   },
 ];

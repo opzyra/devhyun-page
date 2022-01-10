@@ -190,7 +190,7 @@ const gnb = css`
 
       a {
         padding: 16px 0px;
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   `)}

@@ -48,6 +48,12 @@ function ProjectDetail({ project }) {
               <Image src={project.cover} alt="" />
             </div>
             <div css={bodyHead}>
+              <div css={bodySummary}>{project.summary}</div>
+              <ul css={bodyParts}>
+                {project.parts.map((part, index) => (
+                  <li key={index}>#{part}</li>
+                ))}
+              </ul>
               <div css={bodyAction}>
                 {project.link && (
                   <Button
@@ -63,12 +69,6 @@ function ProjectDetail({ project }) {
                   </Button>
                 )}
               </div>
-              <div css={bodySummary}>{project.summary}</div>
-              <ul css={bodyParts}>
-                {project.parts.map((part, index) => (
-                  <li key={index}>#{part}</li>
-                ))}
-              </ul>
             </div>
             <div css={bodyMockUp}>
               <Image src={project.mock} alt={project.title} center></Image>
@@ -94,20 +94,36 @@ ProjectDetail.getInitialProps = async ({ query }) => {
 
 const projectDetail = css`
   padding: 20px 0px;
+  ${media.M(css`
+    padding: 12px 0px;
+  `)}
 `;
 
 const header = css`
   padding-bottom: 20px;
+
+  ${media.M(css`
+    padding-bottom: 12px;
+  `)}
 `;
 
 const headerHead = css`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  position: relative;
+
+  ${media.M(css`
+    display: block;
+  `)}
 `;
 
 const headerInformation = css`
   width: 85%;
+
+  ${media.M(css`
+    width: 100%;
+  `)}
 `;
 
 const headerMeta = css`
@@ -164,18 +180,64 @@ const headerType = css`
     height: 64px;
     background: #f5f5f5;
     margin: 0px 8px;
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
   }
+
+  ${media.M(css`
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    p {
+      width: 40px;
+      height: 40px;
+      margin: 0px 4px;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  `)}
 `;
 
 const bodyHead = css`
-  margin-top: 40px;
+  margin-top: 28px;
   position: relative;
+
+  ${media.LG(css`
+    margin-top: 20px;
+  `)}
+
+  ${media.MD(css`
+    margin-top: 16px;
+  `)}
 `;
 
 const bodyAction = css`
   position: absolute;
   top: 0px;
   right: 0px;
+
+  ${media.MD(css`
+    top: auto;
+    bottom: -64px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    button {
+      margin: 0 auto;
+      padding: 12px 16px;
+      font-size: 12px;
+
+      svg {
+        width: 10px;
+      }
+    }
+  `)}
 `;
 
 const bodySummary = css`
@@ -184,7 +246,13 @@ const bodySummary = css`
 
   ${media.LG(
     css`
-      width: 760px;
+      width: 75%;
+    `,
+  )}
+
+  ${media.M(
+    css`
+      width: 100%;
     `,
   )}
 `;
@@ -201,6 +269,16 @@ const bodyParts = css`
       margin-left: 6px;
     }
   }
+
+  ${media.M(
+    css`
+      margin-top: 12px;
+
+      li {
+        font-size: 12px;
+      }
+    `,
+  )}
 `;
 
 const bodyMockUp = css`

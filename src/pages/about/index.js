@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { media } from "@/styles";
+import { display, media } from "@/styles";
 
 import Image from "@/components/common/Image";
 
@@ -15,6 +15,7 @@ import IconTrust from "@/assets/images/icon-trust.png";
 import IconWeb from "@/assets/images/icon-web.png";
 
 import ImgIdentity from "@/assets/images/img-identity.png";
+import ImgIdentityM from "@/assets/images/img-identity_m.png";
 
 function About() {
   return (
@@ -102,7 +103,18 @@ function About() {
             세상에 많은 개발자들 중 &#39;김현호&#39;가 추구하는 가치를 브랜드화
             하였습니다.
           </p>
-          <Image src={ImgIdentity} alt="identity" />
+          <div>
+            <Image
+              css={display.not("M", "block")}
+              src={ImgIdentity}
+              alt="identity"
+            />
+            <Image
+              css={display.match("M", "block")}
+              src={ImgIdentityM}
+              alt="identity"
+            />
+          </div>
         </Container>
       </div>
     </MainLayout>
@@ -111,14 +123,22 @@ function About() {
 
 const about = css`
   padding: 20px 0px;
+
+  ${media.M(css`
+    padding: 12px 0px;
+  `)}
 `;
 
 const header = css`
   padding-bottom: 20px;
+
+  ${media.M(css`
+    padding-bottom: 12px;
+  `)}
 `;
 
 const keyword = css`
-  padding: 40px 0px;
+  padding: 28px 0px;
 
   li {
     display: inline-block;
@@ -171,6 +191,32 @@ const keyword = css`
       }
     `,
   )}
+  ${media.M(css`
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      margin: -8px;
+    }
+
+    li {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      margin: 8px;
+
+      &:first-of-type {
+        margin: 8px;
+      }
+
+      p {
+        display: none;
+      }
+    }
+  `)}
 `;
 
 const introduce = css`
@@ -184,6 +230,12 @@ const introduce = css`
   ${media.MD(css`
     padding: 20px 0px 40px;
   `)}
+
+  ${media.M(css`
+    h4 {
+      margin-bottom: 8px;
+    }
+  `)}
 `;
 
 const skills = css`
@@ -196,6 +248,12 @@ const skills = css`
 
   ${media.MD(css`
     padding: 40px 0px;
+  `)}
+
+  ${media.M(css`
+    h4 {
+      margin-bottom: 8px;
+    }
   `)}
 `;
 

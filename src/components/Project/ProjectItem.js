@@ -6,13 +6,14 @@ import { fontFamilyWithPaybooc, color, media } from "@/styles";
 import Image from "@/components/common/Image";
 
 function ProjectItem({ project, ...props }) {
+  console.log(project);
   return (
     <div css={projectItem} {...props}>
       <Link href={`/project/[id]`} as={`/project/${project.id}`}>
         <a>
           <figure>
             <Image
-              src={project.image}
+              src={project.thumbnail.url}
               width={6}
               height={4}
               layout="responsive"
@@ -31,7 +32,7 @@ function ProjectItem({ project, ...props }) {
             <div css={projectDetail}>
               <h6>PARTS</h6>
               <ul>
-                {project.parts.map((part, index) => (
+                {project.parts.split(",").map((part, index) => (
                   <li key={index}>{part}</li>
                 ))}
               </ul>

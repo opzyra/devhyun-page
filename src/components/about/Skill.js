@@ -138,6 +138,10 @@ const nav = css`
 
 const content = css`
   padding: 36px 0px 0px;
+
+  ${media.M(css`
+    padding: 12px 0px 0px;
+  `)}
 `;
 
 const skillItem = css`
@@ -174,6 +178,16 @@ const skillItem = css`
       width: 28px;
       height: 28px;
       margin-right: 4px;
+    }
+  `)}
+
+  ${media.M(css`
+    width: 100%;
+
+    .image {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
     }
   `)}
 `;

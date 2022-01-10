@@ -8,6 +8,65 @@ export const breakPoint = {
   XL: 1440, // 노트북
 };
 
+export const display = {
+  match: (size, display) => css`
+    display: none;
+
+    ${size === "XL" &&
+    XL(css`
+      display: ${display || "block"};
+    `)};
+
+    ${size === "LG" &&
+    LG(css`
+      display: ${display || "block"};
+    `)};
+
+    ${size === "MD" &&
+    MD(css`
+      display: ${display || "block"};
+    `)};
+
+    ${size === "M" &&
+    M(css`
+      display: ${display || "block"};
+    `)};
+
+    ${size === "SM" &&
+    SM(css`
+      display: ${display || "block"};
+    `)};
+  `,
+  not: (size, display) => css`
+    display: ${display || "block"};
+
+    ${size === "XL" &&
+    XL(css`
+      display: none;
+    `)};
+
+    ${size === "LG" &&
+    LG(css`
+      display: none;
+    `)};
+
+    ${size === "MD" &&
+    MD(css`
+      display: none;
+    `)};
+
+    ${size === "M" &&
+    M(css`
+      display: none;
+    `)};
+
+    ${size === "SM" &&
+    SM(css`
+      display: none;
+    `)};
+  `,
+};
+
 const SM = (style) => css`
   @media (max-width: ${breakPoint.SM}px) {
     ${style}

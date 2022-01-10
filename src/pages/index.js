@@ -1,9 +1,14 @@
 import { useCallback, useRef } from "react";
 import Lottie from "react-lottie-player";
+import { useQuery, QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
 
 import { css } from "@emotion/react";
 
-import { fontFamilyWithPaybooc, color, media } from "@/styles";
+import { fontFamilyWithPaybooc, color, media, display } from "@/styles";
+
+import { options } from "@/library/query";
+import * as portfolioService from "@/service/portfolio";
 
 import MainLayout from "@/components/layout/MainLayout";
 import TechStack from "@/components/main/TechStack";
@@ -21,6 +26,10 @@ import ArrowLong from "@/assets/svg/ArrowLong.svg";
 
 function Main() {
   const projectRef = useRef(null);
+  const { data: portfolio, isLoading } = useQuery(
+    "post",
+    portfolioService.selectAllRecent,
+  );
 
   const handleClickProjectScroll = useCallback(() => {
     const projectInst = projectRef.current;
@@ -29,6 +38,8 @@ function Main() {
       top: projectInst.offsetTop + 60,
     });
   }, []);
+
+  if (isLoading) return null;
 
   return (
     <MainLayout background>
@@ -42,7 +53,7 @@ function Main() {
               <br />
             </h1>
             <div css={coverDescription}>
-              <p>
+              <p css={display.not("M")}>
                 안녕하세요
                 <span>!</span>
                 웹 브라우저로 사람을 연결하는 개발자 김현호 입니다.
@@ -51,7 +62,7 @@ function Main() {
                 <br />
                 노하우가 담긴 프로젝트 작업물을 살펴보세요.
               </p>
-              <p className="displayM">
+              <p css={display.match("M")}>
                 웹으로 사람을 연결하는 개발자 김현호 입니다.
                 <br />
                 다양한 환경으로 맞춤형 웹사이트를 구축합니다.
@@ -104,8 +115,10 @@ function Main() {
               <span>Creative</span> Works
             </h2>
             <div css={projectDescription}>
-              <p>프로젝트를 진행하면서 다져진 경험이 스며들어 있습니다.</p>
-              <p className="displayM">
+              <p css={display.not("M")}>
+                프로젝트를 진행하면서 다져진 경험이 스며들어 있습니다.
+              </p>
+              <p css={display.match("M")}>
                 프로젝트에 다양한 경험이 스며들어 있습니다.
               </p>
             </div>
@@ -116,7 +129,7 @@ function Main() {
             </div>
           </div>
           <div>
-            <Project />
+            <Project portfolio={portfolio} />
           </div>
         </Container>
       </div>
@@ -146,7 +159,7 @@ function Main() {
             <h2>
               <span>Blog</span> Topic
             </h2>
-            <p>다양한 이야기들을 정성을 담아 기록하고 있습니다.</p>
+            <p>다양한 이야기를 정성 담아 기록하고 있습니다.</p>
             <div css={blogHeaderMore}>
               <span>MORE</span>
               <ArrowLong />
@@ -166,6 +179,20 @@ function Main() {
       </div>
     </MainLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient(options);
+  await queryClient.prefetchQuery(
+    "portfolio",
+    portfolioService.selectAllRecent,
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 }
 
 const cover = css`
@@ -220,7 +247,7 @@ const coverContainer = css`
   ${media.M(css`
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 16px;
+    padding: 12px 16px;
   `)}
 `;
 
@@ -251,10 +278,6 @@ const coverDescription = css`
       margin: 0px 6px 0px 1px;
       transform: rotate(4deg);
     }
-
-    &.displayM {
-      display: none;
-    }
   }
 
   ${media.LG(
@@ -276,13 +299,8 @@ const coverDescription = css`
 
   ${media.M(css`
     p {
-      display: none;
       margin-top: 16px;
       font-size: 16px;
-
-      &.displayM {
-        display: block;
-      }
     }
   `)}
 `;
@@ -534,13 +552,8 @@ const projectHeader = css`
 
 const projectDescription = css`
   p {
-    display: inline-block;
     font-size: 16px;
     color: ${color.gray};
-
-    &.displayM {
-      display: none;
-    }
   }
 
   ${media.MD(css`
@@ -552,11 +565,6 @@ const projectDescription = css`
   ${media.M(css`
     p {
       font-size: 16px;
-      display: none;
-
-      &.displayM {
-        display: block;
-      }
     }
   `)}
 `;
@@ -711,12 +719,12 @@ const blogHeader = css`
     span {
       color: ${color.brand};
     }
+  }
 
-    p {
-      display: inline-block;
-      font-size: 16px;
-      color: ${color.gray};
-    }
+  p {
+    display: inline-block;
+    font-size: 16px;
+    color: ${color.gray};
   }
 
   ${media.MD(css`
