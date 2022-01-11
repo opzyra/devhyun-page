@@ -3,13 +3,19 @@ import Lottie from "react-lottie-player";
 
 import { css } from "@emotion/react";
 
-import { fontFamilyWithPaybooc, color, media, display } from "@/styles";
+import {
+  fontFamilyWithPaybooc,
+  color,
+  media,
+  display,
+  breakPoint,
+} from "@/styles";
 
 import { preFetchingQuery } from "@/library/query";
 import {
   preFetchRecentPortfolios,
   useRecentPortfolios,
-} from "@/feature/portfolios";
+} from "@/query/portfolio";
 
 import MainLayout from "@/components/layout/MainLayout";
 import TechStack from "@/components/main/TechStack";
@@ -49,7 +55,7 @@ function Main() {
               <br />
             </h1>
             <div css={coverDescription}>
-              <p css={display.not("M")}>
+              <p css={display.not(breakPoint.M)}>
                 안녕하세요
                 <span>!</span>
                 웹 브라우저로 사람을 연결하는 개발자 김현호 입니다.
@@ -58,7 +64,7 @@ function Main() {
                 <br />
                 노하우가 담긴 프로젝트 작업물을 살펴보세요.
               </p>
-              <p css={display.match("M")}>
+              <p css={display.match(breakPoint.M)}>
                 웹으로 사람을 연결하는 개발자 김현호 입니다.
                 <br />
                 다양한 환경으로 맞춤형 웹사이트를 구축합니다.
@@ -111,10 +117,10 @@ function Main() {
               <span>Creative</span> Works
             </h2>
             <div css={projectDescription}>
-              <p css={display.not("M")}>
+              <p css={display.not(breakPoint.M)}>
                 프로젝트를 진행하면서 다져진 경험이 스며들어 있습니다.
               </p>
-              <p css={display.match("M")}>
+              <p css={display.match(breakPoint.M)}>
                 프로젝트에 다양한 경험이 스며들어 있습니다.
               </p>
             </div>
@@ -178,12 +184,8 @@ function Main() {
 }
 
 export async function getServerSideProps() {
-  const dehydratedState = await preFetchingQuery([preFetchRecentPortfolios()]);
-  return {
-    props: {
-      dehydratedState,
-    },
-  };
+  const props = await preFetchingQuery([preFetchRecentPortfolios()]);
+  return props;
 }
 
 const cover = css`

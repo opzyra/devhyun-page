@@ -1,5 +1,9 @@
 import { css, keyframes } from "@emotion/react";
+import moment from "moment";
 import { fontFamilyWithPaybooc, color, media } from "@/styles";
+
+import { preFetchingQuery } from "@/library/query";
+import { preFetchPortfolio, usePortfolio } from "@/query/portfolio";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
@@ -7,12 +11,16 @@ import Container from "@/components/common/Container";
 import Image from "@/components/common/Image";
 import Button from "@/components/common/Button";
 
-import portfolio from "@/assets/data/portfolio";
 import Browser from "@/assets/svg/Browser.svg";
 import Responsive from "@/assets/svg/Responsive.svg";
 import ArrowDiag from "@/assets/svg/ArrowDiag.svg";
+import { useRouter } from "next/router";
 
-function ProjectDetail({ project }) {
+function ProjectDetail() {
+  const router = useRouter();
+  const { namekey } = router.query;
+  const { portfolio } = usePortfolio({ namekey });
+
   return (
     <MainLayout>
       <div css={projectDetail}>
@@ -21,19 +29,21 @@ function ProjectDetail({ project }) {
             <Breadcrumb items={["프로젝트", "상세정보"]} />
             <div css={headerHead}>
               <div css={headerInformation}>
-                <h3>{project.title}</h3>
+                <h3>{portfolio.title}</h3>
                 <div css={headerMeta}>
-                  <div css={headerMetaItem}>{project.client}</div>
-                  <div css={headerMetaItem}>{project.period}</div>
+                  <div css={headerMetaItem}>{portfolio.client}</div>
+                  <div css={headerMetaItem}>
+                    {moment(portfolio.period).format("YYYY.MM")}
+                  </div>
                 </div>
               </div>
               <div css={headerType}>
-                {project.type.includes("web") && (
+                {portfolio.types.includes("web") && (
                   <p>
                     <Browser />
                   </p>
                 )}
-                {project.type.includes("responsive") && (
+                {portfolio.types.includes("responsive") && (
                   <p>
                     <Responsive />
                   </p>
@@ -45,23 +55,31 @@ function ProjectDetail({ project }) {
         <div>
           <Container>
             <div>
-              <Image src={project.cover} alt="" />
+              <Image
+                src={portfolio.cover.url}
+                alt=""
+                width="1280px"
+                height="360px"
+                layout="responsive"
+                objectFit="cover"
+                priority={true}
+              />
             </div>
             <div css={bodyHead}>
-              <div css={bodySummary}>{project.summary}</div>
+              <div css={bodySummary}>{portfolio.description}</div>
               <ul css={bodyParts}>
-                {project.parts.split(",").map((part, index) => (
+                {portfolio.parts.split(",").map((part, index) => (
                   <li key={index}>#{part}</li>
                 ))}
               </ul>
               <div css={bodyAction}>
-                {project.link && (
+                {portfolio.hyperLink && (
                   <Button
                     css={button}
                     type="default"
                     shape="round"
                     size="large"
-                    href={project.link}
+                    href={portfolio.hyperLink}
                     target
                   >
                     <span>홈페이지 방문</span>
@@ -70,15 +88,6 @@ function ProjectDetail({ project }) {
                 )}
               </div>
             </div>
-            <div css={bodyMockUp}>
-              <Image src={project.mock} alt={project.title} center></Image>
-            </div>
-            <div css={bodyPage}>
-              <Image src={project.page} alt={project.title} center></Image>
-            </div>
-            <div css={bodyFull}>
-              <Image src={project.full} alt={project.title} center></Image>
-            </div>
           </Container>
         </div>
       </div>
@@ -86,10 +95,11 @@ function ProjectDetail({ project }) {
   );
 }
 
-ProjectDetail.getInitialProps = async ({ query }) => {
-  const { id } = query;
-  const project = portfolio.find((project) => project.id === id);
-  return { project };
+export const getServerSideProps = async ({ query }) => {
+  const { namekey } = query;
+  let props = await preFetchingQuery([preFetchPortfolio({ namekey })]);
+
+  return props;
 };
 
 const projectDetail = css`
@@ -279,18 +289,6 @@ const bodyParts = css`
       }
     `,
   )}
-`;
-
-const bodyMockUp = css`
-  margin-top: 60px;
-`;
-
-const bodyPage = css`
-  margin-top: 80px;
-`;
-
-const bodyFull = css`
-  margin-top: 40px;
 `;
 
 const buttonKeyframe = keyframes`

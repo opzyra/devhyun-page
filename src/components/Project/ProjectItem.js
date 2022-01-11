@@ -8,7 +8,7 @@ import Image from "@/components/common/Image";
 function ProjectItem({ project, ...props }) {
   return (
     <div css={projectItem} {...props}>
-      <Link href={`/project/[id]`} as={`/project/${project.id}`}>
+      <Link href={`/project/[namekey]`} as={`/project/${project.namekey}`}>
         <a>
           <figure>
             <Image
@@ -21,7 +21,7 @@ function ProjectItem({ project, ...props }) {
             />
             <figcaption>
               <p>{project.client}</p>
-              <h4>{project.name}</h4>
+              <h4>{project.title}</h4>
             </figcaption>
           </figure>
           <div css={projectInformation}>

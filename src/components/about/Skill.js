@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { css } from "@emotion/react";
 
-import { color, breakPoint, media } from "@/styles";
+import { color, media } from "@/styles";
 import * as string from "@/library/string";
 
 import Image from "@/components/common/Image";
@@ -15,7 +15,7 @@ import skills from "@/assets/data/skill";
 function Skill() {
   const skillRef = useRef(null);
 
-  const handleNavMouseEnter = ({ event, type }) => {
+  const handleNavMouseEnter = ({ type }) => {
     const skillInst = skillRef.current;
     skillInst.querySelectorAll("li").forEach((li) => {
       li.style.opacity = "0.3";
@@ -26,14 +26,14 @@ function Skill() {
     });
   };
 
-  const handleNavMouseLeave = (event) => {
+  const handleNavMouseLeave = () => {
     const skillInst = skillRef.current;
     skillInst.querySelectorAll(`li`).forEach((li) => {
       li.style.opacity = "1";
     });
   };
 
-  const handleNavClick = ({ event, type }) => {
+  const handleNavClick = ({ type }) => {
     const skillInst = skillRef.current;
     const firstDom = skillInst.querySelectorAll(`.${type}`)[0];
 

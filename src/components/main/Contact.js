@@ -1,7 +1,13 @@
 import Lottie from "react-lottie-player";
 
 import { css } from "@emotion/react";
-import { fontFamilyWithPaybooc, color, media, display } from "@/styles";
+import {
+  fontFamilyWithPaybooc,
+  color,
+  media,
+  display,
+  breakPoint,
+} from "@/styles";
 
 import Button from "@/components/common/Button";
 
@@ -20,12 +26,12 @@ function Contact() {
           </span>
         </h2>
         <div>
-          <p css={display.not("M")}>
+          <p css={display.not(breakPoint.M)}>
             새로운 프로젝트를 준비하거나 함께 일할 개발자를 찾고 계신가요?
             <br />
             이력서를 살펴보시고 프로젝트에 대해 알려주세요!
           </p>
-          <p css={display.match("M")}>
+          <p css={display.match(breakPoint.M)}>
             함께 일할 개발자를 찾고 계신가요?
             <br />
             이력서를 살펴보시고 프로젝트에 대해 알려주세요!

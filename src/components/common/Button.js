@@ -41,6 +41,7 @@ function Button({
     <button
       css={button({ block, type, size, shape })}
       onClick={handleClick}
+      disabled={disabled}
       {...props}
     >
       {children}

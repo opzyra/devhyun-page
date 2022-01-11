@@ -9,7 +9,11 @@ import defaultTheme from "@/styles/theme";
 
 import queryClient from "@/library/query";
 
+import Error from "@/pages/_error";
+
 function App({ Component, pageProps }) {
+  const { statusCode } = pageProps;
+
   return (
     <>
       <Head>
@@ -19,7 +23,11 @@ function App({ Component, pageProps }) {
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider theme={defaultTheme}>
             <Global styles={[reset, typography]} />
-            <Component {...pageProps} />
+            {statusCode ? (
+              <Error statusCode={statusCode} />
+            ) : (
+              <Component {...pageProps} />
+            )}
             <ReactQueryDevtools initialIsOpen={false} />
           </ThemeProvider>
         </Hydrate>

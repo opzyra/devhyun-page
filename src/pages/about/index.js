@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { display, media } from "@/styles";
+import { breakPoint, display, media } from "@/styles";
 
 import Image from "@/components/common/Image";
 
@@ -105,12 +105,12 @@ function About() {
           </p>
           <div>
             <Image
-              css={display.not("M", "block")}
+              css={display.not(breakPoint.M, "block")}
               src={ImgIdentity}
               alt="identity"
             />
             <Image
-              css={display.match("M", "block")}
+              css={display.match(breakPoint.M, "block")}
               src={ImgIdentityM}
               alt="identity"
             />

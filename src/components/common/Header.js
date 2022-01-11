@@ -3,7 +3,6 @@ import { css, keyframes } from "@emotion/react";
 import { color, fontFamilyWithPaybooc, media, zIndex } from "@/styles";
 
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";

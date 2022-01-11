@@ -12,27 +12,27 @@ export const display = {
   match: (size, display) => css`
     display: none;
 
-    ${size === "XL" &&
+    ${size === breakPoint.XL &&
     XL(css`
       display: ${display || "block"};
     `)};
 
-    ${size === "LG" &&
+    ${size === breakPoint.LG &&
     LG(css`
       display: ${display || "block"};
     `)};
 
-    ${size === "MD" &&
+    ${size === breakPoint.MD &&
     MD(css`
       display: ${display || "block"};
     `)};
 
-    ${size === "M" &&
+    ${size === breakPoint.M &&
     M(css`
       display: ${display || "block"};
     `)};
 
-    ${size === "SM" &&
+    ${size === breakPoint.SM &&
     SM(css`
       display: ${display || "block"};
     `)};
@@ -40,27 +40,27 @@ export const display = {
   not: (size, display) => css`
     display: ${display || "block"};
 
-    ${size === "XL" &&
+    ${size === breakPoint.XL &&
     XL(css`
       display: none;
     `)};
 
-    ${size === "LG" &&
+    ${size === breakPoint.LG &&
     LG(css`
       display: none;
     `)};
 
-    ${size === "MD" &&
+    ${size === breakPoint.MD &&
     MD(css`
       display: none;
     `)};
 
-    ${size === "M" &&
+    ${size === breakPoint.M &&
     M(css`
       display: none;
     `)};
 
-    ${size === "SM" &&
+    ${size === breakPoint.SM &&
     SM(css`
       display: none;
     `)};

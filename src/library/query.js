@@ -8,31 +8,30 @@ const client = new QueryClient({
       keepPreviousData: true,
       staleTime: 60 * 1000,
       retry: 0,
-      onError: (error) => {
-        if (!error.response) {
-          return;
-        }
-      },
-    },
-    mutations: {
-      onError: (error) => {
-        if (!error.response) {
-          return;
-        }
-      },
     },
   },
 });
 
 export const preFetchingQuery = async (queries) => {
   const queryClient = new QueryClient();
-
   for (let i = 0; i < queries.length; i++) {
     const query = queries[i];
-    await query(queryClient);
+    try {
+      await query(queryClient);
+    } catch (error) {
+      return {
+        props: {
+          statusCode: error.status,
+        },
+      };
+    }
   }
 
-  return dehydrate(queryClient);
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
 };
 
 export default client;
