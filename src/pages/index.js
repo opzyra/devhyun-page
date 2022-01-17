@@ -30,6 +30,7 @@ import Developer from "@/assets/json/developer.json";
 import Github from "@/assets/svg/Github.svg";
 import KakaoTalk from "@/assets/svg/KakaoTalk.svg";
 import ArrowLong from "@/assets/svg/ArrowLong.svg";
+import NavLink from "@/components/common/NavLink";
 
 function Main() {
   const projectRef = useRef(null);
@@ -126,8 +127,12 @@ function Main() {
             </div>
 
             <div css={projectHeaderMore}>
-              <span>MORE</span>
-              <ArrowLong />
+              <NavLink href="/project">
+                <div>
+                  <span>MORE</span>
+                  <ArrowLong />
+                </div>
+              </NavLink>
             </div>
           </div>
           <div>
@@ -155,7 +160,7 @@ function Main() {
         </Container>
       </div>
 
-      <div css={blog}>
+      {/* <div css={blog}>
         <Container>
           <div css={blogHeader}>
             <h2>
@@ -171,7 +176,7 @@ function Main() {
         <div>
           <Blog />
         </div>
-      </div>
+      </div> */}
 
       <div css={contact}>
         <div css={contactLine}></div>
@@ -566,6 +571,7 @@ const projectHeaderMore = css`
   position: absolute;
   bottom: 0px;
   right: 0px;
+  cursor: pointer;
 
   span {
     font-size: 12px;
@@ -823,7 +829,7 @@ const contactLine = css`
   left: 0px;
   width: 100%;
   height: 100px;
-  border-top: 1px solid #eeeeee;
+  /* border-top: 1px solid #eeeeee;
   border-top-right-radius: 100px;
 
   ${media.MD(css`
@@ -832,7 +838,7 @@ const contactLine = css`
 
   ${media.M(css`
     border-top-right-radius: 0px;
-  `)}
+  `)} */
 `;
 
 const contactContainer = css`

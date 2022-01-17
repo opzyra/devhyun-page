@@ -11,7 +11,24 @@ import NotoSansKRRegularEot from "@/assets/fonts/NotoSansKR/NotoSansKR-Regular.e
 import PayboocMediumTtf from "@/assets/fonts/Paybooc/paybooc-medium.ttf";
 import PayboocBoldTtf from "@/assets/fonts/Paybooc/paybooc-bold.ttf";
 
+import RobotoRegularWoff from "@/assets/fonts/Roboto/roboto-regular-webfont.woff";
+import RobotoMediumWoff from "@/assets/fonts/Roboto/roboto-medium-webfont.woff";
+
 export default css`
+  @font-face {
+    font-family: "Roboto";
+    src: url(${RobotoRegularWoff});
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Roboto";
+    src: url(${RobotoMediumWoff});
+    font-weight: 500;
+    font-style: normal;
+  }
+
   @font-face {
     font-family: "paybooc";
     src: url(${PayboocMediumTtf});

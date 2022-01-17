@@ -40,11 +40,11 @@ function Header({ background, full }) {
                 <a>PROJECT</a>
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink href="/blog">
                 <a>BLOG</a>
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <a
                 href="https://github.com/opzyra"

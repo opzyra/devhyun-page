@@ -22,6 +22,16 @@ export const fontFamilyWithPaybooc = [
   "sans-serif",
 ].join(", ");
 
+export const fontFamilyWithRoboto = [
+  "Roboto",
+  "Apple SD Gothic Neo",
+  '"돋움"',
+  "Dotum",
+  "Helvetica Neue",
+  "arial",
+  "sans-serif",
+].join(", ");
+
 export const fontFamilyWithPoppins = [
   "Poppins",
   "Apple SD Gothic Neo",
