@@ -8,7 +8,7 @@ import { media } from "@/styles";
 
 import ProjectItem from "@/components/project/ProjectItem";
 
-function Project({ portfolios }) {
+function Project({ projects }) {
   const animeRef = useRef(null);
   const handleProgress = ({ velocity }) => {
     let animeInst = animeRef.current;
@@ -34,7 +34,7 @@ function Project({ portfolios }) {
     <div css={project}>
       <ScrollTrigger onProgress={handleProgress}>
         <div className="projectGrid">
-          {portfolios.map((project, index) => (
+          {projects.map((project, index) => (
             <ProjectItem css={projectItem} project={project} key={index} />
           ))}
         </div>

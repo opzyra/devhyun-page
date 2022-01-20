@@ -12,15 +12,12 @@ import {
 } from "@/styles";
 
 import { preFetchingQuery } from "@/library/query";
-import {
-  preFetchRecentPortfolios,
-  useRecentPortfolios,
-} from "@/query/portfolio";
+import { preFetchRecentProjects, useRecentProjects } from "@/query/project";
 
 import MainLayout from "@/components/layout/MainLayout";
 import TechStack from "@/components/main/TechStack";
 import Project from "@/components/main/Project";
-import Blog from "@/components/main/Blog";
+
 import Contact from "@/components/main/Contact";
 
 import Container from "@/components/common/Container";
@@ -34,7 +31,7 @@ import NavLink from "@/components/common/NavLink";
 
 function Main() {
   const projectRef = useRef(null);
-  const { recentPortfolios } = useRecentPortfolios();
+  const { recentProjects } = useRecentProjects();
 
   const handleClickProjectScroll = useCallback(() => {
     const projectInst = projectRef.current;
@@ -136,7 +133,7 @@ function Main() {
             </div>
           </div>
           <div>
-            <Project portfolios={recentPortfolios} />
+            <Project projects={recentProjects} />
           </div>
         </Container>
       </div>
@@ -189,7 +186,7 @@ function Main() {
 }
 
 export async function getServerSideProps() {
-  const props = await preFetchingQuery([preFetchRecentPortfolios()]);
+  const props = await preFetchingQuery([preFetchRecentProjects()]);
   return props;
 }
 

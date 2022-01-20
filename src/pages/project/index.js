@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { media } from "@/styles";
 
 import { preFetchingQuery } from "@/library/query";
-import { preFetchPortfolios, usePortfolios } from "@/query/portfolio";
+import { preFetchProjects, useProjects } from "@/query/project";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
@@ -10,7 +10,7 @@ import Container from "@/components/common/Container";
 import ProjectGrid from "@/components/project/ProjectGrid";
 
 function Project() {
-  const { portfolios } = usePortfolios();
+  const { projects } = useProjects();
 
   return (
     <MainLayout css={project}>
@@ -26,7 +26,7 @@ function Project() {
       </div>
       <div css={body}>
         <Container>
-          <ProjectGrid portfolios={portfolios} />
+          <ProjectGrid projects={projects} />
         </Container>
       </div>
     </MainLayout>
@@ -34,7 +34,7 @@ function Project() {
 }
 
 export async function getServerSideProps() {
-  const props = await preFetchingQuery([preFetchPortfolios()]);
+  const props = await preFetchingQuery([preFetchProjects()]);
   return props;
 }
 

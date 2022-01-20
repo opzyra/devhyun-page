@@ -3,7 +3,7 @@ import moment from "moment";
 import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import { preFetchingQuery } from "@/library/query";
-import { preFetchPortfolio, usePortfolio } from "@/query/portfolio";
+import { preFetchProject, useProject } from "@/query/project";
 
 import MainLayout from "@/components/layout/MainLayout";
 import Breadcrumb from "@/components/common/Breadcrumb";
@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 function ProjectDetail() {
   const router = useRouter();
   const { namekey } = router.query;
-  const { portfolio } = usePortfolio({ namekey });
+  const { project } = useProject({ namekey });
 
   return (
     <MainLayout>
@@ -29,21 +29,21 @@ function ProjectDetail() {
             <Breadcrumb items={["프로젝트", "상세정보"]} />
             <div css={headerHead}>
               <div css={headerInformation}>
-                <h3>{portfolio.title}</h3>
+                <h3>{project.title}</h3>
                 <div css={headerMeta}>
-                  <div css={headerMetaItem}>{portfolio.client}</div>
+                  <div css={headerMetaItem}>{project.client}</div>
                   <div css={headerMetaItem}>
-                    {moment(portfolio.period).format("YYYY.MM")}
+                    {moment(project.period).format("YYYY.MM")}
                   </div>
                 </div>
               </div>
               <div css={headerType}>
-                {portfolio.types.includes("web") && (
+                {project.types.includes("web") && (
                   <p>
                     <Browser />
                   </p>
                 )}
-                {portfolio.types.includes("responsive") && (
+                {project.types.includes("responsive") && (
                   <p>
                     <Responsive />
                   </p>
@@ -56,7 +56,7 @@ function ProjectDetail() {
           <Container>
             <div>
               <Image
-                src={portfolio.cover.url}
+                src={project.cover}
                 alt=""
                 width="1280px"
                 height="360px"
@@ -66,20 +66,20 @@ function ProjectDetail() {
               />
             </div>
             <div css={bodyHead}>
-              <div css={bodySummary}>{portfolio.description}</div>
+              <div css={bodySummary}>{project.description}</div>
               <ul css={bodyParts}>
-                {portfolio.parts.split(",").map((part, index) => (
+                {project.parts.split(",").map((part, index) => (
                   <li key={index}>#{part}</li>
                 ))}
               </ul>
               <div css={bodyAction}>
-                {portfolio.hyperLink && (
+                {project.hyperLink && (
                   <Button
                     css={button}
                     type="default"
                     shape="round"
                     size="large"
-                    href={portfolio.hyperLink}
+                    href={project.hyperLink}
                     target
                   >
                     <span>홈페이지 방문</span>
@@ -97,7 +97,7 @@ function ProjectDetail() {
 
 export const getServerSideProps = async ({ query }) => {
   const { namekey } = query;
-  let props = await preFetchingQuery([preFetchPortfolio({ namekey })]);
+  let props = await preFetchingQuery([preFetchProject({ namekey })]);
 
   return props;
 };

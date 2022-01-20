@@ -12,7 +12,7 @@ function ProjectItem({ project, ...props }) {
         <a>
           <figure>
             <Image
-              src={project.thumbnail.url}
+              src={project.thumbnail}
               width={6}
               height={4}
               layout="responsive"
@@ -21,7 +21,7 @@ function ProjectItem({ project, ...props }) {
             />
             <figcaption>
               <p>{project.client}</p>
-              <h4>{project.title}</h4>
+              <h4>{project.name}</h4>
             </figcaption>
           </figure>
           <div css={projectInformation}>

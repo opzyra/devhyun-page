@@ -9,7 +9,7 @@ import { media, zIndex, breakPoint } from "@/styles";
 
 import Computer from "@/assets/json/computer.json";
 
-import stacks from "@/assets/data/stack";
+import stacks from "@/data/stack";
 
 function TechStack() {
   const animeRef = useRef(null);

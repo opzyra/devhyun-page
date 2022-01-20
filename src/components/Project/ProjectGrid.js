@@ -4,10 +4,10 @@ import ProjectItem from "@/components/project/ProjectItem";
 
 import { media } from "@/styles";
 
-function ProjectGrid({ portfolios }) {
+function ProjectGrid({ projects }) {
   return (
     <div css={projectGrid}>
-      {portfolios.map((project, index) => (
+      {projects.map((project, index) => (
         <ProjectItem css={projectItem} project={project} key={index} />
       ))}
     </div>

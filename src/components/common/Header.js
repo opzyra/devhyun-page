@@ -7,7 +7,7 @@ import Link from "next/link";
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
 
-import DHLogo from "@/assets/svg/DHLogo.svg";
+import DevhyunLogo from "@/assets/svg/DevhyunLogo.svg";
 import Arrow from "@/assets/svg/Arrow.svg";
 import NavLink from "./NavLink";
 
@@ -24,7 +24,7 @@ function Header({ background, full }) {
         <div css={brand}>
           <Link href="/">
             <a>
-              <DHLogo />
+              <DevhyunLogo />
             </a>
           </Link>
         </div>
