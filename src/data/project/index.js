@@ -1,5 +1,6 @@
 import ImageAboutperiod from "@/data/project/assets/image-aboutperiod.png";
 import CoverAboutperiod from "@/data/project/assets/cover-aboutperiod.png";
+import MockAboutperiod from "@/data/project/assets/mock-aboutperiod.png";
 
 import ImageLifecaption from "@/data/project/assets/image-lifecaption.png";
 import CoverLifecaption from "@/data/project/assets/cover-lifecaption.png";
@@ -37,7 +38,15 @@ const projects = [
 
     sections: [
       {
-        container: false,
+        container: true,
+        image: MockAboutperiod,
+      },
+      {
+        container: true,
+        text: {
+          title: "LAYOUT",
+          description: "",
+        },
       },
     ],
   },

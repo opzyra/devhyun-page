@@ -1,5 +1,6 @@
 import { css, keyframes } from "@emotion/react";
 import moment from "moment";
+
 import { fontFamilyWithPaybooc, color, media } from "@/styles";
 
 import { preFetchingQuery } from "@/library/query";
@@ -15,11 +16,20 @@ import Browser from "@/assets/svg/Browser.svg";
 import Responsive from "@/assets/svg/Responsive.svg";
 import ArrowDiag from "@/assets/svg/ArrowDiag.svg";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 function ProjectDetail() {
   const router = useRouter();
   const { namekey } = router.query;
   const { project } = useProject({ namekey });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const WOW = require("wow.js");
+      console.log(WOW);
+      new WOW().init();
+    }
+  }, []);
 
   return (
     <MainLayout>
@@ -52,7 +62,7 @@ function ProjectDetail() {
             </div>
           </Container>
         </div>
-        <div>
+        <div css={cover}>
           <Container>
             <div>
               <Image
@@ -89,6 +99,37 @@ function ProjectDetail() {
               </div>
             </div>
           </Container>
+        </div>
+
+        <div css={sections}>
+          {project.sections?.map((section, index) => (
+            <div
+              className="section"
+              css={section.container && container}
+              key={index}
+            >
+              {section.image && (
+                <div className="wow fadeInUp" data-wow-duration="1.5s">
+                  <Image
+                    src={section.image}
+                    width={8}
+                    height={4}
+                    alt=""
+                    layout="responsive"
+                    objectFit="contain"
+                    priority
+                    center
+                  />
+                </div>
+              )}
+              {section.text && (
+                <div className="wow fadeInUp" data-wow-duration="1.5s">
+                  <h5>{section.text.title}</h5>
+                  <p>{section.text.description}</p>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </MainLayout>
@@ -324,6 +365,44 @@ const button = css`
   svg {
     width: 12px;
     transition: 0.3s;
+  }
+`;
+
+const cover = css``;
+
+const container = css`
+  width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+
+  ${media.XL(
+    css`
+      width: 1084px;
+    `,
+  )}
+
+  ${media.LG(
+    css`
+      width: 920px;
+    `,
+  )}
+
+  ${media.MD(css`
+    width: 100%;
+    padding: 0px 36px;
+  `)}
+
+  ${media.M(css`
+    width: 100%;
+    padding: 0px 16px;
+  `)}
+`;
+
+const sections = css`
+  padding: 40px 0px;
+
+  .section + .section {
+    margin-top: 60px;
   }
 `;
 
