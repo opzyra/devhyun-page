@@ -3,6 +3,8 @@ import CoverAboutperiod from "@/data/project/assets/cover-aboutperiod.png";
 import MockAboutperiod from "@/data/project/assets/mock-aboutperiod.png";
 
 import LayoutAboutperiod1 from "@/data/project/assets/layout-aboutperiod_1.png";
+import LayoutAboutperiod2 from "@/data/project/assets/layout-aboutperiod_2.png";
+import LayoutAboutperiod3 from "@/data/project/assets/layout-aboutperiod_3.png";
 
 import ImageLifecaption from "@/data/project/assets/image-lifecaption.png";
 import CoverLifecaption from "@/data/project/assets/cover-lifecaption.png";
@@ -47,11 +49,10 @@ const projects = [
         container: true,
         text: {
           title: "LAYOUT",
-          description: `기업이 추구하는 가치를 전달하기 위해 일러스트를 활용하여 구성하였으며,
-            
-            `,
+          description: `기업의 가치를 담은 상품을 메인 페이지에 배치하였으며
+          감성적인 일러스트와 폰트, 슬로건을 통해 기업이 추구하는 가치를 전달하였습니다.`,
         },
-        images: [LayoutAboutperiod1],
+        images: [LayoutAboutperiod1, LayoutAboutperiod2, LayoutAboutperiod3],
       },
     ],
   },

@@ -314,7 +314,6 @@ const bodyAction = css`
 `;
 
 const bodySummary = css`
-  word-break: keep-all;
   width: 860px;
 
   ${media.LG(
@@ -421,21 +420,23 @@ const container = css`
 `;
 
 const sections = css`
-  padding: 40px 0px;
+  padding: 120px 0px;
 
   .section + .section {
-    margin-top: 160px;
+    margin-top: 120px;
   }
 
   .section {
     .text {
-      text-align: center;
-      margin-bottom: 80px;
+      margin-bottom: 28px;
       h3 {
         font-family: ${fontFamilyWithPaybooc};
-        letter-spacing: 8px;
         margin-bottom: 12px;
       }
+    }
+
+    .images + .images {
+      margin-top: 240px;
     }
   }
 `;
