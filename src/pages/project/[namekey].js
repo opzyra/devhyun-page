@@ -17,6 +17,7 @@ import Responsive from "@/assets/svg/Responsive.svg";
 import ArrowDiag from "@/assets/svg/ArrowDiag.svg";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { breakParsing } from "@/library/string";
 
 function ProjectDetail() {
   const router = useRouter();
@@ -26,7 +27,6 @@ function ProjectDetail() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const WOW = require("wow.js");
-      console.log(WOW);
       new WOW().init();
     }
   }, []);
@@ -109,7 +109,7 @@ function ProjectDetail() {
               key={index}
             >
               {section.image && (
-                <div className="wow fadeInUp" data-wow-duration="1.5s">
+                <div className="image wow fadeIn" data-wow-duration="1.5s">
                   <Image
                     src={section.image}
                     width={8}
@@ -123,11 +123,33 @@ function ProjectDetail() {
                 </div>
               )}
               {section.text && (
-                <div className="wow fadeInUp" data-wow-duration="1.5s">
-                  <h5>{section.text.title}</h5>
-                  <p>{section.text.description}</p>
+                <div className="text wow fadeInUp" data-wow-duration="1.5s">
+                  <h3>{section.text.title}</h3>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: breakParsing(section.text.description),
+                    }}
+                  ></p>
                 </div>
               )}
+
+              {section.images &&
+                section.images.map((image, index) => (
+                  <div
+                    key={index}
+                    className="images wow fadeInUp"
+                    data-wow-duration="1.5s"
+                  >
+                    <Image
+                      src={image}
+                      alt=""
+                      layout="responsive"
+                      objectFit="contain"
+                      priority
+                      center
+                    />
+                  </div>
+                ))}
             </div>
           ))}
         </div>
@@ -402,7 +424,19 @@ const sections = css`
   padding: 40px 0px;
 
   .section + .section {
-    margin-top: 60px;
+    margin-top: 160px;
+  }
+
+  .section {
+    .text {
+      text-align: center;
+      margin-bottom: 80px;
+      h3 {
+        font-family: ${fontFamilyWithPaybooc};
+        letter-spacing: 8px;
+        margin-bottom: 12px;
+      }
+    }
   }
 `;
 

@@ -2,6 +2,8 @@ import ImageAboutperiod from "@/data/project/assets/image-aboutperiod.png";
 import CoverAboutperiod from "@/data/project/assets/cover-aboutperiod.png";
 import MockAboutperiod from "@/data/project/assets/mock-aboutperiod.png";
 
+import LayoutAboutperiod1 from "@/data/project/assets/layout-aboutperiod_1.png";
+
 import ImageLifecaption from "@/data/project/assets/image-lifecaption.png";
 import CoverLifecaption from "@/data/project/assets/cover-lifecaption.png";
 
@@ -45,8 +47,11 @@ const projects = [
         container: true,
         text: {
           title: "LAYOUT",
-          description: "",
+          description: `기업이 추구하는 가치를 전달하기 위해 일러스트를 활용하여 구성하였으며,
+            
+            `,
         },
+        images: [LayoutAboutperiod1],
       },
     ],
   },
