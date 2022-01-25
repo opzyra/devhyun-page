@@ -11,6 +11,7 @@ Image.propTypes = {
 
 function Image({
   center,
+  container,
   src,
   width,
   height,
@@ -29,11 +30,15 @@ function Image({
   ...props
 }) {
   return (
-    <div css={image({ center })} className="image" {...props}>
+    <div
+      css={image({ center, container, width, height })}
+      className="image"
+      {...props}
+    >
       <NextImage
         src={src}
-        width={width}
-        height={height}
+        width={!container && width}
+        height={!container && height}
         layout={layout}
         loader={loader}
         quality={quality}
@@ -51,10 +56,23 @@ function Image({
   );
 }
 
-const image = ({ center }) => css`
+const image = ({ center, container, width, height }) => css`
   ${center &&
   css`
     margin: 0 auto;
+  `}
+
+  ${container &&
+  css`
+    ${width &&
+    css`
+      width: ${width}px;
+    `}
+
+    ${height &&
+    css`
+      height: ${height}px;
+    `}
   `}
 `;
 

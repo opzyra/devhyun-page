@@ -1,4 +1,4 @@
-import projects from "@/data/project";
+import projects from "@/assets/project";
 
 export const fetchProjects = async () => {
   const data = projects.filter((project) => project.exhibition);

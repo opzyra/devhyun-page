@@ -10,7 +10,7 @@ import IconFrontend from "@/assets/images/icon-frontend.png";
 import IconBackend from "@/assets/images/icon-backend.png";
 import IconDevops from "@/assets/images/icon-devops.png";
 
-import skills from "@/data/skill";
+import skills from "@/assets/skill";
 
 function Skill() {
   const skillRef = useRef(null);
