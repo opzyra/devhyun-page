@@ -1,19 +1,29 @@
-import ImageAboutperiod from "./image-aboutperiod.png";
+import AboutperiodThumbnail from "./aboutperiod/image-thumbnail.png";
+import AboutperiodMockup from "./aboutperiod/image-mockup.png";
+import AboutperiodLayout from "./aboutperiod/image-layout.png";
+import AboutperiodDeskTop1 from "./aboutperiod/image-desktop1.png";
+import AboutperiodDeskTop2 from "./aboutperiod/image-desktop2.png";
+import AboutperiodDeskTop3 from "./aboutperiod/image-desktop3.png";
+import AboutperiodMobile1 from "./aboutperiod/image-mobile1.png";
+import AboutperiodMobile2 from "./aboutperiod/image-mobile2.png";
+import AboutperiodMobile3 from "./aboutperiod/image-mobile3.png";
 
-import ImageLifecaption from "./image-lifecaption.png";
-import CoverLifecaption from "./cover-lifecaption.png";
+import LifecaptionThumbnail from "./lifecaption/image-thumbnail.png";
+import LifecaptionMockup from "./lifecaption/image-mockup.png";
+import LifecaptionLayout from "./lifecaption/image-layout.png";
+import LifecaptionDeskTop1 from "./lifecaption/image-desktop1.png";
+import LifecaptionDeskTop2 from "./lifecaption/image-desktop2.png";
+import LifecaptionDeskTop3 from "./lifecaption/image-desktop3.png";
+import LifecaptionDeskTop4 from "./lifecaption/image-desktop4.png";
+import LifecaptionMobile1 from "./lifecaption/image-mobile1.png";
+import LifecaptionMobile2 from "./lifecaption/image-mobile2.png";
+import LifecaptionMobile3 from "./lifecaption/image-mobile3.png";
 
-import ImageAbiteofvalue from "./image-abiteofvalue.png";
-import CoverAbiteofvalue from "./cover-abiteofvalue.png";
+import SemasThumbnail from "./semas/image-thumbnail.png";
 
-import ImageSemas from "./image-semas.png";
-import CoverSemas from "./cover-semas.png";
+import AbiteofvalueThumbnail from "./abiteofvalue/image-thumbnail.png";
 
-import ImageHcnanum from "./image-hcnanum.png";
-import CoverHcnanum from "./cover-hcnanum.png";
-
-import ImageLegendsOfTerra from "./image-legendsofterra.png";
-import CoverLegendsOfTerra from "./cover-legendsofterra.png";
+import LegendsOfTerraThumbnail from "./legendsofterra/image-thumbnail.png";
 
 const projects = [
   {
@@ -25,13 +35,30 @@ const projects = [
     parts: "Desgin, Publish,F/B-end",
     exhibition: true,
 
-    description:
-      "어바웃피리어드는 월경에 대한 올바르지 않은 인식과 사회적 분위기를 바꾸기 위해 월경상자를 기획한 스타트업으로 기업이 추구하는 가치를 홍보하고 신뢰성을 높이기 위해 홈페이지를 런칭하였습니다.",
     period: "2019.03",
     types: ["web", "responsive"],
     hyperLink: "http://aboutperiod.com",
 
-    thumbnail: ImageAboutperiod,
+    overview: [
+      `어바웃피리어드는 월경 기간 혹은 한달 주기의 호르몬 변화로 인해
+      겪는 많은 고통과 불편함에 공감하며 사람들이 무엇을 필요로하고
+      사람들에게 어떤 도움이 필요한 지를 조사하고 연구하여 월경에
+      초점을 맞춘 제품과 서비스를 제공하는 스타트업 입니다.`,
+      `
+      판매 제품의 홍보 및 마케팅을 위한 정보 제공과 기업이 추구하는
+      가치를 표현하는 어바웃피리어드
+      <br />
+      브랜딩 홈페이지를 구축하고 런칭하였습니다.
+      `,
+    ],
+
+    thumbnail: AboutperiodThumbnail,
+    mockup: AboutperiodMockup,
+    layout: AboutperiodLayout,
+    screen: {
+      desktop: [AboutperiodDeskTop1, AboutperiodDeskTop2, AboutperiodDeskTop3],
+      mobile: [AboutperiodMobile1, AboutperiodMobile2, AboutperiodMobile3],
+    },
   },
 
   {
@@ -43,14 +70,26 @@ const projects = [
     parts: "UI/UX, Publish, F/B-end",
     exhibition: true,
 
-    description:
-      "라이프캡션은 청각장애인의 학습권과 의사소통 권리 보장을 위해 소리를 문자로 통역하는 실시간 문자통역 서비스로 청각장애인생애지원센터에서 운영하고 있습니다.",
     period: "2021.03",
     types: ["web", "responsive"],
     hyperLink: "http://lifecaption.kr",
 
-    thumbnail: ImageLifecaption,
-    cover: CoverLifecaption,
+    overview: [
+      `라이프캡션은 청각장애인의 학습권과 의사소통 권리 보장을 위해 소리를 문자로 통역하는 실시간 문자통역 서비스 입니다.`,
+    ],
+
+    thumbnail: LifecaptionThumbnail,
+    mockup: LifecaptionMockup,
+    layout: LifecaptionLayout,
+    screen: {
+      desktop: [
+        LifecaptionDeskTop1,
+        LifecaptionDeskTop2,
+        LifecaptionDeskTop3,
+        LifecaptionDeskTop4,
+      ],
+      mobile: [LifecaptionMobile1, LifecaptionMobile2, LifecaptionMobile3],
+    },
   },
 
   {
@@ -62,33 +101,31 @@ const projects = [
     parts: "Publish",
     exhibition: true,
 
-    description:
+    overview: [
       "코로나19 확산으로 어려움을 겪고 있는 소상공인의 경영 안정을 위하여 중소벤처기업진흥공단과 소상공인진흥공단이 주관하는 새희망자금을 신청 및 접수하는 웹 사이트 입니다.",
+    ],
     period: "2020.10",
     types: ["web", "responsive"],
     hyperLink: "https://newhope.sbiz.or.kr/searchcomplaint.do",
 
-    thumbnail: ImageSemas,
-    cover: CoverSemas,
+    thumbnail: SemasThumbnail,
   },
-  {
-    namekey: "hcnanum",
-    title: "홍천군종합사회복지관 홈페이지",
-    client: "홍천군종합사회복지관",
-    name: "WELFARE CENTER SYSTEM",
-    summary: "Solution introduction.",
-    parts: "Design, Publish, F/B-end",
-    exhibition: true,
+  // {
+  //   namekey: "hcnanum",
+  //   title: "홍천군종합사회복지관 홈페이지",
+  //   client: "홍천군종합사회복지관",
+  //   name: "WELFARE CENTER SYSTEM",
+  //   summary: "Solution introduction.",
+  //   parts: "Design, Publish, F/B-end",
+  //   exhibition: true,
 
-    description:
-      "복지관 업무에 특화된 콘텐츠 연동 맞춤형 시스템을 도입하여 실시간으로 콘텐츠를 업로드해 복지관 이용자와 소통하는 홈페이지로 개편하였습니다.",
-    period: "2020.06",
-    types: ["web", "responsive"],
-    hyperLink: "http://hcnanum.or.kr",
-
-    thumbnail: ImageHcnanum,
-    cover: CoverHcnanum,
-  },
+  //   overview: [
+  //     "복지관 업무에 특화된 콘텐츠 연동 맞춤형 시스템을 도입하여 실시간으로 콘텐츠를 업로드해 복지관 이용자와 소통하는 홈페이지로 개편하였습니다.",
+  //   ],
+  //   period: "2020.06",
+  //   types: ["web", "responsive"],
+  //   hyperLink: "http://hcnanum.or.kr",
+  // },
   {
     namekey: "abiteofvalue",
     title: "가치한입 브랜딩 홈페이지",
@@ -98,14 +135,14 @@ const projects = [
     parts: "Publish, F/B-end",
     exhibition: true,
 
-    description:
+    overview: [
       "정성 담은 음식을 통해 새로운 가치를 발견하고 세상에 확산하여  공감하며 함께 살아가며, 모든 소비자들의 구매 활동이 가치소비가 되는 사회를 꿈꾸는 가치한입의 브랜딩 홈페이지 입니다.",
+    ],
     period: "2020.04",
     types: ["web", "responsive"],
     hyperLink: "http://abiteofvalue.com",
 
-    thumbnail: ImageAbiteofvalue,
-    cover: CoverAbiteofvalue,
+    thumbnail: AbiteofvalueThumbnail,
   },
 
   {
@@ -117,14 +154,14 @@ const projects = [
     parts: "Publish, Front-end",
     exhibition: true,
 
-    description:
+    overview: [
       "테라 블록체인 기반의 NFT로 발행된 카드를 이용해 토너먼트에서 승리하여 토큰 보상을 받는 P2E NFT 카드게임으로 카드팩 오픈 등, 초기 프로토타입 프론트엔드 개발을 진행하였습니다.",
+    ],
     period: "2021.11",
     types: ["web", "responsive"],
     hyperLink: "https://playlot.io",
 
-    thumbnail: ImageLegendsOfTerra,
-    cover: CoverLegendsOfTerra,
+    thumbnail: LegendsOfTerraThumbnail,
   },
 ];
 

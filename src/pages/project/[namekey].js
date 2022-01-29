@@ -1,7 +1,14 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import { css, keyframes } from "@emotion/react";
 import moment from "moment";
 
-import { fontFamilyWithPaybooc, color, media } from "@/styles";
+import {
+  fontFamilyWithPaybooc,
+  color,
+  media,
+  fontFamilyWithRoboto,
+} from "@/styles";
 
 import { preFetchingQuery } from "@/library/query";
 import { preFetchProject, useProject } from "@/query/project";
@@ -15,9 +22,6 @@ import Button from "@/components/common/Button";
 import Browser from "@/assets/svg/Browser.svg";
 import Responsive from "@/assets/svg/Responsive.svg";
 import ArrowDiag from "@/assets/svg/ArrowDiag.svg";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { breakParsing } from "@/library/string";
 
 function ProjectDetail() {
   const router = useRouter();
@@ -62,27 +66,38 @@ function ProjectDetail() {
             </div>
           </Container>
         </div>
-        <div css={cover}>
+        <div css={mockup}>
           <Container>
-            <div>
+            <div className="mockup wow fadeIn">
               <Image
-                src={project.cover}
+                src={project.mockup}
+                objectFit="contain"
                 alt=""
-                width="1280px"
-                height="360px"
-                layout="responsive"
-                objectFit="cover"
-                priority={true}
+                container
+                center
               />
             </div>
-            <div css={bodyHead}>
-              <div css={bodySummary}>{project.description}</div>
-              <ul css={bodyParts}>
-                {project.parts.split(",").map((part, index) => (
-                  <li key={index}>#{part}</li>
+            <div className="description">
+              <div className="title">
+                <div className="wow fadeInUp" data-wow-duration="2s">
+                  <h4>Overview</h4>
+                  <p>About this project</p>
+                </div>
+              </div>
+              <div className="contents wow fadeInUp" data-wow-duration="3s">
+                {project.overview?.map((overview, index) => (
+                  <p
+                    dangerouslySetInnerHTML={{ __html: overview }}
+                    key={index}
+                  ></p>
                 ))}
-              </ul>
-              <div css={bodyAction}>
+              </div>
+
+              <div
+                className="link wow fadeInUp"
+                data-wow-duration="2s"
+                data-wow-delay="0.8s"
+              >
                 {project.hyperLink && (
                   <Button
                     css={button}
@@ -100,58 +115,49 @@ function ProjectDetail() {
             </div>
           </Container>
         </div>
-
-        <div css={sections}>
-          {project.sections?.map((section, index) => (
-            <div
-              className="section"
-              css={section.container && container}
-              key={index}
-            >
-              {section.image && (
-                <div className="image wow fadeIn" data-wow-duration="1.5s">
-                  <Image
-                    src={section.image}
-                    width={8}
-                    height={4}
-                    alt=""
-                    layout="responsive"
-                    objectFit="contain"
-                    priority
-                    center
-                  />
-                </div>
-              )}
-              {section.text && (
-                <div className="text wow fadeInUp" data-wow-duration="1.5s">
-                  <h3>{section.text.title}</h3>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: breakParsing(section.text.description),
-                    }}
-                  ></p>
-                </div>
-              )}
-
-              {section.images &&
-                section.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="images wow fadeInUp"
-                    data-wow-duration="1.5s"
-                  >
-                    <Image
-                      src={image}
-                      alt=""
-                      layout="responsive"
-                      objectFit="contain"
-                      priority
-                      center
-                    />
-                  </div>
-                ))}
+        <div css={layout}>
+          <Container>
+            <div className="layout wow fadeInUp" data-wow-duration="2s">
+              <Image
+                src={project.layout}
+                objectFit="contain"
+                alt=""
+                priority={true}
+                container
+                center
+              />
             </div>
-          ))}
+          </Container>
+        </div>
+        <div css={screen}>
+          <Container>
+            {project.screen.desktop.map((image, index) => (
+              <div
+                className="box wow fadeInUp"
+                data-wow-duration="2s"
+                key={index}
+              >
+                <div className="item">
+                  <Image src={image} objectFit="contain" alt="" />
+                </div>
+              </div>
+            ))}
+            {project.screen.mobile.length !== 0 && (
+              <div
+                className="box wow fadeIn"
+                data-wow-duration="2s"
+                data-wow-delay="1s"
+              >
+                <div className="mobile">
+                  {project.screen.mobile.map((image, index) => (
+                    <div className="item" key={index}>
+                      <Image src={image} objectFit="contain" alt="" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </Container>
         </div>
       </div>
     </MainLayout>
@@ -166,7 +172,7 @@ export const getServerSideProps = async ({ query }) => {
 };
 
 const projectDetail = css`
-  padding: 20px 0px;
+  padding: 20px 0px 120px;
   ${media.M(css`
     padding: 12px 0px;
   `)}
@@ -277,82 +283,6 @@ const headerType = css`
   `)}
 `;
 
-const bodyHead = css`
-  margin-top: 28px;
-  position: relative;
-
-  ${media.LG(css`
-    margin-top: 20px;
-  `)}
-
-  ${media.MD(css`
-    margin-top: 16px;
-  `)}
-`;
-
-const bodyAction = css`
-  position: absolute;
-  top: 0px;
-  right: 0px;
-
-  ${media.MD(css`
-    top: auto;
-    bottom: -64px;
-    left: 50%;
-    transform: translateX(-50%);
-
-    button {
-      margin: 0 auto;
-      padding: 12px 16px;
-      font-size: 12px;
-
-      svg {
-        width: 10px;
-      }
-    }
-  `)}
-`;
-
-const bodySummary = css`
-  width: 860px;
-
-  ${media.LG(
-    css`
-      width: 75%;
-    `,
-  )}
-
-  ${media.M(
-    css`
-      width: 100%;
-    `,
-  )}
-`;
-
-const bodyParts = css`
-  margin-top: 20px;
-
-  li {
-    display: inline-block;
-    font-size: 14px;
-    font-family: ${fontFamilyWithPaybooc};
-
-    & + li {
-      margin-left: 6px;
-    }
-  }
-
-  ${media.M(
-    css`
-      margin-top: 12px;
-
-      li {
-        font-size: 12px;
-      }
-    `,
-  )}
-`;
-
 const buttonKeyframe = keyframes`
   from {
     transform: translateX(0px);
@@ -389,54 +319,161 @@ const button = css`
   }
 `;
 
-const cover = css``;
+const mockup = css`
+  .mockup {
+    margin: 40px 0px;
 
-const container = css`
-  width: 1280px;
-  margin: 0 auto;
-  height: 100%;
-
-  ${media.XL(
-    css`
-      width: 1084px;
-    `,
-  )}
-
-  ${media.LG(
-    css`
-      width: 920px;
-    `,
-  )}
-
-  ${media.MD(css`
-    width: 100%;
-    padding: 0px 36px;
-  `)}
-
-  ${media.M(css`
-    width: 100%;
-    padding: 0px 16px;
-  `)}
-`;
-
-const sections = css`
-  padding: 120px 0px;
-
-  .section + .section {
-    margin-top: 120px;
+    .image {
+      width: 80%;
+    }
   }
 
-  .section {
-    .text {
-      margin-bottom: 28px;
-      h3 {
-        font-family: ${fontFamilyWithPaybooc};
-        margin-bottom: 12px;
+  .description {
+    text-align: center;
+
+    .title {
+      font-family: ${fontFamilyWithRoboto};
+      margin-bottom: 20px;
+
+      .icon {
+        margin: 0 auto;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 4px;
+      }
+
+      h4 {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 14px;
       }
     }
 
-    .images + .images {
-      margin-top: 240px;
+    .contents {
+      font-size: 16px;
+      max-width: 880px;
+      margin: 0 auto;
+
+      p {
+        word-break: keep-all;
+        color: #757384;
+      }
+
+      p + p {
+        margin-top: 20px;
+      }
+    }
+
+    .link {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+`;
+
+const layout = css`
+  margin-top: 160px;
+
+  .layout {
+    margin-bottom: 40px;
+  }
+
+  .description {
+    text-align: center;
+
+    .title {
+      font-family: ${fontFamilyWithRoboto};
+      margin-bottom: 20px;
+
+      .icon {
+        margin: 0 auto;
+        width: 48px;
+        height: 48px;
+        margin-bottom: 4px;
+      }
+
+      h4 {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .contents {
+      font-size: 16px;
+      max-width: 880px;
+      margin: 0 auto;
+
+      p {
+        word-break: keep-all;
+        color: #757384;
+      }
+
+      p + p {
+        margin-top: 20px;
+      }
+    }
+  }
+`;
+
+const screen = css`
+  margin-top: 140px;
+  overflow: hidden;
+
+  .box {
+    background: #f5f5f5;
+    padding: 60px;
+    font-size: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 1px;
+      height: 36px;
+      background: #dddddd;
+      transform: rotate(-45deg) translateX(12px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 24px;
+      right: 24px;
+      width: 1px;
+      height: 36px;
+      background: #dddddd;
+      transform: rotate(-45deg) translateX(-12px);
+    }
+
+    .image {
+      border: 1px solid #dddddd;
+    }
+
+    & + .box {
+      margin-top: 80px;
+    }
+
+    .mobile {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -16px;
+      max-height: 2460px;
+      overflow: hidden;
+
+      .item {
+        margin: 16px;
+        width: calc(33.333% - 32px);
+      }
     }
   }
 `;
