@@ -31,7 +31,7 @@ function ProjectDetail() {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const WOW = require("wow.js");
-      new WOW().init();
+      new WOW().init({ live: false });
     }
   }, []);
 

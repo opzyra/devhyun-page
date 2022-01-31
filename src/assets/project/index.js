@@ -20,6 +20,25 @@ import LifecaptionMobile2 from "./lifecaption/image-mobile2.png";
 import LifecaptionMobile3 from "./lifecaption/image-mobile3.png";
 
 import SemasThumbnail from "./semas/image-thumbnail.png";
+import SemasMockup from "./semas/image-mockup.png";
+import SemasLayout from "./semas/image-layout.png";
+import SemasDeskTop1 from "./semas/image-desktop1.png";
+import SemasDeskTop2 from "./semas/image-desktop2.png";
+import SemasDeskTop3 from "./semas/image-desktop3.png";
+import SemasMobile1 from "./semas/image-mobile1.png";
+import SemasMobile2 from "./semas/image-mobile2.png";
+import SemasMobile3 from "./semas/image-mobile3.png";
+
+import StoryhubThumbnail from "./storyhub/image-thumbnail.png";
+import StoryhubMockup from "./storyhub/image-mockup.png";
+import StoryhubLayout from "./storyhub/image-layout.png";
+import StoryhubDeskTop1 from "./storyhub/image-desktop1.png";
+import StoryhubDeskTop2 from "./storyhub/image-desktop2.png";
+import StoryhubDeskTop3 from "./storyhub/image-desktop3.png";
+import StoryhubDeskTop4 from "./storyhub/image-desktop4.png";
+import StoryhubMobile1 from "./storyhub/image-mobile1.png";
+import StoryhubMobile2 from "./storyhub/image-mobile2.png";
+import StoryhubMobile3 from "./storyhub/image-mobile3.png";
 
 import AbiteofvalueThumbnail from "./abiteofvalue/image-thumbnail.png";
 
@@ -109,23 +128,43 @@ const projects = [
     hyperLink: "https://newhope.sbiz.or.kr/searchcomplaint.do",
 
     thumbnail: SemasThumbnail,
+    mockup: SemasMockup,
+    layout: SemasLayout,
+    screen: {
+      desktop: [SemasDeskTop1, SemasDeskTop2, SemasDeskTop3],
+      mobile: [SemasMobile1, SemasMobile2, SemasMobile3],
+    },
   },
-  // {
-  //   namekey: "hcnanum",
-  //   title: "홍천군종합사회복지관 홈페이지",
-  //   client: "홍천군종합사회복지관",
-  //   name: "WELFARE CENTER SYSTEM",
-  //   summary: "Solution introduction.",
-  //   parts: "Design, Publish, F/B-end",
-  //   exhibition: true,
+  {
+    namekey: "storyhub",
+    title: "스토리허브 홈페이지 시스템",
+    client: "(주)센드커뮤니케이션",
+    name: "STORYHUB",
+    summary: "Solution introduction.",
+    parts: "Design, Publish, F/B-end",
+    exhibition: true,
 
-  //   overview: [
-  //     "복지관 업무에 특화된 콘텐츠 연동 맞춤형 시스템을 도입하여 실시간으로 콘텐츠를 업로드해 복지관 이용자와 소통하는 홈페이지로 개편하였습니다.",
-  //   ],
-  //   period: "2020.06",
-  //   types: ["web", "responsive"],
-  //   hyperLink: "http://hcnanum.or.kr",
-  // },
+    overview: [
+      `복지관 업무에 특화된 콘텐츠 연동 맞춤형 홈페이지 제작 시스템을 개발하여 여러 복지관 홈페이지를 개편하고
+      <br/>유지보수를 진행하고 있습니다.`,
+    ],
+    period: "2020.06",
+    types: ["web", "responsive"],
+    hyperLink: "http://storyhub.co.kr",
+
+    thumbnail: StoryhubThumbnail,
+    mockup: StoryhubMockup,
+    layout: StoryhubLayout,
+    screen: {
+      desktop: [
+        StoryhubDeskTop1,
+        StoryhubDeskTop2,
+        StoryhubDeskTop3,
+        StoryhubDeskTop4,
+      ],
+      mobile: [StoryhubMobile1, StoryhubMobile2, StoryhubMobile3],
+    },
+  },
   {
     namekey: "abiteofvalue",
     title: "가치한입 브랜딩 홈페이지",
