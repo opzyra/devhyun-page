@@ -175,7 +175,7 @@ export const getServerSideProps = async ({ query }) => {
 const projectDetail = css`
   padding: 20px 0px 120px;
   ${media.M(css`
-    padding: 12px 0px 24px;
+    padding: 12px 0px 48px;
   `)}
 `;
 
@@ -394,6 +394,10 @@ const mockup = css`
     .description {
       .contents {
         text-align: left;
+
+        br {
+          display: none;
+        }
       }
 
       .link {
