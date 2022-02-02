@@ -41,8 +41,47 @@ import StoryhubMobile2 from "./storyhub/image-mobile2.png";
 import StoryhubMobile3 from "./storyhub/image-mobile3.png";
 
 import AbiteofvalueThumbnail from "./abiteofvalue/image-thumbnail.png";
+import AbiteofvalueMockup from "./abiteofvalue/image-mockup.png";
+import AbiteofvalueLayout from "./abiteofvalue/image-layout.png";
+import AbiteofvalueDeskTop1 from "./abiteofvalue/image-desktop1.png";
+import AbiteofvalueDeskTop2 from "./abiteofvalue/image-desktop2.png";
+import AbiteofvalueDeskTop3 from "./abiteofvalue/image-desktop3.png";
+import AbiteofvalueDeskTop4 from "./abiteofvalue/image-desktop4.png";
+import AbiteofvalueMobile1 from "./abiteofvalue/image-mobile1.png";
+import AbiteofvalueMobile2 from "./abiteofvalue/image-mobile2.png";
+import AbiteofvalueMobile3 from "./abiteofvalue/image-mobile3.png";
 
 import LegendsOfTerraThumbnail from "./legendsofterra/image-thumbnail.png";
+import LegendsOfTerraMockup from "./legendsOfTerra/image-mockup.png";
+import LegendsOfTerraLayout from "./legendsOfTerra/image-layout.png";
+import LegendsOfTerraDeskTop1 from "./legendsOfTerra/image-desktop1.png";
+import LegendsOfTerraDeskTop2 from "./legendsOfTerra/image-desktop2.png";
+import LegendsOfTerraDeskTop3 from "./legendsOfTerra/image-desktop3.png";
+import LegendsOfTerraDeskTop4 from "./legendsOfTerra/image-desktop4.png";
+import LegendsOfTerraMobile1 from "./legendsOfTerra/image-mobile1.png";
+import LegendsOfTerraMobile2 from "./legendsOfTerra/image-mobile2.png";
+import LegendsOfTerraMobile3 from "./legendsOfTerra/image-mobile3.png";
+
+import LifeplanhdThumbnail from "./lifeplanhd/image-thumbnail.png";
+import LifeplanhdMockup from "./lifeplanhd/image-mockup.png";
+import LifeplanhdLayout from "./lifeplanhd/image-layout.png";
+import LifeplanhdDeskTop1 from "./lifeplanhd/image-desktop1.png";
+import LifeplanhdDeskTop2 from "./lifeplanhd/image-desktop2.png";
+import LifeplanhdDeskTop3 from "./lifeplanhd/image-desktop3.png";
+import LifeplanhdDeskTop4 from "./lifeplanhd/image-desktop4.png";
+import LifeplanhdMobile1 from "./lifeplanhd/image-mobile1.png";
+import LifeplanhdMobile2 from "./lifeplanhd/image-mobile2.png";
+import LifeplanhdMobile3 from "./lifeplanhd/image-mobile3.png";
+
+import DjeecpThumbnail from "./djeecp/image-thumbnail.png";
+import DjeecpMockup from "./djeecp/image-mockup.png";
+import DjeecpLayout from "./djeecp/image-layout.png";
+import DjeecpDeskTop1 from "./djeecp/image-desktop1.png";
+import DjeecpDeskTop2 from "./djeecp/image-desktop2.png";
+import DjeecpDeskTop3 from "./djeecp/image-desktop3.png";
+import DjeecpMobile1 from "./djeecp/image-mobile1.png";
+import DjeecpMobile2 from "./djeecp/image-mobile2.png";
+import DjeecpMobile3 from "./djeecp/image-mobile3.png";
 
 const projects = [
   {
@@ -82,7 +121,7 @@ const projects = [
 
   {
     namekey: "lifecaption",
-    client: "(주)청각장애인생활지원센터",
+    client: "(주)청각장애인생애지원센터",
     title: "라이프캡션",
     name: "LIFECAPTION",
     summary: "Platform dev.",
@@ -175,13 +214,24 @@ const projects = [
     exhibition: true,
 
     overview: [
-      "정성 담은 음식을 통해 새로운 가치를 발견하고 세상에 확산하여  공감하며 함께 살아가며, 모든 소비자들의 구매 활동이 가치소비가 되는 사회를 꿈꾸는 가치한입의 브랜딩 홈페이지 입니다.",
+      "정성 담은 음식을 통해 새로운 가치를 발견하고 세상에 확산하여 공감하며 함께 살아가며, 모든 소비자들의 구매 활동이 가치소비가 되는 사회를 꿈꾸는 가치한입의 브랜딩 홈페이지 입니다.",
     ],
     period: "2020.04",
     types: ["web", "responsive"],
     hyperLink: "http://abiteofvalue.com",
 
     thumbnail: AbiteofvalueThumbnail,
+    mockup: AbiteofvalueMockup,
+    layout: AbiteofvalueLayout,
+    screen: {
+      desktop: [
+        AbiteofvalueDeskTop1,
+        AbiteofvalueDeskTop2,
+        AbiteofvalueDeskTop3,
+        AbiteofvalueDeskTop4,
+      ],
+      mobile: [AbiteofvalueMobile1, AbiteofvalueMobile2, AbiteofvalueMobile3],
+    },
   },
 
   {
@@ -201,6 +251,76 @@ const projects = [
     hyperLink: "https://playlot.io",
 
     thumbnail: LegendsOfTerraThumbnail,
+    mockup: LegendsOfTerraMockup,
+    layout: LegendsOfTerraLayout,
+    screen: {
+      desktop: [
+        LegendsOfTerraDeskTop1,
+        LegendsOfTerraDeskTop2,
+        LegendsOfTerraDeskTop3,
+        LegendsOfTerraDeskTop4,
+      ],
+      mobile: [
+        LegendsOfTerraMobile1,
+        LegendsOfTerraMobile2,
+        LegendsOfTerraMobile3,
+      ],
+    },
+  },
+
+  {
+    namekey: "lifeplanhd",
+    title: "청각장애인생애지원센터 홈페이지",
+    client: "(주)청각장애인생애지원센터",
+    name: "LIFEPLANHD",
+    summary: "Brand Website dev.",
+    parts: "Publish, Front-end",
+    exhibition: true,
+
+    overview: [
+      "테라 블록체인 기반의 NFT로 발행된 카드를 이용해 토너먼트에서 승리하여 토큰 보상을 받는 P2E NFT 카드게임으로 카드팩 오픈 등, 초기 프로토타입 프론트엔드 개발을 진행하였습니다.",
+    ],
+    period: "2019.09",
+    types: ["web", "responsive"],
+    hyperLink: "https://lifeplanhd.kr",
+
+    thumbnail: LifeplanhdThumbnail,
+    mockup: LifeplanhdMockup,
+    layout: LifeplanhdLayout,
+    screen: {
+      desktop: [
+        LifeplanhdDeskTop1,
+        LifeplanhdDeskTop2,
+        LifeplanhdDeskTop3,
+        LifeplanhdDeskTop4,
+      ],
+      mobile: [LifeplanhdMobile1, LifeplanhdMobile2, LifeplanhdMobile3],
+    },
+  },
+
+  {
+    namekey: "djeecp",
+    title: "대전환경교육센터 홈페이지",
+    client: "대전환경교육센터",
+    name: "DJEECP",
+    summary: "Center Website dev.",
+    parts: "Desgin, Publish,F/B-end",
+    exhibition: true,
+
+    overview: [
+      "테라 블록체인 기반의 NFT로 발행된 카드를 이용해 토너먼트에서 승리하여 토큰 보상을 받는 P2E NFT 카드게임으로 카드팩 오픈 등, 초기 프로토타입 프론트엔드 개발을 진행하였습니다.",
+    ],
+    period: "2021.02",
+    types: ["web", "responsive"],
+    hyperLink: "http://djeecp.com",
+
+    thumbnail: DjeecpThumbnail,
+    mockup: DjeecpMockup,
+    layout: DjeecpLayout,
+    screen: {
+      desktop: [DjeecpDeskTop1, DjeecpDeskTop2, DjeecpDeskTop3],
+      mobile: [DjeecpMobile1, DjeecpMobile2, DjeecpMobile3],
+    },
   },
 ];
 
