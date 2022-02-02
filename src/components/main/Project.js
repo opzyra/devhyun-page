@@ -12,7 +12,7 @@ function Project({ projects }) {
   const animeRef = useRef(null);
   const handleProgress = ({ velocity }) => {
     let animeInst = animeRef.current;
-    if (velocity >= 1 && !animeInst) {
+    if (velocity >= -100 && !animeInst) {
       animeRef.current = anime
         .timeline({
           targets: document.querySelectorAll(`.projectGrid > div`),

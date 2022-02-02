@@ -8,6 +8,9 @@ const nextConfig = {
   images: {
     domains: ["devhyun-test.s3.ap-northeast-2.amazonaws.com"],
   },
+  experimental: {
+    scrollRestoration: true,
+  },
   webpack: (config) => {
     return config;
   },

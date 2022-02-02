@@ -16,33 +16,6 @@ function TechStack() {
 
   const [ratio, setRatio] = useState(1);
 
-  const handleResize = Lo.debounce(() => {
-    const width = window.innerWidth;
-    let ratio = 1;
-
-    if (width < breakPoint.XL && width >= breakPoint.LG) {
-      ratio = 0.86;
-    }
-
-    if (width < breakPoint.LG && width >= breakPoint.MD) {
-      ratio = 0.75;
-    }
-
-    if (width < breakPoint.MD && width >= breakPoint.M) {
-      ratio = 0.58;
-    }
-
-    if (width < breakPoint.M && width >= breakPoint.SM) {
-      ratio = 0.5;
-    }
-
-    if (width < breakPoint.SM) {
-      ratio = 0.28;
-    }
-
-    setRatio(ratio);
-  }, 500);
-
   const handleEnterStack = useCallback(() => {
     let animeInst = animeRef.current;
     if (animeInst && !animeInst.completed) {
@@ -52,6 +25,33 @@ function TechStack() {
   }, [animeRef, ratio]);
 
   useEffect(() => {
+    const handleResize = Lo.debounce(() => {
+      const width = window.innerWidth;
+      let ratio = 1;
+
+      if (width < breakPoint.XL && width >= breakPoint.LG) {
+        ratio = 0.86;
+      }
+
+      if (width < breakPoint.LG && width >= breakPoint.MD) {
+        ratio = 0.75;
+      }
+
+      if (width < breakPoint.MD && width >= breakPoint.M) {
+        ratio = 0.58;
+      }
+
+      if (width < breakPoint.M && width >= breakPoint.SM) {
+        ratio = 0.5;
+      }
+
+      if (width < breakPoint.SM) {
+        ratio = 0.28;
+      }
+
+      setRatio(ratio);
+    }, 500);
+
     window.addEventListener("resize", handleResize);
     handleResize();
     let restart = !!animeRef.current;

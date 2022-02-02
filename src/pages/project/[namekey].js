@@ -73,6 +73,7 @@ function ProjectDetail() {
                 src={project.mockup}
                 objectFit="contain"
                 alt=""
+                priority={true}
                 container
                 center
               />
@@ -174,7 +175,7 @@ export const getServerSideProps = async ({ query }) => {
 const projectDetail = css`
   padding: 20px 0px 120px;
   ${media.M(css`
-    padding: 12px 0px;
+    padding: 12px 0px 24px;
   `)}
 `;
 
@@ -317,6 +318,14 @@ const button = css`
     width: 12px;
     transition: 0.3s;
   }
+
+  ${media.M(css`
+    padding: 12px 18px;
+
+    span {
+      font-size: 14px;
+    }
+  `)}
 `;
 
 const mockup = css`
@@ -372,6 +381,26 @@ const mockup = css`
       justify-content: center;
     }
   }
+
+  ${media.M(css`
+    .mockup {
+      margin: 32px 0px;
+
+      .image {
+        width: 100%;
+      }
+    }
+
+    .description {
+      .contents {
+        text-align: left;
+      }
+
+      .link {
+        margin-top: 32px;
+      }
+    }
+  `)}
 `;
 
 const layout = css`
@@ -419,6 +448,14 @@ const layout = css`
       }
     }
   }
+
+  ${media.M(css`
+    margin-top: 80px;
+
+    .layout {
+      margin-bottom: 20px;
+    }
+  `)}
 `;
 
 const screen = css`
@@ -476,6 +513,44 @@ const screen = css`
       }
     }
   }
+
+  ${media.M(css`
+    margin-top: 32px;
+
+    .box {
+      padding: 16px;
+
+      &::after {
+        top: 22px;
+        left: -10px;
+        height: 8px;
+        transform: rotate(-45deg) translateX(24px);
+      }
+
+      &::before {
+        bottom: 22px;
+        right: -10px;
+        height: 8px;
+        transform: rotate(-45deg) translateX(-24px);
+      }
+
+      & + .box {
+        margin-top: 32px;
+      }
+
+      .mobile {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -16px;
+        max-height: initial;
+        overflow: auto;
+
+        .item {
+          width: 100%;
+        }
+      }
+    }
+  `)}
 `;
 
 export default ProjectDetail;
