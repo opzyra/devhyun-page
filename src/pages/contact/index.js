@@ -4,20 +4,49 @@ import { useForm, useWatch } from "react-hook-form";
 import { css } from "@emotion/react";
 import { media } from "@/styles";
 
-import { preFetchingQuery } from "@/library/query";
-import { preFetchServices, useServices } from "@/query/service";
-
 import Breadcrumb from "@/components/common/Breadcrumb";
 import Container from "@/components/common/Container";
 import MainLayout from "@/components/layout/MainLayout";
+import ServiceItem from "@/components/contact/ServiceItem";
 import ServiceGrid from "@/components/contact/ServiceGrid";
 
+import IconWebapp from "@/assets/svg/Webapp.svg";
+import IconCustomizing from "@/assets/svg/Customizing.svg";
+import IconPublishing from "@/assets/svg/Publishing.svg";
+import IconFrontend from "@/assets/svg/Frontend.svg";
+
+const services = [
+  {
+    icon: IconWebapp,
+    value: "webapp",
+    title: "홈페이지·모바일앱",
+    description: "사업소개, 쇼핑몰, 커뮤니티 유형의 웹사이트 또는 모바일앱",
+  },
+  {
+    icon: IconCustomizing,
+    value: "customizing",
+    title: "플랫폼·시스템",
+    description: "비즈니스 플랫폼, 고객관리 시스템 등 요구사항 맞춤형 프로젝트",
+  },
+  {
+    icon: IconPublishing,
+    value: "publishing",
+    title: "퍼블리싱",
+    description: "HTML·CSS·JQuery 활용 웹·반응형 퍼블리싱 작업",
+  },
+  {
+    icon: IconFrontend,
+    value: "frontend",
+    title: "프론트엔드",
+    description: "React·NextJS·Typescript 활용 개발 및 API 연동 작업",
+  },
+];
+
 function Contact() {
-  const { services } = useServices();
   const [title, setTitle] = useState();
   const { register, control } = useForm({
     defaultValues: {
-      service: services[0].value,
+      service: "webapp",
     },
   });
 
@@ -53,7 +82,16 @@ function Contact() {
             선택하신 서비스에 따라 체크리스트가 변동 됩니다.
           </p>
           <div className="services">
-            <ServiceGrid services={services} register={register} />
+            <ServiceGrid>
+              {services.map((service, index) => (
+                <ServiceItem
+                  className="item"
+                  register={register}
+                  service={service}
+                  key={index}
+                />
+              ))}
+            </ServiceGrid>
           </div>
         </Container>
       </div>
@@ -70,11 +108,6 @@ function Contact() {
       </div>
     </MainLayout>
   );
-}
-
-export async function getServerSideProps() {
-  const props = await preFetchingQuery([preFetchServices()]);
-  return props;
 }
 
 const contact = css`

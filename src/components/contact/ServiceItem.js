@@ -2,12 +2,9 @@ import { css, keyframes } from "@emotion/react";
 import { color } from "@/styles";
 
 import IconCheckbox from "@/assets/svg/Checkbox.svg";
-import IconWebapp from "@/assets/service/Webapp.svg";
-import IconCustomizing from "@/assets/service/Customizing.svg";
-import IconPublishing from "@/assets/service/Publishing.svg";
-import IconFrontend from "@/assets/service/Frontend.svg";
 
 function ServiceItem({ service, register, ...props }) {
+  const IconService = service.icon;
   return (
     <div css={serviceItem} {...props}>
       <label>
@@ -22,10 +19,7 @@ function ServiceItem({ service, register, ...props }) {
         </div>
         <div className="box">
           <div className="icon">
-            {service.value === "webapp" && <IconWebapp />}
-            {service.value === "customizing" && <IconCustomizing />}
-            {service.value === "publishing" && <IconPublishing />}
-            {service.value === "frontend" && <IconFrontend />}
+            <IconService />
           </div>
           <div className="contents">
             <h6>{service.title}</h6>
