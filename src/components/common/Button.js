@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { css } from "@emotion/react";
 
@@ -13,6 +14,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "middle", "large"]),
   shape: PropTypes.oneOf(["circle", "round"]),
   href: PropTypes.string,
+  link: PropTypes.string,
   target: PropTypes.bool,
 };
 
@@ -23,17 +25,26 @@ function Button({
   size = "middle",
   shape,
   href,
+  link,
   target,
   children,
   onClick,
   ...props
 }) {
+  const router = useRouter();
+
   const handleClick = useCallback(() => {
     if (href) {
       const opener = target ? window.open("about:blank") : window;
       opener.location.href = href;
       return;
     }
+
+    if (link) {
+      router.push(link);
+      return;
+    }
+
     onClick && onClick();
   }, [href, target, onClick]);
 

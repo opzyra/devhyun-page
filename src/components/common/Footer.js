@@ -12,10 +12,22 @@ function Footer() {
         <div css={information}>
           <span css={appName}>데브현</span>
           <span>
-            이메일 <b>hhkim@devhyun.com</b>
+            이메일
+            <span>
+              <b>hhkim@devhyun.com</b>
+            </span>
           </span>
           <span>
-            카카오톡 <b>opzyra</b>
+            카카오톡
+            <span css={kakao}>
+              <a
+                href="http://pf.kakao.com/_xnVJib"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <strong>바로가기</strong>
+              </a>
+            </span>
           </span>
         </div>
         <div css={description}>
@@ -30,7 +42,7 @@ function Footer() {
               <p>
                 Open-Source
                 <br />
-                MIT License
+                Apache-2.0 License
               </p>
             </a>
           </div>
@@ -59,6 +71,10 @@ const information = css`
       margin-left: 16px;
     }
 
+    & > span {
+      margin-left: 6px;
+    }
+
     b {
       font-weight: 500;
       color: ${color.font};
@@ -82,6 +98,21 @@ const information = css`
 const appName = css`
   font-weight: 900;
   color: ${color.font};
+`;
+
+const kakao = css`
+  font-weight: 900;
+  color: ${color.font};
+
+  small {
+    font-weight: 500;
+    color: ${color.font};
+    font-family: ${fontFamilyWithRoboto};
+  }
+
+  strong {
+    font-weight: 900;
+  }
 `;
 
 const description = css`

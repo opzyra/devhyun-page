@@ -56,7 +56,7 @@ function Header({ background, full }) {
             </li>
           </ul>
           <div css={startProjectButton}>
-            <Button type="brand" shape="round">
+            <Button type="brand" shape="round" link="/contact">
               <span>START PROJECT</span>
               <Arrow />
             </Button>
