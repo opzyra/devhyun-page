@@ -9,6 +9,7 @@ import Container from "@/components/common/Container";
 import MainLayout from "@/components/layout/MainLayout";
 import ServiceItem from "@/components/contact/ServiceItem";
 import ServiceGrid from "@/components/contact/ServiceGrid";
+import CheckGrid from "@/components/contact/CheckGrid";
 
 import IconWebapp from "@/assets/svg/Webapp.svg";
 import IconCustomizing from "@/assets/svg/Customizing.svg";
@@ -104,6 +105,9 @@ function Contact() {
             <br />
             &quot;{title}&quot; 작업에 대한 체크리스트를 검토해주세요.
           </p>
+          <div className="checks">
+            <CheckGrid></CheckGrid>
+          </div>
         </Container>
       </div>
     </MainLayout>
@@ -153,6 +157,9 @@ const checkList = css`
 
   h4 {
     margin-bottom: 20px;
+  }
+
+  .checks {
   }
 
   ${media.MD(css`
