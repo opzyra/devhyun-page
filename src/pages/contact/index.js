@@ -102,7 +102,7 @@ const services = [
         icon: IconPrototype,
         title: "디자인 시안",
         description: `PSD, XD, Sketch, Zeplin과 같은 툴로 작업된 디자인 산출물이 필요합니다.
-        <br/>디자인 산출물이 업는 경우 퍼블리싱 작업을 수행할수 없습니다.`,
+        <br/>디자인 산출물이 준비되지 않은 경우 퍼블리싱 작업을 수행할수 없습니다.`,
       },
       {
         icon: IconDevices,
@@ -114,7 +114,7 @@ const services = [
         icon: IconAnimation,
         title: "애니메이션",
         description: `스크롤에 따른 역동적인 페이지 구성이나 인터렉션에 따른 효과를 반영해야하는 경우
-        <br/>유사 래퍼런스가 있다면 제공해주시고, 디자인 시안에 관련 정보를 기입해주세요.`,
+        <br/>유사 래퍼런스가 있다면 제공해주시고, 애니메이션에 대한 정보를 전달해주세요.`,
       },
     ],
   },
