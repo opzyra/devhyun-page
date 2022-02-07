@@ -111,6 +111,7 @@ const kakao = css`
   }
 
   strong {
+    font-size: 12px;
     font-weight: 900;
   }
 `;
