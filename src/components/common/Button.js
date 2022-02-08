@@ -46,7 +46,7 @@ function Button({
     }
 
     onClick && onClick();
-  }, [href, target, onClick]);
+  }, [href, link, onClick, target, router]);
 
   return (
     <button
@@ -86,6 +86,14 @@ const button = ({ block, type, size, shape }) => css`
     padding: 12px 24px;
   `}
 
+  ${type === "default" &&
+  css`
+    &:hover {
+      background: ${color.font};
+      color: #ffffff;
+    }
+  `}
+
   ${type !== "default" &&
   css`
     color: #fff;
@@ -97,6 +105,10 @@ const button = ({ block, type, size, shape }) => css`
     &:hover {
       border-color: ${lighten("0.05", color[type])};
       background: ${lighten("0.05", color[type])};
+    }
+
+    svg {
+      fill: #ffffff;
     }
   `}
 
@@ -112,6 +124,19 @@ const button = ({ block, type, size, shape }) => css`
 
   &:focus, &:active {
     outline: 0;
+  }
+
+  span + svg {
+    margin-left: 6px;
+  }
+
+  svg + span {
+    margin-left: 6px;
+  }
+
+  svg {
+    width: 12px;
+    transition: 0.3s;
   }
 `;
 

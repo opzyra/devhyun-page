@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { media } from "@/styles";
 
 function CheckItem({ check, ...props }) {
   const IconCheck = check.icon;
@@ -37,6 +38,18 @@ const checkItem = css`
       font-size: 14px;
     }
   }
+
+  ${media.MD(css`
+    .contents {
+      br {
+        display: none;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  `)};
 `;
 
 export default CheckItem;

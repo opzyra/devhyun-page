@@ -1,5 +1,5 @@
 import { css, keyframes } from "@emotion/react";
-import { color } from "@/styles";
+import { color, media } from "@/styles";
 
 import IconCheckbox from "@/assets/svg/Checkbox.svg";
 
@@ -41,6 +41,7 @@ const serviceItem = css`
   label {
     display: inline-block;
     position: relative;
+    width: 100%;
 
     .check {
       position: absolute;
@@ -136,6 +137,22 @@ const serviceItem = css`
       }
     }
   }
+
+  ${media.XL(css`
+    label {
+      .box {
+        min-height: 94px;
+      }
+    }
+  `)}
+
+  ${media.SM(css`
+    label {
+      .box {
+        min-height: auto;
+      }
+    }
+  `)}
 `;
 
 export default ServiceItem;

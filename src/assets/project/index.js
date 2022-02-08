@@ -94,7 +94,7 @@ const projects = [
     exhibition: true,
 
     period: "2019.03",
-    types: ["web", "responsive"],
+    types: ["web"],
     hyperLink: "http://aboutperiod.com",
 
     overview: [
@@ -129,7 +129,7 @@ const projects = [
     exhibition: true,
 
     period: "2021.03",
-    types: ["web", "responsive"],
+    types: ["platform"],
     hyperLink: "http://lifecaption.kr",
 
     overview: [
@@ -167,10 +167,10 @@ const projects = [
     exhibition: true,
 
     overview: [
-      "코로나19 확산으로 어려움을 겪고 있는 소상공인의 경영 안정을 위하여 중소벤처기업진흥공단과 소상공인진흥공단이 주관하는 새희망자금을 신청 및 접수하는 웹 사이트 입니다.",
+      "코로나19 확산으로 어려움을 겪고 있는 소상공인의 경영 안정을 위하여 중소벤처기업진흥공단과 소상공인진흥공단이 주관하는 새희망자금을 신청 및 접수하는 웹페이지 입니다.",
     ],
     period: "2020.10",
-    types: ["web", "responsive"],
+    types: ["publishing"],
     hyperLink: "https://newhope.sbiz.or.kr/searchcomplaint.do",
 
     thumbnail: SemasThumbnail,
@@ -197,7 +197,7 @@ const projects = [
       <br/>제공 및 유지보수를 담당·관리하고 있습니다.`,
     ],
     period: "2020.06",
-    types: ["web", "responsive"],
+    types: ["system"],
     hyperLink: "http://storyhub.co.kr",
 
     thumbnail: StoryhubThumbnail,
@@ -230,7 +230,7 @@ const projects = [
       <br/>가치한입의 브랜딩 홈페이지 입니다.`,
     ],
     period: "2020.04",
-    types: ["web", "responsive"],
+    types: ["web"],
     hyperLink: "http://abiteofvalue.com",
 
     thumbnail: AbiteofvalueThumbnail,
@@ -263,7 +263,7 @@ const projects = [
       `초기 빌드업 및 프로토타입 개발에 참여하여 화면과 효과 중심의 작업을 진행하였습니다.`,
     ],
     period: "2021.11",
-    types: ["web", "responsive"],
+    types: ["frontend"],
     hyperLink: "https://playlot.io",
 
     thumbnail: LegendsOfTerraThumbnail,
@@ -298,7 +298,7 @@ const projects = [
       <br/>사회적기업 청각장애인생애지원센터의 브랜딩 홈페이지입니다.`,
     ],
     period: "2019.09",
-    types: ["web", "responsive"],
+    types: ["system"],
     hyperLink: "https://lifeplanhd.kr",
 
     thumbnail: LifeplanhdThumbnail,
@@ -329,7 +329,7 @@ const projects = [
       <br/>환경교육에 관련된 이미지, 정보 등의 콘텐츠를 정기구독 메일 서비스와 함께 홈페이지를 통해 관련 종사자와 시민을 연결하는 환경교육통합플랫폼을 구축하였습니다.`,
     ],
     period: "2021.02",
-    types: ["web", "responsive"],
+    types: ["web"],
     hyperLink: "http://djeecp.com",
 
     thumbnail: DjeecpThumbnail,

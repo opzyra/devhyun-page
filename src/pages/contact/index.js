@@ -12,6 +12,7 @@ import ServiceGrid from "@/components/contact/ServiceGrid";
 import CheckGrid from "@/components/contact/CheckGrid";
 import CheckItem from "@/components/contact/CheckItem";
 
+import ArrowRight from "@/assets/svg/ArrowRight.svg";
 import IconWebapp from "@/assets/svg/Webapp.svg";
 import IconCustomizing from "@/assets/svg/Customizing.svg";
 import IconPublishing from "@/assets/svg/Publishing.svg";
@@ -26,6 +27,8 @@ import IconCodeSkill from "@/assets/svg/CodeSkill.svg";
 import IconPrototype from "@/assets/svg/Prototype.svg";
 import IconDevices from "@/assets/svg/Devices.svg";
 import IconAnimation from "@/assets/svg/Animation.svg";
+import IconCrossBrowsing from "@/assets/svg/CrossBrowsing.svg";
+import Button from "@/components/common/Button";
 
 const services = [
   {
@@ -99,6 +102,12 @@ const services = [
     description: "HTML·CSS·JQuery 활용 웹·반응형 퍼블리싱 작업",
     checks: [
       {
+        icon: IconCrossBrowsing,
+        title: "브라우저 지원",
+        description: `최신 브라우저뿐만 아니라 구형 브라우저에서도 동작해야하는 경우 추가 작업이 필요합니다.
+        <br/>기본적으로 IE11에서도 잘 작동되도록 ES5 스팩으로 개발합니다.`,
+      },
+      {
         icon: IconPrototype,
         title: "디자인 시안",
         description: `PSD, XD, Sketch, Zeplin과 같은 툴로 작업된 디자인 산출물이 필요합니다.
@@ -123,7 +132,32 @@ const services = [
     value: "frontend",
     title: "프론트엔드",
     description: "React·NextJS·Typescript 활용 개발 및 API 연동 작업",
-    checks: [],
+    checks: [
+      {
+        icon: IconCodeSkill,
+        title: "개발 기술",
+        description: `SSR 지원, Typescript 도입 여부, State·Fetch 라이브러리 등
+        <br/>프론트엔드 개발에 사용되는 기술을 검토하고 체크합니다.`,
+      },
+      {
+        icon: IconPrototype,
+        title: "디자인 시안",
+        description: `PSD, XD, Sketch, Zeplin과 같은 툴로 작업된 디자인 산출물이 필요합니다.
+        <br/>디자인 산출물이 준비되지 않은 경우 퍼블리싱 작업을 수행할수 없습니다.`,
+      },
+      {
+        icon: IconDevices,
+        title: "브레이크 포인트",
+        description: `시안에 따라 2-Points<small>(PC, Mobile)</small>, 3-Points<small>(PC, Tablet, Mobile)</small>, n-Points<small>(Customizing)</small>
+        <br/>반응형 작업의 범위를 사전에 협의하고 진행합니다.`,
+      },
+      {
+        icon: IconAnimation,
+        title: "애니메이션",
+        description: `스크롤에 따른 역동적인 페이지 구성이나 인터렉션에 따른 효과를 반영해야하는 경우
+        <br/>유사 래퍼런스가 있다면 제공해주시고, 애니메이션에 대한 정보를 전달해주세요.`,
+      },
+    ],
   },
 ];
 
@@ -139,6 +173,10 @@ function Contact() {
   const form = useWatch({
     control,
   });
+
+  const handleClickStart = () => {
+    window.ChannelIO && window.ChannelIO("openChat");
+  };
 
   useEffect(() => {
     const selectedService = services.find(
@@ -200,6 +238,24 @@ function Contact() {
           </div>
         </Container>
       </div>
+
+      <div css={channel}>
+        <Container>
+          <h4>프로젝트 시작하기</h4>
+          <p>
+            체크리스트를 확인하셨다면 아래의 상담시작 버튼을 클릭하여 상담을
+            시작해주세요.
+            <br />
+            기본 정보를 입력해주시면 빠른 진행이 가능합니다.
+          </p>
+          <div className="actions">
+            <Button css={startButton} type="brand" onClick={handleClickStart}>
+              <span>상담시작</span>
+              <ArrowRight />
+            </Button>
+          </div>
+        </Container>
+      </div>
     </MainLayout>
   );
 }
@@ -232,7 +288,7 @@ const service = css`
   }
 
   ${media.MD(css`
-    padding: 20px 0px 40px;
+    padding: 20px 0px;
   `)}
 
   ${media.M(css`
@@ -251,6 +307,7 @@ const checkList = css`
 
   .checks {
     margin-top: 28px;
+    min-height: 344px;
   }
 
   ${media.MD(css`
@@ -262,6 +319,49 @@ const checkList = css`
       margin-bottom: 8px;
     }
   `)}
+`;
+
+const channel = css`
+  padding: 60px 0px;
+  border-top: 1px solid #ebebeb;
+
+  h4 {
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    margin-top: 40px;
+  }
+
+  ${media.MD(css`
+    padding: 40px 0px;
+  `)}
+
+  ${media.M(css`
+    h4 {
+      margin-bottom: 8px;
+    }
+  `)}
+`;
+
+const startButton = css`
+  width: 160px;
+  border-radius: 10px;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 14px 20px;
+  position: relative;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 5%), 0 2px 2px rgb(0 0 0 / 5%),
+    0 4px 4px rgb(0 0 0 / 5%), 0 8px 8px rgb(0 0 0 / 5%);
+
+  & + .button {
+    margin-left: 12px;
+  }
+
+  svg {
+    width: 12px;
+    fill: #ffffff;
+  }
 `;
 
 export default Contact;

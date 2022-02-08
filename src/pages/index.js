@@ -1,6 +1,6 @@
 import { useCallback, useRef } from "react";
 import Lottie from "react-lottie-player";
-
+import anime from "animejs";
 import { css } from "@emotion/react";
 
 import {
@@ -35,9 +35,14 @@ function Main() {
 
   const handleClickProjectScroll = useCallback(() => {
     const projectInst = projectRef.current;
-    window.scroll({
-      behavior: "smooth",
-      top: projectInst.offsetTop + 60,
+    anime({
+      targets:
+        window.document.scrollingElement ||
+        window.document.body ||
+        window.document.documentElement,
+      scrollTop: projectInst.offsetTop + 60,
+      duration: 300,
+      easing: "linear",
     });
   }, []);
 
@@ -93,7 +98,11 @@ function Main() {
         <div css={social}>
           <div css={socialLine}></div>
           <div css={socialItem}>
-            <a href="" target="_blank" rel="noreferrer">
+            <a
+              href="http://pf.kakao.com/_xnVJib"
+              target="_blank"
+              rel="noreferrer"
+            >
               <KakaoTalk />
             </a>
           </div>

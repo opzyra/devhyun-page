@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { css, keyframes } from "@emotion/react";
 import moment from "moment";
+import tippy from "tippy.js";
 
 import {
   fontFamilyWithPaybooc,
@@ -19,19 +20,36 @@ import Container from "@/components/common/Container";
 import Image from "@/components/common/Image";
 import Button from "@/components/common/Button";
 
-import Browser from "@/assets/svg/Browser.svg";
-import Responsive from "@/assets/svg/Responsive.svg";
+import IconWebapp from "@/assets/svg/Webapp.svg";
+import IconCustomizing from "@/assets/svg/Customizing.svg";
+import IconPublishing from "@/assets/svg/Publishing.svg";
+import IconFrontend from "@/assets/svg/Frontend.svg";
+
 import ArrowDiag from "@/assets/svg/ArrowDiag.svg";
+import ArrowLeft from "@/assets/svg/ArrowLeft.svg";
 
 function ProjectDetail() {
   const router = useRouter();
   const { namekey } = router.query;
   const { project } = useProject({ namekey });
 
+  const handleClickList = () => {
+    router.back();
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
+      history.scrollRestoration = "manual";
       const WOW = require("wow.js");
-      new WOW().init({ live: false });
+      new WOW().init({ live: true });
+
+      tippy("[data-tippy-content]", {
+        arrow: true,
+        duration: 1000,
+        theme: "brand",
+        placement: "bottom",
+        animation: "shift-away",
+      });
     }
   }, []);
 
@@ -53,13 +71,28 @@ function ProjectDetail() {
               </div>
               <div css={headerType}>
                 {project.types.includes("web") && (
-                  <p>
-                    <Browser />
+                  <p data-tippy-content="홈페이지">
+                    <IconWebapp />
                   </p>
                 )}
-                {project.types.includes("responsive") && (
-                  <p>
-                    <Responsive />
+                {project.types.includes("platform") && (
+                  <p data-tippy-content="플랫폼">
+                    <IconCustomizing />
+                  </p>
+                )}
+                {project.types.includes("system") && (
+                  <p data-tippy-content="시스템">
+                    <IconCustomizing />
+                  </p>
+                )}
+                {project.types.includes("publishing") && (
+                  <p data-tippy-content="퍼블리싱">
+                    <IconPublishing />
+                  </p>
+                )}
+                {project.types.includes("frontend") && (
+                  <p data-tippy-content="프론트엔드">
+                    <IconFrontend />
                   </p>
                 )}
               </div>
@@ -97,11 +130,11 @@ function ProjectDetail() {
               <div
                 className="link wow fadeInUp"
                 data-wow-duration="2s"
-                data-wow-delay="0.8s"
+                data-wow-delay="0.6s"
               >
                 {project.hyperLink && (
                   <Button
-                    css={button}
+                    css={linkButton}
                     type="default"
                     shape="round"
                     size="large"
@@ -118,7 +151,11 @@ function ProjectDetail() {
         </div>
         <div css={layout}>
           <Container>
-            <div className="layout wow fadeInUp" data-wow-duration="2s">
+            <div
+              className="layout wow fadeInUp"
+              data-wow-duration="2s"
+              data-wow-delay="0.3s"
+            >
               <Image
                 src={project.layout}
                 objectFit="contain"
@@ -135,6 +172,7 @@ function ProjectDetail() {
             {project.screen.desktop.map((image, index) => (
               <div
                 className="box wow fadeInUp"
+                data-wow-delay="0.3s"
                 data-wow-duration="2s"
                 key={index}
               >
@@ -158,6 +196,22 @@ function ProjectDetail() {
                 </div>
               </div>
             )}
+          </Container>
+        </div>
+        <div css={actions}>
+          <Container>
+            <div className="buttons">
+              <Button
+                css={listButton}
+                type="default"
+                shape="round"
+                size="large"
+                onClick={handleClickList}
+              >
+                <ArrowLeft />
+                <span>목록 보기</span>
+              </Button>
+            </div>
           </Container>
         </div>
       </div>
@@ -260,6 +314,7 @@ const headerType = css`
     height: 64px;
     background: #f5f5f5;
     margin: 0px 8px;
+    cursor: pointer;
 
     &:last-of-type {
       margin-right: 0px;
@@ -284,7 +339,7 @@ const headerType = css`
   `)}
 `;
 
-const buttonKeyframe = keyframes`
+const linkButtonKeyframe = keyframes`
   from {
     transform: translateX(0px);
   }
@@ -293,7 +348,7 @@ const buttonKeyframe = keyframes`
   }
 `;
 
-const button = css`
+const linkButton = css`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -307,16 +362,7 @@ const button = css`
 
   &:hover svg {
     fill: #ffffff;
-    animation: ${buttonKeyframe} 0.5s ease-in forwards;
-  }
-
-  span {
-    margin-right: 6px;
-  }
-
-  svg {
-    width: 12px;
-    transition: 0.3s;
+    animation: ${linkButtonKeyframe} 0.5s ease-in forwards;
   }
 
   ${media.M(css`
@@ -553,6 +599,58 @@ const screen = css`
           width: 100%;
         }
       }
+    }
+  `)}
+`;
+
+const actions = css`
+  margin-top: 60px;
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+
+    button + button {
+      margin-left: 12px;
+    }
+  }
+
+  ${media.M(css`
+    margin-top: 40px;
+  `)}
+`;
+
+const listButtonKeyframe = keyframes`
+  from {
+    transform: rotate(180deg) translateX(0px);
+  }
+  to {
+    transform: rotate(180deg) translateX(3px) translateY(0px);
+  }
+`;
+
+const listButton = css`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ${fontFamilyWithPaybooc};
+  padding: 14px 24px;
+
+  &:hover {
+    background: ${color.font};
+    color: #ffffff;
+  }
+
+  &:hover svg {
+    fill: #ffffff;
+    animation: ${listButtonKeyframe} 0.5s ease-in forwards;
+  }
+
+  ${media.M(css`
+    padding: 12px 18px;
+
+    span {
+      font-size: 14px;
     }
   `)}
 `;

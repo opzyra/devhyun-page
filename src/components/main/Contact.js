@@ -14,7 +14,6 @@ import Button from "@/components/common/Button";
 import Process from "@/assets/json/process.json";
 
 import ArrowRight from "@/assets/svg/ArrowRight.svg";
-import Link from "next/link";
 
 function Contact() {
   return (
@@ -40,7 +39,7 @@ function Contact() {
         </div>
       </div>
       <div>
-        <Button css={contactBodyButton} type="primary" link="/contact">
+        <Button css={contactBodyButton} type="brand" link="/contact">
           <span>문의하기</span>
           <ArrowRight />
         </Button>

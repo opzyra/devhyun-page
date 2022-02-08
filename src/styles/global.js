@@ -317,7 +317,7 @@ export const typography = css`
       }
 
       h4 {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       h5 {

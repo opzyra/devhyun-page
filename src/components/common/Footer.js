@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import { color, fontFamilyWithRoboto, media } from "@/styles";
 
@@ -6,6 +7,12 @@ import Container from "@/components/common/Container";
 import OpenSource from "@/assets/svg/Opensource.svg";
 
 function Footer() {
+  const router = useRouter();
+
+  const handleChannelClick = () => {
+    router.push("/contact");
+  };
+
   return (
     <footer css={footer}>
       <Container>
@@ -18,15 +25,9 @@ function Footer() {
             </span>
           </span>
           <span>
-            카카오톡
-            <span css={kakao}>
-              <a
-                href="http://pf.kakao.com/_xnVJib"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <strong>바로가기</strong>
-              </a>
+            문의하기
+            <span css={channel}>
+              <strong onClick={handleChannelClick}>바로가기</strong>
             </span>
           </span>
         </div>
@@ -83,13 +84,13 @@ const information = css`
   }
 
   ${media.M(css`
-    span:nth-of-type(1) {
+    & > span:nth-of-type(1) {
       font-size: 16px;
       display: block;
       margin-bottom: 6px;
     }
 
-    span:nth-of-type(2) {
+    & > span:nth-of-type(2) {
       margin-left: 0px;
     }
   `)}
@@ -100,9 +101,10 @@ const appName = css`
   color: ${color.font};
 `;
 
-const kakao = css`
+const channel = css`
   font-weight: 900;
   color: ${color.font};
+  cursor: pointer;
 
   small {
     font-weight: 500;
