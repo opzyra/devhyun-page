@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 
@@ -187,76 +188,79 @@ function Contact() {
   }, [form]);
 
   return (
-    <MainLayout css={contact}>
-      <div css={header}>
-        <Container>
-          <Breadcrumb items={["문의하기"]} />
-          <h3>
-            프로젝트를 함께할 개발자를 찾고 계신가요?
-            <br />
-            내용을 살펴보고 문의해주세요
-          </h3>
-        </Container>
-      </div>
-      <div css={service}>
-        <Container>
-          <h4>서비스 유형</h4>
-          <p>
-            진행하시는 프로젝트 유형에 맞게 아래의 서비스 유형을 선택해주세요.
-            <br />
-            선택하신 서비스에 따라 체크리스트가 변동 됩니다.
-          </p>
-          <div className="services">
-            <ServiceGrid>
-              {services.map((service, index) => (
-                <ServiceItem
-                  className="item"
-                  register={register}
-                  service={service}
-                  key={index}
-                />
-              ))}
-            </ServiceGrid>
-          </div>
-        </Container>
-      </div>
-      <div css={checkList}>
-        <Container>
-          <h4>체크리스트</h4>
-          <p>
-            문의하시기 전에 아래의 내용을 확인해주시면 원할하고 빠른 작업 시작이
-            가능합니다.
-            <br />
-            &quot;{title}&quot; 작업에 대한 체크리스트를 검토해주세요.
-          </p>
-          <div className="checks">
-            <CheckGrid>
-              {checks.map((check, index) => (
-                <CheckItem className="item" check={check} key={index} />
-              ))}
-            </CheckGrid>
-          </div>
-        </Container>
-      </div>
+    <>
+      <NextSeo title={`문의하기 - ${process.env.NEXT_PUBLIC_SEO_TITLE}`} />
+      <MainLayout css={contact}>
+        <div css={header}>
+          <Container>
+            <Breadcrumb items={["문의하기"]} />
+            <h3>
+              프로젝트를 함께할 개발자를 찾고 계신가요?
+              <br />
+              내용을 살펴보고 문의해주세요
+            </h3>
+          </Container>
+        </div>
+        <div css={service}>
+          <Container>
+            <h4>서비스 유형</h4>
+            <p>
+              진행하시는 프로젝트 유형에 맞게 아래의 서비스 유형을 선택해주세요.
+              <br />
+              선택하신 서비스에 따라 체크리스트가 변동 됩니다.
+            </p>
+            <div className="services">
+              <ServiceGrid>
+                {services.map((service, index) => (
+                  <ServiceItem
+                    className="item"
+                    register={register}
+                    service={service}
+                    key={index}
+                  />
+                ))}
+              </ServiceGrid>
+            </div>
+          </Container>
+        </div>
+        <div css={checkList}>
+          <Container>
+            <h4>체크리스트</h4>
+            <p>
+              문의하시기 전에 아래의 내용을 확인해주시면 원할하고 빠른 작업
+              시작이 가능합니다.
+              <br />
+              &quot;{title}&quot; 작업에 대한 체크리스트를 검토해주세요.
+            </p>
+            <div className="checks">
+              <CheckGrid>
+                {checks.map((check, index) => (
+                  <CheckItem className="item" check={check} key={index} />
+                ))}
+              </CheckGrid>
+            </div>
+          </Container>
+        </div>
 
-      <div css={channel}>
-        <Container>
-          <h4>프로젝트 시작하기</h4>
-          <p>
-            체크리스트를 확인하셨다면 아래의 상담시작 버튼을 클릭하여 상담을
-            시작해주세요.
-            <br />
-            기본 정보를 입력해주시면 빠른 진행이 가능합니다.
-          </p>
-          <div className="actions">
-            <Button css={startButton} type="brand" onClick={handleClickStart}>
-              <span>상담시작</span>
-              <ArrowRight />
-            </Button>
-          </div>
-        </Container>
-      </div>
-    </MainLayout>
+        <div css={channel}>
+          <Container>
+            <h4>프로젝트 시작하기</h4>
+            <p>
+              체크리스트를 확인하셨다면 아래의 상담시작 버튼을 클릭하여 상담을
+              시작해주세요.
+              <br />
+              기본 정보를 입력해주시면 빠른 진행이 가능합니다.
+            </p>
+            <div className="actions">
+              <Button css={startButton} type="brand" onClick={handleClickStart}>
+                <span>상담시작</span>
+                <ArrowRight />
+              </Button>
+            </div>
+          </Container>
+        </div>
+      </MainLayout>
+    </>
   );
 }
 

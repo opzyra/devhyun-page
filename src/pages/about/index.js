@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import { css } from "@emotion/react";
 import { breakPoint, display, media } from "@/styles";
 
@@ -19,105 +20,108 @@ import ImgIdentityM from "@/assets/images/img-identity_m.png";
 
 function About() {
   return (
-    <MainLayout css={about}>
-      <div css={header}>
-        <Container>
-          <Breadcrumb items={["소개"]} />
-          <h3>
-            웹 브라우저로 사람을 연결하는 개발자
+    <>
+      <NextSeo title={`소개 - ${process.env.NEXT_PUBLIC_SEO_TITLE}`} />
+      <MainLayout css={about}>
+        <div css={header}>
+          <Container>
+            <Breadcrumb items={["소개"]} />
+            <h3>
+              웹 브라우저로 사람을 연결하는 개발자
+              <br />
+              김현호에 대해 알아보세요 !
+            </h3>
+          </Container>
+        </div>
+        <div css={keyword}>
+          <Container>
+            <ul>
+              <li>
+                <Image src={IconWeb} alt="김현호" center />
+                <p>웹개발자</p>
+                <p>김현호</p>
+              </li>
+              <li>
+                <Image src={IconLanguage} alt="프론트엔드" center />
+                <p>전문분야</p>
+                <p>프론트엔드</p>
+              </li>
+              <li>
+                <Image src={IconFlow} alt="문제해결" center />
+                <p>유연한</p>
+                <p>문제해결</p>
+              </li>
+              <li>
+                <Image src={IconRoot} alt="뿌리깊은" center />
+                <p>뿌리깊은</p>
+                <p>개발자</p>
+              </li>
+              <li>
+                <Image src={IconTrust} alt="신뢰" center />
+                <p>핵심가치</p>
+                <p>신뢰</p>
+              </li>
+            </ul>
+          </Container>
+        </div>
+        <div css={introduce}>
+          <Container>
+            <h4>개발자 소개</h4>
+            <p>
+              웹 브라우저를 통해 사람을 연결하고 다양한 문제를 해결 및 개선하는
+              매력에 푹 빠져 웹 개발을 길을 걷고 있습니다.
+            </p>
+            <p>
+              프론트엔드를 전문적으로 다루고 있으며 유저 편의성을 녹아낸 웹
+              프로그램을 개발 하고 있습니다.
+            </p>
             <br />
-            김현호에 대해 알아보세요 !
-          </h3>
-        </Container>
-      </div>
-      <div css={keyword}>
-        <Container>
-          <ul>
-            <li>
-              <Image src={IconWeb} alt="김현호" center />
-              <p>웹개발자</p>
-              <p>김현호</p>
-            </li>
-            <li>
-              <Image src={IconLanguage} alt="프론트엔드" center />
-              <p>전문분야</p>
-              <p>프론트엔드</p>
-            </li>
-            <li>
-              <Image src={IconFlow} alt="문제해결" center />
-              <p>유연한</p>
-              <p>문제해결</p>
-            </li>
-            <li>
-              <Image src={IconRoot} alt="뿌리깊은" center />
-              <p>뿌리깊은</p>
-              <p>개발자</p>
-            </li>
-            <li>
-              <Image src={IconTrust} alt="신뢰" center />
-              <p>핵심가치</p>
-              <p>신뢰</p>
-            </li>
-          </ul>
-        </Container>
-      </div>
-      <div css={introduce}>
-        <Container>
-          <h4>개발자 소개</h4>
-          <p>
-            웹 브라우저를 통해 사람을 연결하고 다양한 문제를 해결 및 개선하는
-            매력에 푹 빠져 웹 개발을 길을 걷고 있습니다.
-          </p>
-          <p>
-            프론트엔드를 전문적으로 다루고 있으며 유저 편의성을 녹아낸 웹
-            프로그램을 개발 하고 있습니다.
-          </p>
-          <br />
-          <p>
-            문제의식과 해결의 과정으로 성장하고 있으며 항상 새로운 기술에
-            적극적으로 도전하며
-          </p>
-          <p>
-            다양한 프로젝트를 통해 얻어진 노하우를 바탕으로 프로젝트를 진행하고
-            있습니다.
-          </p>
-          <br />
-          <p>반갑습니다, 신뢰를 가장 중요시하는 개발자 김현호입니다.</p>
-        </Container>
-      </div>
-      <div css={skills}>
-        <Container>
-          <h4>기술스택 소개</h4>
-          <p>프로젝트를 수행하기 위해 사용해본 경험이 있는 기술스택입니다.</p>
-          <p>
-            언급된 기술은 결과물을 도출해본 경험이 있으며 개발된 소스코드를
-            이해할 수 있습니다.
-          </p>
-          <Skill />
-        </Container>
-      </div>
-      <div css={value}>
-        <Container>
-          <h4>데브현 소개</h4>
-          <p>
-            세상에 많은 개발자들 중 &#39;김현호&#39;가 추구하는 가치를 브랜드화
-            하였습니다.
-          </p>
-          <div>
-            <Image
-              css={display.not(breakPoint.M, "block")}
-              src={ImgIdentity}
-              alt="identity"
-            />
-            <Image
-              css={display.match(breakPoint.M, "block")}
-              src={ImgIdentityM}
-              alt="identity"
-            />
-          </div>
-        </Container>
-      </div>
-    </MainLayout>
+            <p>
+              문제의식과 해결의 과정으로 성장하고 있으며 항상 새로운 기술에
+              적극적으로 도전하며
+            </p>
+            <p>
+              다양한 프로젝트를 통해 얻어진 노하우를 바탕으로 프로젝트를
+              진행하고 있습니다.
+            </p>
+            <br />
+            <p>반갑습니다, 신뢰를 가장 중요시하는 개발자 김현호입니다.</p>
+          </Container>
+        </div>
+        <div css={skills}>
+          <Container>
+            <h4>기술스택 소개</h4>
+            <p>프로젝트를 수행하기 위해 사용해본 경험이 있는 기술스택입니다.</p>
+            <p>
+              언급된 기술은 결과물을 도출해본 경험이 있으며 개발된 소스코드를
+              이해할 수 있습니다.
+            </p>
+            <Skill />
+          </Container>
+        </div>
+        <div css={value}>
+          <Container>
+            <h4>데브현 소개</h4>
+            <p>
+              세상에 많은 개발자들 중 &#39;김현호&#39;가 추구하는 가치를
+              브랜드화 하였습니다.
+            </p>
+            <div>
+              <Image
+                css={display.not(breakPoint.M, "block")}
+                src={ImgIdentity}
+                alt="identity"
+              />
+              <Image
+                css={display.match(breakPoint.M, "block")}
+                src={ImgIdentityM}
+                alt="identity"
+              />
+            </div>
+          </Container>
+        </div>
+      </MainLayout>
+    </>
   );
 }
 

@@ -88,6 +88,7 @@ const projects = [
     namekey: "aboutperiod",
     client: "(주)어바웃피리어드",
     title: "어바웃 피리어드 홈페이지",
+    seo: "어바웃피리어드",
     name: "ABOUTPERIOD",
     summary: "Brand Website dev.",
     parts: "Desgin, Publish,F/B-end",
@@ -123,6 +124,7 @@ const projects = [
     namekey: "lifecaption",
     client: "(주)청각장애인생애지원센터",
     title: "라이프캡션",
+    seo: "라이프캡션",
     name: "LIFECAPTION",
     summary: "Platform dev.",
     parts: "UI/UX, Publish, F/B-end",
@@ -161,6 +163,7 @@ const projects = [
     namekey: "semas",
     client: "소상공인진흥공단",
     title: "소상공인 새희망자금",
+    seo: "새희망자금",
     name: "SEMAS",
     summary: "Public Project.",
     parts: "Publish",
@@ -185,6 +188,7 @@ const projects = [
     namekey: "storyhub",
     title: "스토리허브 홈페이지 시스템",
     client: "(주)센드커뮤니케이션",
+    seo: "스토리허브",
     name: "STORYHUB",
     summary: "Solution introduction.",
     parts: "Design, Publish, F/B-end",
@@ -216,6 +220,7 @@ const projects = [
   {
     namekey: "abiteofvalue",
     title: "가치한입 브랜딩 홈페이지",
+    seo: "가치한입",
     client: "가치플러스 사회적협동조합",
     name: "ABITE OF VALUE",
     summary: "Brand Website dev.",
@@ -250,6 +255,7 @@ const projects = [
   {
     namekey: "playlot",
     title: "레전드 오브 테라",
+    seo: "레전드 오브 테라",
     client: "Team. LOT",
     name: "LEGENDS OF TERRA",
     summary: "NFT Trading Card Game dev.",
@@ -287,6 +293,7 @@ const projects = [
   {
     namekey: "lifeplanhd",
     title: "청각장애인생애지원센터 홈페이지",
+    seo: "청각장애인생애지원센터",
     client: "(주)청각장애인생애지원센터",
     name: "LIFEPLANHD",
     summary: "Brand Website dev.",
@@ -318,6 +325,7 @@ const projects = [
   {
     namekey: "djeecp",
     title: "대전환경교육센터 홈페이지",
+    seo: "대전환경교육센터",
     client: "대전환경교육센터",
     name: "DJEECP",
     summary: "Center Website dev.",

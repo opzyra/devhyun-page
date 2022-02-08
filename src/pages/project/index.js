@@ -1,3 +1,4 @@
+import { NextSeo } from "next-seo";
 import { css } from "@emotion/react";
 import { media } from "@/styles";
 
@@ -13,23 +14,26 @@ function Project() {
   const { projects } = useProjects();
 
   return (
-    <MainLayout css={project}>
-      <div css={header}>
-        <Container>
-          <Breadcrumb items={["프로젝트"]} />
-          <h3>
-            개발을 통해 작은 문제를 해결하고 개선한
-            <br />
-            프로젝트들을 정리 했어요
-          </h3>
-        </Container>
-      </div>
-      <div css={body}>
-        <Container>
-          <ProjectGrid projects={projects} />
-        </Container>
-      </div>
-    </MainLayout>
+    <>
+      <NextSeo title={`프로젝트 - ${process.env.NEXT_PUBLIC_SEO_TITLE}`} />
+      <MainLayout css={project}>
+        <div css={header}>
+          <Container>
+            <Breadcrumb items={["프로젝트"]} />
+            <h3>
+              개발을 통해 작은 문제를 해결하고 개선한
+              <br />
+              프로젝트들을 정리 했어요
+            </h3>
+          </Container>
+        </div>
+        <div css={body}>
+          <Container>
+            <ProjectGrid projects={projects} />
+          </Container>
+        </div>
+      </MainLayout>
+    </>
   );
 }
 

@@ -6,7 +6,7 @@ const withFonts = require("next-fonts");
 
 const nextConfig = {
   images: {
-    domains: ["devhyun-test.s3.ap-northeast-2.amazonaws.com"],
+    domains: [],
   },
   experimental: {
     scrollRestoration: true,

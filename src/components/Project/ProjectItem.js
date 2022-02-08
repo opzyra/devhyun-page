@@ -88,6 +88,16 @@ const projectItem = css`
     }
   }
 
+  ${media.XL(
+    css`
+      figure {
+        figcaption {
+          padding: 32px;
+        }
+      }
+    `,
+  )}
+
   ${media.M(
     css`
       figure {

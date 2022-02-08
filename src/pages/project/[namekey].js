@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import { css, keyframes } from "@emotion/react";
 import moment from "moment";
 import tippy from "tippy.js";
@@ -37,6 +38,17 @@ function ProjectDetail() {
     router.back();
   };
 
+  const seoDescriptionParsing = (overview) => {
+    if (!overview) return "";
+    let str = overview
+      .join("")
+      .replace(/<br\/>/g, "")
+      .replace(/\n|\r/g, "")
+      .replace(/ +(?= )/g, "");
+
+    return str.substring(0, 120);
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       history.scrollRestoration = "manual";
@@ -54,168 +66,182 @@ function ProjectDetail() {
   }, []);
 
   return (
-    <MainLayout>
-      <div css={projectDetail}>
-        <div css={header}>
-          <Container>
-            <Breadcrumb items={["프로젝트", "상세정보"]} />
-            <div css={headerHead}>
-              <div css={headerInformation}>
-                <h3>{project.title}</h3>
-                <div css={headerMeta}>
-                  <div css={headerMetaItem}>{project.client}</div>
-                  <div css={headerMetaItem}>
-                    {moment(project.period).format("YYYY.MM")}
+    <>
+      <NextSeo
+        title={`${project.seo} - ${process.env.NEXT_PUBLIC_SEO_TITLE}`}
+        description={seoDescriptionParsing(project.overview)}
+        canonical={`${process.env.NEXT_PUBLIC_SEO_URL}/project/${namekey}`}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_SEO_URL}/project/${namekey}`,
+          site_name: `${project.title} - ${process.env.NEXT_PUBLIC_SEO_TITLE}`,
+        }}
+        twitter={{
+          cardType: "summary_large_image",
+        }}
+      />
+      <MainLayout>
+        <div css={projectDetail}>
+          <div css={header}>
+            <Container>
+              <Breadcrumb items={["프로젝트", "상세정보"]} />
+              <div css={headerHead}>
+                <div css={headerInformation}>
+                  <h3>{project.title}</h3>
+                  <div css={headerMeta}>
+                    <div css={headerMetaItem}>{project.client}</div>
+                    <div css={headerMetaItem}>
+                      {moment(project.period).format("YYYY.MM")}
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div css={headerType}>
-                {project.types.includes("web") && (
-                  <p data-tippy-content="홈페이지">
-                    <IconWebapp />
-                  </p>
-                )}
-                {project.types.includes("platform") && (
-                  <p data-tippy-content="플랫폼">
-                    <IconCustomizing />
-                  </p>
-                )}
-                {project.types.includes("system") && (
-                  <p data-tippy-content="시스템">
-                    <IconCustomizing />
-                  </p>
-                )}
-                {project.types.includes("publishing") && (
-                  <p data-tippy-content="퍼블리싱">
-                    <IconPublishing />
-                  </p>
-                )}
-                {project.types.includes("frontend") && (
-                  <p data-tippy-content="프론트엔드">
-                    <IconFrontend />
-                  </p>
-                )}
-              </div>
-            </div>
-          </Container>
-        </div>
-        <div css={mockup}>
-          <Container>
-            <div className="mockup wow fadeIn">
-              <Image
-                src={project.mockup}
-                objectFit="contain"
-                alt=""
-                priority={true}
-                container
-                center
-              />
-            </div>
-            <div className="description">
-              <div className="title">
-                <div className="wow fadeInUp" data-wow-duration="2s">
-                  <h4>Overview</h4>
-                  <p>About this project</p>
+                <div css={headerType}>
+                  {project.types.includes("web") && (
+                    <p data-tippy-content="홈페이지">
+                      <IconWebapp />
+                    </p>
+                  )}
+                  {project.types.includes("platform") && (
+                    <p data-tippy-content="플랫폼">
+                      <IconCustomizing />
+                    </p>
+                  )}
+                  {project.types.includes("system") && (
+                    <p data-tippy-content="시스템">
+                      <IconCustomizing />
+                    </p>
+                  )}
+                  {project.types.includes("publishing") && (
+                    <p data-tippy-content="퍼블리싱">
+                      <IconPublishing />
+                    </p>
+                  )}
+                  {project.types.includes("frontend") && (
+                    <p data-tippy-content="프론트엔드">
+                      <IconFrontend />
+                    </p>
+                  )}
                 </div>
               </div>
-              <div className="contents wow fadeInUp" data-wow-duration="3s">
-                {project.overview?.map((overview, index) => (
-                  <p
-                    dangerouslySetInnerHTML={{ __html: overview }}
-                    key={index}
-                  ></p>
-                ))}
+            </Container>
+          </div>
+          <div css={mockup}>
+            <Container>
+              <div className="mockup wow fadeIn">
+                <Image
+                  src={project.mockup}
+                  objectFit="contain"
+                  alt=""
+                  priority={true}
+                  container
+                  center
+                />
               </div>
-
-              <div
-                className="link wow fadeInUp"
-                data-wow-duration="2s"
-                data-wow-delay="0.6s"
-              >
-                {project.hyperLink && (
-                  <Button
-                    css={linkButton}
-                    type="default"
-                    shape="round"
-                    size="large"
-                    href={project.hyperLink}
-                    target
-                  >
-                    <span>홈페이지 방문</span>
-                    <ArrowDiag />
-                  </Button>
-                )}
-              </div>
-            </div>
-          </Container>
-        </div>
-        <div css={layout}>
-          <Container>
-            <div
-              className="layout wow fadeInUp"
-              data-wow-duration="2s"
-              data-wow-delay="0.3s"
-            >
-              <Image
-                src={project.layout}
-                objectFit="contain"
-                alt=""
-                priority={true}
-                container
-                center
-              />
-            </div>
-          </Container>
-        </div>
-        <div css={screen}>
-          <Container>
-            {project.screen.desktop.map((image, index) => (
-              <div
-                className="box wow fadeInUp"
-                data-wow-delay="0.3s"
-                data-wow-duration="2s"
-                key={index}
-              >
-                <div className="item">
-                  <Image src={image} objectFit="contain" alt="" />
+              <div className="description">
+                <div className="title">
+                  <div className="wow fadeInUp" data-wow-duration="2s">
+                    <h4>Overview</h4>
+                    <p>About this project</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-            {project.screen.mobile.length !== 0 && (
-              <div
-                className="box wow fadeIn"
-                data-wow-duration="2s"
-                data-wow-delay="1s"
-              >
-                <div className="mobile">
-                  {project.screen.mobile.map((image, index) => (
-                    <div className="item" key={index}>
-                      <Image src={image} objectFit="contain" alt="" />
-                    </div>
+                <div className="contents wow fadeInUp" data-wow-duration="3s">
+                  {project.overview?.map((overview, index) => (
+                    <p
+                      dangerouslySetInnerHTML={{ __html: overview }}
+                      key={index}
+                    ></p>
                   ))}
                 </div>
+
+                <div
+                  className="link wow fadeInUp"
+                  data-wow-duration="2s"
+                  data-wow-delay="0.6s"
+                >
+                  {project.hyperLink && (
+                    <Button
+                      css={linkButton}
+                      type="default"
+                      shape="round"
+                      size="large"
+                      href={project.hyperLink}
+                      target
+                    >
+                      <span>홈페이지 방문</span>
+                      <ArrowDiag />
+                    </Button>
+                  )}
+                </div>
               </div>
-            )}
-          </Container>
-        </div>
-        <div css={actions}>
-          <Container>
-            <div className="buttons">
-              <Button
-                css={listButton}
-                type="default"
-                shape="round"
-                size="large"
-                onClick={handleClickList}
+            </Container>
+          </div>
+          <div css={layout}>
+            <Container>
+              <div
+                className="layout wow fadeInUp"
+                data-wow-duration="2s"
+                data-wow-delay="0.3s"
               >
-                <ArrowLeft />
-                <span>목록 보기</span>
-              </Button>
-            </div>
-          </Container>
+                <Image
+                  src={project.layout}
+                  objectFit="contain"
+                  alt=""
+                  priority={true}
+                  container
+                  center
+                />
+              </div>
+            </Container>
+          </div>
+          <div css={screen}>
+            <Container>
+              {project.screen.desktop.map((image, index) => (
+                <div
+                  className="box wow fadeInUp"
+                  data-wow-delay="0.3s"
+                  data-wow-duration="2s"
+                  key={index}
+                >
+                  <div className="item">
+                    <Image src={image} objectFit="contain" alt="" />
+                  </div>
+                </div>
+              ))}
+              {project.screen.mobile.length !== 0 && (
+                <div
+                  className="box wow fadeIn"
+                  data-wow-duration="2s"
+                  data-wow-delay="1s"
+                >
+                  <div className="mobile">
+                    {project.screen.mobile.map((image, index) => (
+                      <div className="item" key={index}>
+                        <Image src={image} objectFit="contain" alt="" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </Container>
+          </div>
+          <div css={actions}>
+            <Container>
+              <div className="buttons">
+                <Button
+                  css={listButton}
+                  type="default"
+                  shape="round"
+                  size="large"
+                  onClick={handleClickList}
+                >
+                  <ArrowLeft />
+                  <span>목록 보기</span>
+                </Button>
+              </div>
+            </Container>
+          </div>
         </div>
-      </div>
-    </MainLayout>
+      </MainLayout>
+    </>
   );
 }
 

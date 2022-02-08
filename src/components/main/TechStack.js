@@ -107,7 +107,7 @@ const techStack = css`
   height: 720px;
 
   ${media.XL(css`
-    height: 640px;
+    height: 680px;
   `)}
 
   ${media.LG(css`
