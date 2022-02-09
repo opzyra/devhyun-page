@@ -12,6 +12,16 @@ export const fontFamily = [
   "sans-serif",
 ].join(", ");
 
+export const fontFamilyWithNanumSquare = [
+  "NanumSquare",
+  "Apple SD Gothic Neo",
+  '"돋움"',
+  "Dotum",
+  "Helvetica Neue",
+  "arial",
+  "sans-serif",
+].join(", ");
+
 export const fontFamilyWithPaybooc = [
   "paybooc",
   "Apple SD Gothic Neo",

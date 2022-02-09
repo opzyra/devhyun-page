@@ -678,112 +678,112 @@ const skillHeader = css`
   `)}
 `;
 
-const blog = css`
-  padding: 80px 0px 60px;
-  position: relative;
+// const blog = css`
+//   padding: 80px 0px 60px;
+//   position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    background: #fafaff;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0px;
-    z-index: -1;
-    border-top-left-radius: 100px;
-  }
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     background: #fafaff;
+//     width: 100%;
+//     height: 100%;
+//     top: 0px;
+//     left: 0px;
+//     z-index: -1;
+//     border-top-left-radius: 100px;
+//   }
 
-  ${media.MD(css`
-    padding: 48px 0px 48px;
+//   ${media.MD(css`
+//     padding: 48px 0px 48px;
 
-    &::before {
-      border-top-left-radius: 80px;
-    }
-  `)}
+//     &::before {
+//       border-top-left-radius: 80px;
+//     }
+//   `)}
 
-  ${media.M(css`
-    padding: 40px 0px;
+//   ${media.M(css`
+//     padding: 40px 0px;
 
-    &::before {
-      border-top-left-radius: 0px;
-    }
-  `)}
-`;
+//     &::before {
+//       border-top-left-radius: 0px;
+//     }
+//   `)}
+// `;
 
-const blogHeader = css`
-  margin-bottom: 36px;
-  position: relative;
+// const blogHeader = css`
+//   margin-bottom: 36px;
+//   position: relative;
 
-  h2 {
-    display: inline-block;
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    margin-right: 32px;
+//   h2 {
+//     display: inline-block;
+//     font-family: ${fontFamilyWithPaybooc};
+//     font-weight: 900;
+//     margin-right: 32px;
 
-    span {
-      color: ${color.brand};
-    }
-  }
+//     span {
+//       color: ${color.brand};
+//     }
+//   }
 
-  p {
-    display: inline-block;
-    font-size: 16px;
-    color: ${color.gray};
-  }
+//   p {
+//     display: inline-block;
+//     font-size: 16px;
+//     color: ${color.gray};
+//   }
 
-  ${media.MD(css`
-    margin-bottom: 24px;
-  `)}
+//   ${media.MD(css`
+//     margin-bottom: 24px;
+//   `)}
 
-  ${media.M(css`
-    margin-bottom: 20px;
+//   ${media.M(css`
+//     margin-bottom: 20px;
 
-    h2 {
-      margin-bottom: 2px;
-    }
-  `)}
-`;
+//     h2 {
+//       margin-bottom: 2px;
+//     }
+//   `)}
+// `;
 
-const blogHeaderMore = css`
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+// const blogHeaderMore = css`
+//   position: absolute;
+//   bottom: 0px;
+//   right: 0px;
 
-  span {
-    font-size: 12px;
-    font-family: ${fontFamilyWithPaybooc};
-    font-weight: 900;
-    font-weight: 700;
-    margin-right: 10px;
-    color: ${color.gray};
-  }
+//   span {
+//     font-size: 12px;
+//     font-family: ${fontFamilyWithPaybooc};
+//     font-weight: 900;
+//     font-weight: 700;
+//     margin-right: 10px;
+//     color: ${color.gray};
+//   }
 
-  svg {
-    width: 140px;
-    stroke: ${color.brand};
-  }
+//   svg {
+//     width: 140px;
+//     stroke: ${color.brand};
+//   }
 
-  ${media.MD(css`
-    svg {
-      width: 100px;
-    }
-  `)}
+//   ${media.MD(css`
+//     svg {
+//       width: 100px;
+//     }
+//   `)}
 
-  ${media.M(css`
-    top: 6px;
-    bottom: auto;
+//   ${media.M(css`
+//     top: 6px;
+//     bottom: auto;
 
-    span {
-      font-size: 10px;
-      margin-right: 8px;
-    }
+//     span {
+//       font-size: 10px;
+//       margin-right: 8px;
+//     }
 
-    svg {
-      width: 40px;
-    }
-  `)}
-`;
+//     svg {
+//       width: 40px;
+//     }
+//   `)}
+// `;
 
 const contact = css`
   padding: 60px 0px;

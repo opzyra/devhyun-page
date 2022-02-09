@@ -22,7 +22,7 @@ function TechStack() {
       animeInst.play();
       return;
     }
-  }, [animeRef, ratio]);
+  }, [animeRef]);
 
   useEffect(() => {
     const handleResize = Lo.debounce(() => {

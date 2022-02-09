@@ -14,6 +14,10 @@ import PayboocBoldTtf from "@/assets/fonts/Paybooc/paybooc-bold.ttf";
 import RobotoRegularWoff from "@/assets/fonts/Roboto/roboto-regular-webfont.woff";
 import RobotoMediumWoff from "@/assets/fonts/Roboto/roboto-medium-webfont.woff";
 
+import NanumSquareLight from "@/assets/fonts/NanumSquare/NanumSquareLight.ttf";
+import NanumSquareRegular from "@/assets/fonts/NanumSquare/NanumSquareRegular.ttf";
+import NanumSquareBold from "@/assets/fonts/NanumSquare/NanumSquareBold.ttf";
+
 export default css`
   @font-face {
     font-family: "Roboto";
@@ -47,6 +51,27 @@ export default css`
     font-family: "paybooc";
     src: url(${PayboocBoldTtf});
     font-weight: 900;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "NanumSquare";
+    src: url(${NanumSquareLight});
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "NanumSquare";
+    src: url(${NanumSquareRegular});
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "NanumSquare";
+    src: url(${NanumSquareBold});
+    font-weight: 700;
     font-style: normal;
   }
 
