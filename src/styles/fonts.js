@@ -8,8 +8,8 @@ import NotoSansKRRegularWoff2 from "@/assets/fonts/NotoSansKR/NotoSansKR-Regular
 import NotoSansKRRegularWoff from "@/assets/fonts/NotoSansKR/NotoSansKR-Regular.woff";
 import NotoSansKRRegularEot from "@/assets/fonts/NotoSansKR/NotoSansKR-Regular.eot";
 
-import PayboocMediumTtf from "@/assets/fonts/Paybooc/paybooc-medium.ttf";
-import PayboocBoldTtf from "@/assets/fonts/Paybooc/paybooc-bold.ttf";
+import PayboocMediumTtf from "@/assets/fonts/Paybooc/paybooc-Medium.ttf";
+import PayboocBoldTtf from "@/assets/fonts/Paybooc/paybooc-Bold.ttf";
 
 import RobotoRegularWoff from "@/assets/fonts/Roboto/roboto-regular-webfont.woff";
 import RobotoMediumWoff from "@/assets/fonts/Roboto/roboto-medium-webfont.woff";
