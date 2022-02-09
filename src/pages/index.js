@@ -21,13 +21,13 @@ import Project from "@/components/main/Project";
 import Contact from "@/components/main/Contact";
 
 import Container from "@/components/common/Container";
+import NavLink from "@/components/common/NavLink";
 
 import Developer from "@/assets/json/developer.json";
 
 import Github from "@/assets/svg/Github.svg";
 import KakaoTalk from "@/assets/svg/KakaoTalk.svg";
 import ArrowLong from "@/assets/svg/ArrowLong.svg";
-import NavLink from "@/components/common/NavLink";
 
 function Main() {
   const projectRef = useRef(null);

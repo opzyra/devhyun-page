@@ -1,5 +1,5 @@
-import { media } from "@/styles";
 import { css } from "@emotion/react";
+import { media } from "@/styles";
 
 function ServiceGrid({ children }) {
   return <div css={serviceGrid}>{children}</div>;

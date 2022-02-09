@@ -6,10 +6,10 @@ import Link from "next/link";
 
 import Container from "@/components/common/Container";
 import Button from "@/components/common/Button";
+import NavLink from "@/components/common/NavLink";
 
 import DevhyunLogo from "@/assets/svg/DevhyunLogo.svg";
 import Arrow from "@/assets/svg/Arrow.svg";
-import NavLink from "./NavLink";
 
 function Header({ background, full }) {
   const [collpased, setCollpased] = useState(false);

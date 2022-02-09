@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import { useCallback } from "react";
 import { css } from "@emotion/react";
+import { color } from "@/styles";
 
 import PropTypes from "prop-types";
 import { lighten } from "polished";
-
-import { color } from "@/styles";
 
 Button.propTypes = {
   block: PropTypes.bool,

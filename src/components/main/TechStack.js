@@ -1,11 +1,11 @@
 import { useCallback, useRef, useState, useEffect } from "react";
 import { css } from "@emotion/react";
+import { media, zIndex, breakPoint } from "@/styles";
+
 import ScrollTrigger from "react-scroll-trigger";
 import anime from "animejs";
 import Lottie from "react-lottie-player";
 import Lo from "lodash";
-
-import { media, zIndex, breakPoint } from "@/styles";
 
 import Computer from "@/assets/json/computer.json";
 

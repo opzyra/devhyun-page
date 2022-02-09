@@ -38,7 +38,11 @@ function Footer() {
             <div>Copyright © Devhyun. All Rights Reserved.</div>
           </div>
           <div css={opensource}>
-            <a href="" target="_blank">
+            <a
+              href="https://github.com/opzyra/devhyun-page"
+              target="_blank"
+              rel="noreferrer"
+            >
               <OpenSource />
               <p>
                 Open-Source

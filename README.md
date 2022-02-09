@@ -26,4 +26,4 @@ to get started.
 
 ## License
 
-[devhyun-page](https://github.com/opzyra/devhyun-page) is released under [Apache2 licence](https://github.com/opzyra/devhyun-page/blob/master/LICENSE.md) . Copyright (c) [Devhyun](https://devhyun.com/).
+This project is licensed under the [Apache2.0 licence](https://github.com/opzyra/devhyun-page/blob/master/License)

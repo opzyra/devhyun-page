@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { css } from "@emotion/react";
+import { color, media } from "@/styles";
 
 import anime from "animejs";
 import { Mousewheel, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { color, media } from "@/styles";
 import Image from "@/components/common/Image";
 
 import ImageAboutperiod from "@/assets/images/image-aboutperiod.png";

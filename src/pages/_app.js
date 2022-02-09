@@ -2,7 +2,8 @@ import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { QueryClientProvider, Hydrate } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
+import Script from "next/script";
 import withGA from "next-ga";
 
 import { ThemeProvider, Global } from "@emotion/react";
@@ -13,8 +14,6 @@ import defaultTheme from "@/styles/theme";
 import queryClient from "@/library/query";
 
 import Error from "@/pages/_error";
-import { useRouter } from "next/router";
-import Script from "next/script";
 
 function App({ Component, pageProps }) {
   const { statusCode } = pageProps;

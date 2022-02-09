@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { css } from "@emotion/react";
-
 import { color, media } from "@/styles";
+
 import * as string from "@/library/string";
 
 import Image from "@/components/common/Image";
