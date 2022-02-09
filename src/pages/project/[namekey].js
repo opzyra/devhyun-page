@@ -202,7 +202,12 @@ function ProjectDetail() {
                   key={index}
                 >
                   <div className="item">
-                    <Image src={image} objectFit="contain" alt="" />
+                    <Image
+                      src={image}
+                      priority={true}
+                      objectFit="contain"
+                      alt=""
+                    />
                   </div>
                 </div>
               ))}
@@ -215,7 +220,12 @@ function ProjectDetail() {
                   <div className="mobile">
                     {project.screen.mobile.map((image, index) => (
                       <div className="item" key={index}>
-                        <Image src={image} objectFit="contain" alt="" />
+                        <Image
+                          src={image}
+                          priority={true}
+                          objectFit="contain"
+                          alt=""
+                        />
                       </div>
                     ))}
                   </div>
