@@ -7,7 +7,6 @@ function Document() {
       <body>
         <Main />
         <NextScript />
-        <script async src="/script/channel.js"></script>
       </body>
     </Html>
   );

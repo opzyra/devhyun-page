@@ -143,7 +143,7 @@ function ProjectDetail() {
                     <p>About this project</p>
                   </div>
                 </div>
-                <div className="contents wow fadeInUp" data-wow-duration="3s">
+                <div className="contents wow fadeInUp" data-wow-duration="2s">
                   {project.overview?.map((overview, index) => (
                     <p
                       dangerouslySetInnerHTML={{ __html: overview }}
@@ -155,7 +155,7 @@ function ProjectDetail() {
                 <div
                   className="link wow fadeInUp"
                   data-wow-duration="2s"
-                  data-wow-delay="0.6s"
+                  data-wow-delay="0.8s"
                 >
                   {project.hyperLink && (
                     <Button

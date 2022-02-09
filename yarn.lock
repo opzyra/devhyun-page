@@ -2389,6 +2389,13 @@ debug@^3.2.7:
   dependencies:
     ms "^2.1.1"
 
+debug@^4.0.0:
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.3.tgz#04266e0b70a98d4462e6e288e38259213332b664"
+  integrity sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q==
+  dependencies:
+    ms "2.1.2"
+
 debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
@@ -4105,6 +4112,14 @@ next-fonts@^1.5.1:
     file-loader "^6.0.0"
     url-loader "^4.0.0"
 
+next-ga@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/next-ga/-/next-ga-2.3.4.tgz#0bec23e7c2eea35485af0b342e7794bbbdb61d04"
+  integrity sha512-mIol83ehPCz9Z+QtK6ig1w9Db4ShoyhjS6NgDnTIVJuBQ1iobiZap2xXn6KtYWBc+AH5DdTCBtZRF8PP5yJAVA==
+  dependencies:
+    debug "^4.0.0"
+    react-ga "^2.5.3"
+
 next-seo@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-5.1.0.tgz#aa9fd6249a11bf93e6da06fa2a6bc89268936edf"
@@ -4757,6 +4772,11 @@ react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-ga@^2.5.3:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.7.0.tgz#24328f157f31e8cffbf4de74a3396536679d8d7c"
+  integrity sha512-AjC7UOZMvygrWTc2hKxTDvlMXEtbmA0IgJjmkhgmQQ3RkXrWR11xEagLGFGaNyaPnmg24oaIiaNPnEoftUhfXA==
 
 react-hook-form@^7.25.3:
   version "7.25.3"
