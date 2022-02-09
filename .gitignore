@@ -3,6 +3,7 @@ node_modules
 
 # production
 build
+start.sh
 
 # next.js
 .next
