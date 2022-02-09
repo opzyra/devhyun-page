@@ -52,15 +52,15 @@ import AbiteofvalueMobile2 from "./abiteofvalue/image-mobile2.png";
 import AbiteofvalueMobile3 from "./abiteofvalue/image-mobile3.png";
 
 import LegendsOfTerraThumbnail from "./legendsofterra/image-thumbnail.png";
-import LegendsOfTerraMockup from "./legendsOfTerra/image-mockup.png";
-import LegendsOfTerraLayout from "./legendsOfTerra/image-layout.png";
-import LegendsOfTerraDeskTop1 from "./legendsOfTerra/image-desktop1.png";
-import LegendsOfTerraDeskTop2 from "./legendsOfTerra/image-desktop2.png";
-import LegendsOfTerraDeskTop3 from "./legendsOfTerra/image-desktop3.png";
-import LegendsOfTerraDeskTop4 from "./legendsOfTerra/image-desktop4.png";
-import LegendsOfTerraMobile1 from "./legendsOfTerra/image-mobile1.png";
-import LegendsOfTerraMobile2 from "./legendsOfTerra/image-mobile2.png";
-import LegendsOfTerraMobile3 from "./legendsOfTerra/image-mobile3.png";
+import LegendsOfTerraMockup from "./legendsofterra/image-mockup.png";
+import LegendsOfTerraLayout from "./legendsofterra/image-layout.png";
+import LegendsOfTerraDeskTop1 from "./legendsofterra/image-desktop1.png";
+import LegendsOfTerraDeskTop2 from "./legendsofterra/image-desktop2.png";
+import LegendsOfTerraDeskTop3 from "./legendsofterra/image-desktop3.png";
+import LegendsOfTerraDeskTop4 from "./legendsofterra/image-desktop4.png";
+import LegendsOfTerraMobile1 from "./legendsofterra/image-mobile1.png";
+import LegendsOfTerraMobile2 from "./legendsofterra/image-mobile2.png";
+import LegendsOfTerraMobile3 from "./legendsofterra/image-mobile3.png";
 
 import LifeplanhdThumbnail from "./lifeplanhd/image-thumbnail.png";
 import LifeplanhdMockup from "./lifeplanhd/image-mockup.png";
